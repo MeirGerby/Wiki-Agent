@@ -14,3 +14,10 @@
 - Created: [[wiki/concepts/recursive-search]]
 - Created: [[wiki/commands/grep]]
 - Updated: index.md
+
+## [2026-09-16] ingest | Processed raw/linux/pipes.md
+
+- Created: [[wiki/concepts/pipes]]
+- Created: [[wiki/concepts/stderr]]
+- Updated: [[wiki/concepts/stdin]]
+- Updated: [[wiki/concepts/stdout]]

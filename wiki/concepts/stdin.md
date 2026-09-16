@@ -13,7 +13,10 @@ cat | grep "error"
 
 ## Related Concepts
 - [[stdout]]
+- [[stderr]]
+- [[pipes]]
 - [[../commands/grep]]
 
 ## Sources
 - [[raw/linux/grep.md]]
+- [[raw/linux/pipes.md]]

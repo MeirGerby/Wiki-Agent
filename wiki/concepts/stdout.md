@@ -13,6 +13,9 @@ echo "success" > log.txt
 
 ## Related Concepts
 - [[stdin]]
+- [[stderr]]
+- [[pipes]]
 
 ## Sources
 - [[raw/linux/grep.md]]
+- [[raw/linux/pipes.md]]
