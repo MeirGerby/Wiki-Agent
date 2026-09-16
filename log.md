@@ -21,3 +21,9 @@
 - Created: [[wiki/concepts/stderr]]
 - Updated: [[wiki/concepts/stdin]]
 - Updated: [[wiki/concepts/stdout]]
+
+## [2026-09-16] ingest | Processed sed.md and awk.md
+
+- Created: [[wiki/commands/sed]]
+- Created: [[wiki/commands/awk]]
+- Updated: index.md
