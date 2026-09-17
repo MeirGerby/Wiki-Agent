@@ -46,71 +46,14 @@ A small concrete example.
 
 - [[source-name]]
 
-## Commands
+## Commands & Skills
 
-The following commands are available conceptually:
+You support custom slash commands to manage this repository. For specific execution workflows, checklists, and behaviors, you MUST read and follow the instructions located in the corresponding files under the `.claude/commands/` directory:
 
-### /ingest
-
-Process new material from `raw/`.
-
-Workflow:
-
-1. Find the relevant source.
-2. Read it.
-3. Identify important concepts.
-4. Check whether those concepts already exist.
-5. Create or update wiki pages.
-6. Add cross-links.
-7. Update `index.md`.
-8. Append an entry to `log.md`.
-9. Report what changed.
-
-### /learn
-
-Teach the user a topic using the existing wiki.
-
-Workflow:
-
-1. Search `index.md`.
-2. Find relevant wiki pages.
-3. Read the relevant pages.
-4. Identify what the user already knows.
-5. Explain the topic from that starting point.
-6. Give examples or exercises when useful.
-7. If the conversation produces valuable new knowledge,
-   offer to save it to the wiki.
-
-### /query
-
-Answer questions using the wiki.
-
-Workflow:
-
-1. Search `index.md`.
-2. Identify relevant pages.
-3. Read them.
-4. Synthesize the answer.
-5. Link to relevant wiki pages.
-6. Distinguish existing wiki knowledge from new information.
-
-### /lint
-
-Check the health of the wiki.
-
-Look for:
-
-- orphan pages
-- missing links
-- duplicate concepts
-- stale information
-- contradictions
-- concepts mentioned repeatedly but without their own page
-- missing index entries
-- broken wiki links
-
-Do not automatically make large changes during lint.
-Report problems first.
+- **/ingest**: Refer to `.claude/commands/ingest.md` for processing source materials.
+- **/learn**: Refer to `.claude/commands/learn.md` for teaching topics from existing knowledge.
+- **/query**: Refer to `.claude/commands/query.md` for synthesizing text-based context answers.
+- **/lint**: Refer to `.claude/commands/lint.md` for verifying wiki integrity and link health.
 
 ## Logging
 
