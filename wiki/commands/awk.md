@@ -15,6 +15,9 @@ awk '{print \$1, \$3}' data.txt
 ## Related Concepts
 - [[../concepts/stdin]]
 - [[../concepts/stdout]]
+- [[../concepts/regex]]
+- [[../concepts/pipes]]
+- [[sed]] — Another text processing tool
 
 ## Sources
 - [[raw/linux/awk.md]]

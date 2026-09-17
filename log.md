@@ -27,3 +27,10 @@
 - Created: [[wiki/commands/sed]]
 - Created: [[wiki/commands/awk]]
 - Updated: index.md
+
+## [2026-09-17] lint | Fixed wiki health issues
+
+- Removed: Non-existent Programming section from index.md
+- Updated: [[wiki/commands/awk]] - added links to regex, pipes, sed
+- Updated: [[wiki/commands/sed]] - added links to pipes, awk
+- Fixed: Broken cross-references between command pages

@@ -16,6 +16,8 @@ sed 's/apple/orange/g' fruit.txt
 - [[../concepts/regex]]
 - [[../concepts/stdin]]
 - [[../concepts/stdout]]
+- [[../concepts/pipes]]
+- [[awk]] — Another text processing tool
 
 ## Sources
 - [[raw/linux/sed.md]]
