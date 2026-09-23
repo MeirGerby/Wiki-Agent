@@ -13,6 +13,9 @@
 - [[wiki/concepts/health-checks]] — Endpoint verifying the app is alive
 - [[wiki/concepts/logging]] — Recording behavior for troubleshooting
 - [[wiki/concepts/scaling]] — Vertical vs horizontal capacity growth
+- [[wiki/concepts/postgres-listen-notify]] — Async pub/sub inside PostgreSQL
+- [[wiki/concepts/notify-transactions]] — Delivery timing, dedup & ordering of NOTIFY
+- [[wiki/concepts/notify-queue]] — Queue warnings and full-queue failures
 
 ## Commands
 
