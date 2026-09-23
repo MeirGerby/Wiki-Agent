@@ -76,3 +76,10 @@
 - Updated: index.md - reorganized by topic sections (Architecture & Monorepos, Web & Data, Deployment & Operations, Database & Events, Fundamentals)
 - Linked: All new pages cross-reference each other via [[wiki/concepts/*]]
 - Notes: Jarvis is a monorepo for a Model Catalog (detecting objects via models). Key architecture: Nx workspace with one bounded context (model-catalog) containing web (React), bff (Hono+tRPC), and contract (Zod). Shared libs: db (Drizzle), ui, logging. No existing wiki pages related to monorepo architecture or these frameworks.
+
+## [2026-09-23] lint | Wiki health check
+
+- Created: none
+- Updated: log.md
+- Linked: none
+- Notes: 24 pages, 24 index entries, 0 broken wiki links, 0 orphan pages, 0 missing raw sources. Issues found: missing Example sections on notify-queue and notify-transactions; nonstandard Example heading on trigger-based-notify; latitude-longitude Related Concepts has no wiki links; empty Untitled.md at root; raw/docs/nx.md, raw/docs/tsconfig.md, raw/jarvis/tsconfig.md not referenced by any page. No large fixes applied.
