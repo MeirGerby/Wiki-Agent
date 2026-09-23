@@ -83,3 +83,10 @@
 - Updated: log.md
 - Linked: none
 - Notes: 24 pages, 24 index entries, 0 broken wiki links, 0 orphan pages, 0 missing raw sources. Issues found: missing Example sections on notify-queue and notify-transactions; nonstandard Example heading on trigger-based-notify; latitude-longitude Related Concepts has no wiki links; empty Untitled.md at root; raw/docs/nx.md, raw/docs/tsconfig.md, raw/jarvis/tsconfig.md not referenced by any page. No large fixes applied.
+
+## [2026-09-23] create | Jarvis explanation page
+
+- Created: [[wiki/concepts/jarvis]] - Overview of the Model Catalog monorepo project
+- Updated: index.md - Added "Projects" section with Jarvis link
+- Linked: Cross-references to nx-monorepo, bounded-contexts, module-boundaries, trpc, drizzle-orm, logging
+- Notes: Jarvis is a full-stack TypeScript monorepo for managing AI model training and detection. Key components: Model Catalog app (web + bff), shared libraries (db, ui, logging), external integrations (Picasso for tagging classes, Task Manager for training missions). Page includes architecture overview, technology stack, example workflow, and project structure.
