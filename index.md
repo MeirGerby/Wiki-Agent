@@ -2,6 +2,10 @@
 
 ## Concepts
 
+### Projects
+
+- [[wiki/concepts/jarvis]] — Model catalog and detection system monorepo
+
 ### Architecture & Monorepos
 
 - [[wiki/concepts/nx-monorepo]] — Nx workspace for managing multiple projects
