@@ -16,6 +16,7 @@
 - [[wiki/concepts/postgres-listen-notify]] — Async pub/sub inside PostgreSQL
 - [[wiki/concepts/notify-transactions]] — Delivery timing, dedup & ordering of NOTIFY
 - [[wiki/concepts/notify-queue]] — Queue warnings and full-queue failures
+- [[wiki/concepts/latitude-longitude]] — How angles pinpoint positions on Earth
 
 ## Commands
 

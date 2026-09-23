@@ -52,3 +52,9 @@
 - Created: [[wiki/concepts/notify-queue]]
 - Updated: index.md
 - Notes: First database-related pages in the wiki; no existing pages to update. The file was empty on the first /ingest attempt earlier today and had content on the second.
+
+## [2026-09-23] ingest | Processed raw/topics/latitude-longitude.md
+
+- Created: [[wiki/concepts/latitude-longitude]]
+- Updated: index.md
+- Notes: The raw file is a task spec (not source prose) that requested web-search Wikipedia links; performed the search and cited the official articles (Latitude, Longitude, Geographic coordinate system). API field-order remark (GeoJSON lon-first) marked as general knowledge.
