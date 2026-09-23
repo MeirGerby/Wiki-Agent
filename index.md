@@ -8,6 +8,11 @@
 - [[wiki/concepts/pipes]] — Connecting command output to another command
 - [[wiki/concepts/regex]] — Regular expressions
 - [[wiki/concepts/recursive-search]] — Traversing directory trees for matches
+- [[wiki/concepts/nestjs-deployment]] — Taking a NestJS app to production
+- [[wiki/concepts/node-env]] — Environment variable marking production mode
+- [[wiki/concepts/health-checks]] — Endpoint verifying the app is alive
+- [[wiki/concepts/logging]] — Recording behavior for troubleshooting
+- [[wiki/concepts/scaling]] — Vertical vs horizontal capacity growth
 
 ## Commands
 

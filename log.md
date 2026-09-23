@@ -34,3 +34,13 @@
 - Updated: [[wiki/commands/awk]] - added links to regex, pipes, sed
 - Updated: [[wiki/commands/sed]] - added links to pipes, awk
 - Fixed: Broken cross-references between command pages
+
+## [2026-09-23] ingest | Processed raw/python/nestjs-deploy.md
+
+- Created: [[wiki/concepts/nestjs-deployment]]
+- Created: [[wiki/concepts/node-env]]
+- Created: [[wiki/concepts/health-checks]]
+- Created: [[wiki/concepts/logging]]
+- Created: [[wiki/concepts/scaling]]
+- Updated: index.md
+- Notes: No existing wiki pages related to NestJS/deployment, so all pages are new. Source is incomplete (scaling section cuts off), recorded as uncertainty in [[wiki/concepts/scaling]].
