@@ -1,0 +1,140 @@
+import type { User } from '@jarvis/db';
+import { TRPCError } from '@trpc/server';
+import type { Context as HonoContext } from 'hono';
+import { toLogError, type Logger } from '@jarvis/logging';
+import { z } from 'zod';
+import type { PermissionsService } from '../permissions/permissions.service.js';
+import type { ServerEnv } from '../server-env.js';
+import type { UsersService } from '../users/users.service.js';
+import { AUTH_COOKIE_KEY, setCookie } from '../utils/cookies.js';
+import { decodeJwt, generateJwt } from '../utils/jwt.js';
+
+const authTokenSchema = z.object({
+  id: z.string(),
+  userId: z.string(),
+  hierarchy: z.string(),
+});
+
+export type AuthTokenUser = z.infer<typeof authTokenSchema>;
+
+export const SigninInput = z.object({
+  userId: z.string().min(1, 'User ID is required').optional(),
+  email: z.string().email('Invalid email address').optional(),
+  fullName: z.string().min(1, 'Name is required').optional(),
+  hierarchy: z.string().min(1, 'Hierarchy is required').optional(),
+  displayName: z.string().min(1, 'Display name is required').optional(),
+});
+export type SigninInput = z.infer<typeof SigninInput>;
+
+export class AuthService {
+  private readonly config: ServerEnv;
+  private readonly usersService: UsersService;
+  private readonly permissionsService: PermissionsService;
+  private readonly logger: Logger;
+
+  constructor({
+    config,
+    usersService,
+    permissionsService,
+    logger,
+  }: {
+    config: ServerEnv;
+    usersService: UsersService;
+    permissionsService: PermissionsService;
+    logger: Logger;
+  }) {
+    this.config = config;
+    this.usersService = usersService;
+    this.permissionsService = permissionsService;
+    this.logger = logger;
+  }
+
+  generateAuthToken(user: AuthTokenUser): string {
+    return generateJwt(this.config.JWT_SECRET, user);
+  }
+
+  parseAuthToken(token: string): AuthTokenUser | undefined {
+    const parsed = authTokenSchema.safeParse(
+      decodeJwt(this.config.JWT_SECRET, token),
+    );
+    if (!parsed.success) return undefined;
+    return parsed.data;
+  }
+
+  async signin(c: HonoContext, input: SigninInput) {
+    const { userId, email, fullName, hierarchy, displayName } = input;
+
+    const resolvedUserId =
+      userId ??
+      (this.config.DISABLE_ADFS_AUTH ? this.config.USER_ID : undefined);
+
+    if (!resolvedUserId) {
+      throw new TRPCError({
+        code: 'BAD_REQUEST',
+        message: 'User ID is required',
+      });
+    }
+
+    try {
+      const data = await this.usersService.createNewUserIfNecessary(
+        resolvedUserId,
+        { email, fullName, hierarchy, displayName },
+      );
+      const { user } = data;
+
+      setCookie(
+        c,
+        {
+          maxCookieSize: this.config.MAX_COOKIE_SIZE,
+          isProduction: this.config.NODE_ENV === 'production',
+        },
+        AUTH_COOKIE_KEY,
+        this.generateAuthToken({
+          id: user.id,
+          userId: user.userId,
+          hierarchy: user.hierarchy ?? '',
+        }),
+      );
+
+      return {
+        user: await this.toSessionUser(user),
+        isNewUser: data.isNewUser,
+        wasUpdated: data.wasUpdated,
+      };
+    } catch (error) {
+      this.logger.error(
+        { error: toLogError(error) },
+        'Database error in signin',
+      );
+      throw new TRPCError({
+        code: 'INTERNAL_SERVER_ERROR',
+        message: 'Failed to create or find user',
+      });
+    }
+  }
+
+  private async toSessionUser(user: User) {
+    const role = await this.permissionsService.resolveRole(
+      user.userId,
+      user.hierarchy,
+    );
+
+    return {
+      id: user.id,
+      userId: user.userId,
+      hierarchy: user.hierarchy,
+      fullName: user.fullName,
+      displayName: user.displayName,
+      email: user.email,
+      role,
+    };
+  }
+
+  async me(id: string) {
+    const user = await this.usersService.findById(id);
+
+    if (!user) return null;
+
+    return this.toSessionUser(user);
+  }
+}

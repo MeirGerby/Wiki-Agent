@@ -1,0 +1,47 @@
+# nameOverride replaces the chart name in the app.kubernetes.io/name label.
+nameOverride: ''
+# fullnameOverride replaces the release name used to name every resource.
+fullnameOverride: ''
+
+# imagePullSecrets is a list of Secret names used to pull from a private registry.
+imagePullSecrets: []
+
+image:
+  # image.registry is put in front of the repository. Empty means the repository
+  # already names its registry.
+  registry: ''
+  # image.repository is required. The image to run, without registry or tag.
+  repository: ''
+  # image.tag is the tag to run. Empty means the chart's appVersion.
+  tag: ''
+  pullPolicy: IfNotPresent
+
+# replicas is the replica count. Ignored when autoscaling.enabled: the
+# HorizontalPodAutoscaler owns the count and the Deployment stops declaring one.
+replicas: 1
+
+autoscaling:
+  enabled: false
+  minReplicas: 2
+  maxReplicas: 6
+  # Both targets are a percentage of the resource REQUEST, and an empty value
+  # leaves that metric out. Memory is off by default: a Node heap does not shrink
+  # after a spike, so a memory target scales up and never back down.
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: ''
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+secret:
+  # secret.enabled gives the release a Secret named after it, mounted with envFrom
+  # next to the ConfigMap. The chart creates it empty and never writes a key: put the
+  # values in by hand, and an upgrade copies back what the cluster already holds. It
+  # is annotated helm.sh/resource-policy: keep, so a rollback leaves it alone.
+  # false creates none and mounts none.
+  enabled: false

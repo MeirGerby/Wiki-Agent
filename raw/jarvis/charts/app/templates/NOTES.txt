@@ -1,0 +1,26 @@
+{{ .Release.Name }} is installed in {{ .Release.Namespace }}.
+
+  image: {{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}
+  replicas: {{ if .Values.autoscaling.enabled }}{{ .Values.autoscaling.minReplicas }}-{{ .Values.autoscaling.maxReplicas }} (autoscaled){{ else }}{{ .Values.replicas }}{{ end }}
+
+This chart creates no route. Reach the Service on port 8080, and put a Route or an
+Ingress in front of it yourself.
+
+One thing this chart does not do: it runs no migration Job. Apply the SQL in
+libs/db/migrations yourself.
+
+The ConfigMap starts empty. Put the environment in it by hand; an upgrade keeps it:
+
+  oc --namespace {{ .Release.Namespace }} edit configmap {{ include "app.fullname" . }}
+{{- if .Values.secret.enabled }}
+
+The Secret starts empty too, and the pod stays down until it holds every key the app
+reads. Fill it in the same way, then roll the Deployment:
+
+  oc --namespace {{ .Release.Namespace }} edit secret {{ include "app.fullname" . }}
+  oc --namespace {{ .Release.Namespace }} rollout restart deploy/{{ include "app.fullname" . }}
+{{- end }}
+
+Check what is running:
+
+  kubectl --namespace {{ .Release.Namespace }} get deploy,svc,hpa -l app.kubernetes.io/instance={{ .Release.Name }}

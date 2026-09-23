@@ -1,0 +1,16 @@
+{{- $cmName := include "app.fullname" . }}
+{{- $live := lookup "v1" "ConfigMap" .Release.Namespace $cmName }}
+{{- $data := dict }}
+{{- if $live }}{{- $data = $live.data | default dict }}{{- end }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $cmName }}
+  labels:
+    {{- include "app.labels" . | nindent 4 }}
+# Upgrades copy back the keys the cluster already holds, so hand edits survive.
+data:
+  {{- if $data }}
+  {{- toYaml $data | nindent 2 }}
+  {{- else }} {}
+  {{- end }}

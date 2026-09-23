@@ -1,0 +1,28 @@
+{
+  "name": "@jarvis/model-catalog-contract",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@jarvis/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "nx": {
+    "name": "@jarvis/model-catalog-contract",
+    "tags": [
+      "type:contract",
+      "scope:model-catalog"
+    ],
+    "projectType": "library"
+  },
+  "dependencies": {
+    "@jarvis/db": "workspace:*",
+    "drizzle-zod": "^0.8.3",
+    "zod": "^4.0.0"
+  }
+}

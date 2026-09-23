@@ -1,0 +1,22 @@
+.deploy:
+  stage: deploy
+  image:
+    name: $DEPLOY_IMAGE
+    entrypoint: ['']
+  interruptible: false
+  variables:
+    SECRET: 'false'
+  script:
+    - |
+      oc login --server="https://api.$CLUSTER_DOMAIN:6443" --username="$USERNAME" --password="$PASS" --insecure-skip-tls-verify
+      oc project jarvis
+      helm upgrade --install "$RELEASE" charts/app \
+        --namespace jarvis \
+        --set image.registry="$DOCKER_TEAM_REGISTRY" \
+        --set image.repository="jarvis-$RELEASE" \
+        --set image.tag="$CI_COMMIT_SHA" \
+        --set secret.enabled="$SECRET" \
+        --set autoscaling.enabled=true \
+        --atomic \
+        --cleanup-on-fail \
+        --timeout 10m

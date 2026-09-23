@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "inputs": [
+    {
+      "id": "project",
+      "type": "promptString",
+      "description": "Nx project to serve (see `npx nx show projects`)"
+    }
+  ],
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug a node service (nx serve)",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["exec", "nx", "serve", "${input:project}"],
+      "env": {
+        "NODE_OPTIONS": "--inspect=9230"
+      },
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": ["<node_internals>/**"],
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceFolder}/apps/*/dist/**/*.(m|c|)js",
+        "${workspaceFolder}/services/*/dist/**/*.(m|c|)js",
+        "${workspaceFolder}/shared/*/*/dist/**/*.(m|c|)js",
+        "!**/node_modules/**"
+      ]
+    }
+  ]
+}

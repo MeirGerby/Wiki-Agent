@@ -1,0 +1,50 @@
+{
+  "extends": "<%= offsetFromRoot %>tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo",
+    "jsx": "react-jsx",
+    "lib": ["dom"],
+    "types": [
+      "node",
+      "@nx/react/typings/cssmodule.d.ts",
+      "@nx/react/typings/image.d.ts",
+      "vite/client"
+    ],
+    "rootDir": "src",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    // Vite bundles this app straight from TS source — nothing consumes a .d.ts output via
+    // project references, unlike the shared. composite:false (see also the app's own
+    // tsconfig.json) is what keeps `nx sync` from wiring this into root's project-reference
+    // graph; the project.json typecheck target uses a plain `tsc --noEmit` to match.
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
+    "emitDeclarationOnly": false
+  },
+  "exclude": [
+    "out-tsc",
+    "dist",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "src/**/*.spec.tsx",
+    "src/**/*.test.tsx",
+    "src/**/*.spec.js",
+    "src/**/*.test.js",
+    "src/**/*.spec.jsx",
+    "src/**/*.test.jsx"
+  ],
+  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
+  "references": [
+    {
+      "path": "<%= offsetFromRoot %>libs/ui/tsconfig.lib.json"
+    },
+    {
+      "path": "<%= relativeToContract %>/tsconfig.lib.json"
+    },
+    {
+      "path": "<%= offsetFromRoot %>libs/logging/tsconfig.lib.json"
+    }
+  ]
+}

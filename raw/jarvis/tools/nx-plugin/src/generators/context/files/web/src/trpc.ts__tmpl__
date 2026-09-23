@@ -1,0 +1,33 @@
+import { SESSION_ID_HEADER } from '@jarvis/logging';
+import type { AppRouter } from '<%= bffProject %>';
+import { createTRPCClient, httpBatchLink, type TRPCClient } from '@trpc/client';
+import { createTRPCContext } from '@trpc/tanstack-react-query';
+
+export const { TRPCProvider, useTRPC } = createTRPCContext<AppRouter>();
+
+const SESSION_ID_STORAGE_KEY = 'jarvis-session-id';
+
+const createId = () => crypto.randomUUID();
+
+const getSessionId = () => {
+  const sessionId = sessionStorage.getItem(SESSION_ID_STORAGE_KEY);
+
+  if (sessionId) {
+    return sessionId;
+  }
+
+  const newSessionId = createId();
+  sessionStorage.setItem(SESSION_ID_STORAGE_KEY, newSessionId);
+  return newSessionId;
+};
+
+export const trpcClient: TRPCClient<AppRouter> = createTRPCClient<AppRouter>({
+  links: [
+    httpBatchLink({
+      url: '/trpc',
+      headers: () => ({
+        [SESSION_ID_HEADER]: getSessionId(),
+      }),
+    }),
+  ],
+});

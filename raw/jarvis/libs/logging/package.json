@@ -1,0 +1,25 @@
+{
+  "name": "@jarvis/logging",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@jarvis/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "nx": {
+    "name": "@jarvis/logging",
+    "tags": [
+      "type:util",
+      "scope:shared"
+    ]
+  },
+  "dependencies": {
+    "zod": "^4.0.0"
+  }
+}

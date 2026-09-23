@@ -1,0 +1,74 @@
+.model-catalog-changes:
+  bff: &bff-changes
+    - apps/model-catalog/bff/**/*
+    - apps/model-catalog/contract/**/*
+    - libs/db/**/*
+    - libs/logging/**/*
+    - charts/**/*
+    - .gitlab-ci.yml
+    - .gitlab/ci/**/*
+    - pnpm-lock.yaml
+  web: &web-changes
+    - apps/model-catalog/web/**/*
+    - apps/model-catalog/bff/src/router.ts
+    - apps/model-catalog/bff/src/trpc.ts
+    - apps/model-catalog/bff/src/**/*.router.ts
+    - apps/model-catalog/contract/**/*
+    - libs/ui/**/*
+    - libs/db/**/*
+    - libs/logging/**/*
+    - charts/**/*
+    - .gitlab-ci.yml
+    - .gitlab/ci/**/*
+    - pnpm-lock.yaml
+
+build-model-catalog-bff:
+  extends: .build
+  variables:
+    PROJECT: '@jarvis/model-catalog-bff'
+    PROJECT_PATH: apps/model-catalog/bff
+    IMAGE_NAME: model-catalog-bff
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+      changes: *bff-changes
+    - if: $CI_COMMIT_TAG
+
+build-model-catalog-web:
+  extends: .build
+  variables:
+    PROJECT: '@jarvis/model-catalog-web'
+    PROJECT_PATH: apps/model-catalog/web
+    IMAGE_NAME: model-catalog-web
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+      changes: *web-changes
+    - if: $CI_COMMIT_TAG
+
+deploy-model-catalog-bff:
+  extends: .deploy
+  needs: [verify, build-model-catalog-bff]
+  variables:
+    RELEASE: model-catalog-bff
+    SECRET: 'true'
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+      changes: *bff-changes
+      when: manual
+      allow_failure: false
+    - if: $CI_COMMIT_TAG
+      when: manual
+      allow_failure: false
+
+deploy-model-catalog-web:
+  extends: .deploy
+  needs: [verify, build-model-catalog-web]
+  variables:
+    RELEASE: model-catalog-web
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+      changes: *web-changes
+      when: manual
+      allow_failure: false
+    - if: $CI_COMMIT_TAG
+      when: manual
+      allow_failure: false

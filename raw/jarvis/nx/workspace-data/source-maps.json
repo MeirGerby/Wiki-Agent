@@ -1,0 +1,3388 @@
+{
+  "apps/model-catalog/bff": {
+    "root": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/model-catalog/bff/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "projectType": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.cache": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.dependsOn.0": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.inputs.0": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.inputs.1": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.inputs.2": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.inputs": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.outputs.0": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.outputs": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.metadata": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.syncGenerators.0": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.syncGenerators": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.executor": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.options.cwd": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.options.command": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.options": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.metadata.technologies": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.metadata.technologies.0": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.metadata.description": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.metadata.help": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.metadata.help.command": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.metadata.help.example": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.continuous": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.syncGenerators.0": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.syncGenerators": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.executor": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.options.cwd": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.options.command": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.options": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.technologies": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.technologies.0": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.description": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.help": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.help.command": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.help.example": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.deprecated": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.continuous": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.metadata": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.syncGenerators.0": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.syncGenerators": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.executor": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.options.cwd": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.options.command": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.options": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.metadata.technologies": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.metadata.technologies.0": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.metadata.description": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.metadata.help": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.metadata.help.command": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.metadata.help.example": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.continuous": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.dependsOn.0": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.dependsOn": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.metadata": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.executor": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.options.cwd": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.options.command": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.options": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.metadata.technologies": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.metadata.technologies.0": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.metadata.description": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.metadata.help": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.metadata.help.command": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.metadata.help.example": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.continuous": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.executor": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.syncGenerators.0": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.syncGenerators": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.options.buildTarget": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.options.spa": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.options": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build-deps": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build-deps.dependsOn.0": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build-deps.dependsOn": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.continuous": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.dependsOn.0": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.dependsOn": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.executor": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.options.command": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.options": [
+      "apps/model-catalog/bff/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.lint": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs.0": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.1": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.2": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.3": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.4": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.outputs.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.metadata.technologies": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "metadata.targetGroups": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "metadata.targetGroups.Docker": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "metadata.targetGroups.Docker.0": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "metadata.targetGroups.Docker.1": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "metadata.targetGroups.Docker.2": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.dependsOn.0": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.dependsOn.1": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.dependsOn": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.inputs.0": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.inputs.1": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.inputs": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.metadata": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.executor": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options.cwd": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options.args.0": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options.args.1": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options.args.2": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options.args.3": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options.args": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options.command": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.metadata.technologies": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.metadata.technologies.0": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.metadata.description": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.metadata.help": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.metadata.help.command": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.metadata.help.example": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.dependsOn.0": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.dependsOn": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.inputs.0": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.inputs.1": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.inputs": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.metadata": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.executor": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.options.cwd": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.options.args.0": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.options.args.1": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.options.args": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.options.command": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.options": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.metadata.technologies": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.metadata.technologies.0": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.metadata.description": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.metadata.help": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.metadata.help.command": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.metadata.help.example": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.nx-release-publish": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.nx-release-publish.executor": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.nx-release-publish.continuous": [
+      "apps/model-catalog/bff/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.typecheck.dependsOn.0": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.dependsOn": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.executor": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.options.command": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.options": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.dependsOn.0": [
+      "nx.json#targetDefaults.test",
+      "nx/target-defaults"
+    ],
+    "targets.test.dependsOn": [
+      "nx.json#targetDefaults.test",
+      "nx/target-defaults"
+    ],
+    "targets.test.executor": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.command": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/model-catalog/bff/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "apps/model-catalog/bff/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "apps/model-catalog/bff/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "apps/model-catalog/bff/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
+      "apps/model-catalog/bff/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageExports": [
+      "apps/model-catalog/bff/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "apps/model-catalog/bff/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "// targets": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:bff": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:model-catalog": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.cache": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.inputs.0": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.inputs.1": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.inputs": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.options.cwd": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.cache": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.inputs.0": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.inputs.1": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.inputs": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.cwd": [
+      "apps/model-catalog/bff/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "apps/model-catalog/contract": {
+    "root": [
+      "apps/model-catalog/contract/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.dependsOn.0": [
+      "nx.json#targetDefaults.typecheck",
+      "nx/target-defaults"
+    ],
+    "targets.typecheck.dependsOn.1": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.dependsOn": [
+      "nx.json#targetDefaults.typecheck",
+      "nx/target-defaults"
+    ],
+    "targets.typecheck.cache": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.0": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.1": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.2": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.3": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.0": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.syncGenerators.0": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.syncGenerators": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.executor": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.cwd": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.command": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options": [
+      "nx.json#targetDefaults.typecheck",
+      "nx/target-defaults"
+    ],
+    "targets.typecheck.metadata.technologies": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.technologies.0": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.description": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.command": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.example": [
+      "apps/model-catalog/contract/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.dependsOn.0": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.cache": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.0": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.1": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.2": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.3": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.4": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.5": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.6": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.outputs.0": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.outputs.1": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.outputs": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.syncGenerators.0": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.syncGenerators": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.executor": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.options.cwd": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.options.command": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.options": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.metadata.technologies": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.technologies.0": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.description": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.help": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.help.command": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.help.example": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build-deps": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build-deps.dependsOn.0": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build-deps.dependsOn": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.continuous": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.dependsOn.0": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.dependsOn": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.executor": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.options.command": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.options": [
+      "apps/model-catalog/contract/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.lint": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs.0": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.1": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.2": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.3": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.4": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.outputs.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.metadata.technologies": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "apps/model-catalog/contract/package.json",
+      "nx/core/package-json"
+    ],
+    "projectType": [
+      "apps/model-catalog/contract/package.json",
+      "nx/core/package-json"
+    ],
+    "tags": [
+      "apps/model-catalog/contract/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "apps/model-catalog/contract/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.type:contract": [
+      "apps/model-catalog/contract/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.scope:model-catalog": [
+      "apps/model-catalog/contract/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "apps/model-catalog/contract/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "apps/model-catalog/contract/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "apps/model-catalog/contract/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
+      "apps/model-catalog/contract/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageExports": [
+      "apps/model-catalog/contract/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "apps/model-catalog/contract/package.json",
+      "nx/core/package-json"
+    ]
+  },
+  "apps/model-catalog/web": {
+    "root": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/model-catalog/web/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "projectType": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.cache": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.dependsOn.0": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.inputs.0": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.inputs.1": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.inputs.2": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.inputs": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.outputs.0": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.outputs": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.metadata": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.syncGenerators.0": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.syncGenerators": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.executor": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.options.cwd": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.options.command": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.options": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.metadata.technologies": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.metadata.technologies.0": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.metadata.description": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.metadata.help": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.metadata.help.command": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build.metadata.help.example": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.continuous": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.syncGenerators.0": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.syncGenerators": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.executor": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.options.cwd": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.options.command": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.options": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.technologies": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.technologies.0": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.description": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.help": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.help.command": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.help.example": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.deprecated": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.continuous": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.metadata": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.syncGenerators.0": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.syncGenerators": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.executor": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.options.cwd": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.options.command": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.options": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.metadata.technologies": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.metadata.technologies.0": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.metadata.description": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.metadata.help": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.metadata.help.command": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.dev.metadata.help.example": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.continuous": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.dependsOn.0": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.dependsOn": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.metadata": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.executor": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.options.cwd": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.options.command": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.options": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.metadata.technologies": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.metadata.technologies.0": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.metadata.description": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.metadata.help": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.metadata.help.command": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.preview.metadata.help.example": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.continuous": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.executor": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.syncGenerators.0": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.syncGenerators": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.options.buildTarget": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.options.spa": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.options": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build-deps": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build-deps.dependsOn.0": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.build-deps.dependsOn": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.continuous": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.dependsOn.0": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.dependsOn": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.executor": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.options.command": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.options": [
+      "apps/model-catalog/web/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.lint": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs.0": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.1": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.2": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.3": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.4": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.outputs.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.metadata.technologies": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "metadata.targetGroups": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "metadata.targetGroups.Docker": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "metadata.targetGroups.Docker.0": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "metadata.targetGroups.Docker.1": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "metadata.targetGroups.Docker.2": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.dependsOn.0": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.dependsOn.1": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.dependsOn": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.inputs.0": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.inputs.1": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.inputs": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.metadata": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.executor": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options.cwd": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options.args.0": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options.args.1": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options.args.2": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options.args.3": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options.args": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options.command": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.options": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.metadata.technologies": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.metadata.technologies.0": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.metadata.description": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.metadata.help": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.metadata.help.command": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:build.metadata.help.example": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.dependsOn.0": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.dependsOn": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.inputs.0": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.inputs.1": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.inputs": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.metadata": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.executor": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.options.cwd": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.options.args.0": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.options.args.1": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.options.args": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.options.command": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.options": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.metadata.technologies": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.metadata.technologies.0": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.metadata.description": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.metadata.help": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.metadata.help.command": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.docker:run.metadata.help.example": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.nx-release-publish": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.nx-release-publish.executor": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.nx-release-publish.continuous": [
+      "apps/model-catalog/web/Dockerfile",
+      "@nx/docker"
+    ],
+    "targets.typecheck.dependsOn.0": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.dependsOn": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.executor": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.options.command": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.options": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/model-catalog/web/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "apps/model-catalog/web/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "apps/model-catalog/web/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "apps/model-catalog/web/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
+      "apps/model-catalog/web/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "apps/model-catalog/web/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "// targets": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:web": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:model-catalog": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.cache": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.inputs.0": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.inputs.1": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.inputs": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.typecheck.options.cwd": [
+      "apps/model-catalog/web/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/db": {
+    "root": [
+      "libs/db/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.dependsOn.0": [
+      "nx.json#targetDefaults.typecheck",
+      "nx/target-defaults"
+    ],
+    "targets.typecheck.dependsOn.1": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.dependsOn": [
+      "nx.json#targetDefaults.typecheck",
+      "nx/target-defaults"
+    ],
+    "targets.typecheck.cache": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.0": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.1": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.2": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.3": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.0": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.syncGenerators.0": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.syncGenerators": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.executor": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.cwd": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.command": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options": [
+      "nx.json#targetDefaults.typecheck",
+      "nx/target-defaults"
+    ],
+    "targets.typecheck.metadata.technologies": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.technologies.0": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.description": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.command": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.example": [
+      "libs/db/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.dependsOn.0": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.cache": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.0": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.1": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.2": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.3": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.4": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.5": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.outputs.0": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.outputs.1": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.outputs": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.syncGenerators.0": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.syncGenerators": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.executor": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.options.cwd": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.options.command": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.options": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.metadata.technologies": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.technologies.0": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.description": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.help": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.help.command": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.help.example": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build-deps": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build-deps.dependsOn.0": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build-deps.dependsOn": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.continuous": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.dependsOn.0": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.dependsOn": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.executor": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.options.command": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.options": [
+      "libs/db/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.lint": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs.0": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.1": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.2": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.3": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.4": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.outputs.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.metadata.technologies": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/db/package.json",
+      "nx/core/package-json"
+    ],
+    "tags": [
+      "libs/db/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "libs/db/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.type:data": [
+      "libs/db/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.scope:shared": [
+      "libs/db/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "libs/db/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "libs/db/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "libs/db/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
+      "libs/db/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageExports": [
+      "libs/db/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "libs/db/package.json",
+      "nx/core/package-json"
+    ]
+  },
+  "libs/logging": {
+    "root": [
+      "libs/logging/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.dependsOn.0": [
+      "nx.json#targetDefaults.typecheck",
+      "nx/target-defaults"
+    ],
+    "targets.typecheck.dependsOn.1": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.dependsOn": [
+      "nx.json#targetDefaults.typecheck",
+      "nx/target-defaults"
+    ],
+    "targets.typecheck.cache": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.0": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.1": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.2": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.3": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.0": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.syncGenerators.0": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.syncGenerators": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.executor": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.cwd": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.command": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options": [
+      "nx.json#targetDefaults.typecheck",
+      "nx/target-defaults"
+    ],
+    "targets.typecheck.metadata.technologies": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.technologies.0": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.description": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.command": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.example": [
+      "libs/logging/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.dependsOn.0": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.cache": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.0": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.1": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.2": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.3": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.4": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.5": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.outputs.0": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.outputs.1": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.outputs": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.syncGenerators.0": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.syncGenerators": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.executor": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.options.cwd": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.options.command": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.options": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.metadata.technologies": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.technologies.0": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.description": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.help": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.help.command": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.help.example": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build-deps": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build-deps.dependsOn.0": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build-deps.dependsOn": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.continuous": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.dependsOn.0": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.dependsOn": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.executor": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.options.command": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.options": [
+      "libs/logging/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.lint": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs.0": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.1": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.2": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.3": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.4": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.outputs.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.metadata.technologies": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/logging/package.json",
+      "nx/core/package-json"
+    ],
+    "tags": [
+      "libs/logging/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "libs/logging/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.type:util": [
+      "libs/logging/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.scope:shared": [
+      "libs/logging/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "libs/logging/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "libs/logging/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "libs/logging/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
+      "libs/logging/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageExports": [
+      "libs/logging/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "libs/logging/package.json",
+      "nx/core/package-json"
+    ]
+  },
+  "libs/ui": {
+    "root": [
+      "libs/ui/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.dependsOn.0": [
+      "nx.json#targetDefaults.typecheck",
+      "nx/target-defaults"
+    ],
+    "targets.typecheck.dependsOn.1": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.dependsOn": [
+      "nx.json#targetDefaults.typecheck",
+      "nx/target-defaults"
+    ],
+    "targets.typecheck.cache": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.0": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.1": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.2": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.3": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.0": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.syncGenerators.0": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.syncGenerators": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.executor": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.cwd": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.command": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options": [
+      "nx.json#targetDefaults.typecheck",
+      "nx/target-defaults"
+    ],
+    "targets.typecheck.metadata.technologies": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.technologies.0": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.description": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.command": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.example": [
+      "libs/ui/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.dependsOn.0": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.cache": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.0": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.1": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.2": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.3": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.4": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.5": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs.6": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.inputs": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.outputs.0": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.outputs.1": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.outputs": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.syncGenerators.0": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.syncGenerators": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.executor": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.options.cwd": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.options.command": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.options": [
+      "nx.json#targetDefaults.build",
+      "nx/target-defaults"
+    ],
+    "targets.build.metadata.technologies": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.technologies.0": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.description": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.help": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.help.command": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build.metadata.help.example": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build-deps": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build-deps.dependsOn.0": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.build-deps.dependsOn": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.continuous": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.dependsOn.0": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.dependsOn": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.executor": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.options.command": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.watch-deps.options": [
+      "libs/ui/tsconfig.lib.json",
+      "@nx/js/typescript"
+    ],
+    "targets.lint": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs.0": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.1": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.2": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.3": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.4": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.outputs.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.metadata.technologies": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/ui/package.json",
+      "nx/core/package-json"
+    ],
+    "tags": [
+      "libs/ui/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "libs/ui/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.type:ui": [
+      "libs/ui/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.scope:shared": [
+      "libs/ui/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "libs/ui/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "libs/ui/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "libs/ui/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
+      "libs/ui/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageExports": [
+      "libs/ui/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "libs/ui/package.json",
+      "nx/core/package-json"
+    ]
+  },
+  "tools/nx-plugin": {
+    "root": [
+      "tools/nx-plugin/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.dependsOn.0": [
+      "nx.json#targetDefaults.typecheck",
+      "nx/target-defaults"
+    ],
+    "targets.typecheck.dependsOn": [
+      "nx.json#targetDefaults.typecheck",
+      "nx/target-defaults"
+    ],
+    "targets.typecheck.cache": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.0": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.1": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.2": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.3": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.4": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.5": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs.6": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.0": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.1": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.2": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.3": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.4": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.5": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.6": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.7": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.8": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.9": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.10": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.11": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs.12": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.syncGenerators.0": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.syncGenerators": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.executor": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.cwd": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.command": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options": [
+      "nx.json#targetDefaults.typecheck",
+      "nx/target-defaults"
+    ],
+    "targets.typecheck.metadata.technologies": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.technologies.0": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.description": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.command": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.example": [
+      "tools/nx-plugin/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.lint": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs.0": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.1": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.2": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.3": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs.4": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.outputs.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "nx.json#targetDefaults.lint",
+      "nx/target-defaults"
+    ],
+    "targets.lint.metadata.technologies": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "tools/nx-plugin/package.json",
+      "nx/core/package-json"
+    ],
+    "projectType": [
+      "tools/nx-plugin/package.json",
+      "nx/core/package-json"
+    ],
+    "tags": [
+      "tools/nx-plugin/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "tools/nx-plugin/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.type:tooling": [
+      "tools/nx-plugin/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.scope:tooling": [
+      "tools/nx-plugin/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "tools/nx-plugin/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "tools/nx-plugin/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "tools/nx-plugin/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
+      "tools/nx-plugin/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "tools/nx-plugin/package.json",
+      "nx/core/package-json"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+import type { AppUser } from '<%= contractProject %>';
+
+const loginServer = `/api/adfs`;
+
+export const fetchADFSUser = (): Promise<AppUser> => {
+  return new Promise((resolve, reject) => {
+    const authMessageEventHandler = (e: MessageEvent) => {
+      const data = e.data;
+
+      if (!data || data.isSuccess === undefined) return;
+
+      window.removeEventListener('message', authMessageEventHandler);
+      authWindow?.close();
+
+      if (data.isSuccess && data.user) {
+        const user: AppUser = {
+          userId: data.user.id?.toLowerCase() || '',
+          fullName:
+            data.user.fullName ||
+            `${data.user.firstName} ${data.user.lastName}`,
+          displayName:
+            data.user.displayName ||
+            data.user.fullName ||
+            `${data.user.firstName} ${data.user.lastName}`,
+          hierarchy: data.user.hierarchy || '',
+          email: data.user.email || '',
+        };
+        resolve(user);
+      } else {
+        reject(new Error('ADFS authentication failed'));
+      }
+    };
+
+    const authWindow = window.open(
+      loginServer,
+      'chromeWindow',
+      `height=${window.innerHeight * 0.5}, width=${window.innerWidth * 0.5},
+               top=${window.innerHeight * 0.25}, left=${window.innerWidth * 0.25}`,
+    );
+
+    if (!authWindow) {
+      reject(new Error('Failed to open ADFS login window'));
+      return;
+    }
+
+    window.addEventListener('message', authMessageEventHandler);
+  });
+};

@@ -1,0 +1,31 @@
+{
+  "extends": "<%= offsetFromRoot %>tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "types": ["node"],
+    "rootDir": "src",
+    "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo",
+    // Vite bundles this app straight from TS source, and <%= webProject %> imports
+    // its AppRouter through the `@jarvis/source` condition — i.e. also from source.
+    // Nothing reads a .d.ts from here, so there is nothing to emit; composite:false
+    // keeps `nx sync` out of root's project-reference graph and keeps tsc's output
+    // from colliding with the Vite bundle in dist/.
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
+    "emitDeclarationOnly": false
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["dist"],
+  "references": [
+    {
+      "path": "<%= relativeToContract %>/tsconfig.lib.json"
+    },
+    {
+      "path": "<%= offsetFromRoot %>libs/db/tsconfig.lib.json"
+    },
+    {
+      "path": "<%= offsetFromRoot %>libs/logging/tsconfig.lib.json"
+    }
+  ]
+}

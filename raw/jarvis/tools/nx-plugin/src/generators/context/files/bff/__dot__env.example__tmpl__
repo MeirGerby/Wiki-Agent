@@ -1,0 +1,18 @@
+PORT=<%= port %>
+NODE_ENV=development
+LOG_LEVEL=info
+
+DATABASE_URL=postgresql://user:password@localhost:5432/jarvis
+DATABASE_SSL=false
+
+JWT_SECRET=SECRET_HERE
+MAX_COOKIE_SIZE=4000
+
+USER_ID=example@example.com
+DISABLE_ADFS_AUTH=true
+ADFS_PRODUCTION_URL=https://adfs.example.com/login
+
+ADFS_STUB_DISPLAY_NAME=yonatan
+ADFS_STUB_FULL_NAME=some random name
+ADFS_STUB_HIERARCHY=jarvis/123
+ADFS_STUB_EMAIL=test@test.com

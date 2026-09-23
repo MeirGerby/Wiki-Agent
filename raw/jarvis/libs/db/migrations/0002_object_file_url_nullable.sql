@@ -1,0 +1,1 @@
+ALTER TABLE "objects" ALTER COLUMN "file_url" DROP NOT NULL;

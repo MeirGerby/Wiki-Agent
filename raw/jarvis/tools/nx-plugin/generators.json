@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "@jarvis/nx-plugin",
+  "version": "0.0.1",
+  "generators": {
+    "context": {
+      "factory": "./src/generators/context/generator",
+      "schema": "./src/generators/context/schema.json",
+      "description": "Generate a context — the zod contracts, the Hono + tRPC BFF and the React + TanStack Router surface, shaped like apps/model-catalog."
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "@jarvis/db",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@jarvis/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./schema": {
+      "@jarvis/source": "./src/schema.ts",
+      "types": "./dist/schema.d.ts",
+      "import": "./dist/schema.js",
+      "default": "./dist/schema.js"
+    }
+  },
+  "nx": {
+    "name": "@jarvis/db",
+    "tags": [
+      "type:data",
+      "scope:shared"
+    ]
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.45.2",
+    "postgres": "^3.4.7"
+  },
+  "devDependencies": {
+    "dotenv": "^17.0.0"
+  }
+}

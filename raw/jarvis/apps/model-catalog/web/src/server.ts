@@ -1,0 +1,47 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { serve } from '@hono/node-server';
+import { serveStatic } from '@hono/node-server/serve-static';
+import { Hono } from 'hono';
+
+const port = Number(process.env.PORT ?? 8080);
+const root = process.env.STATIC_ROOT ?? './public';
+const indexHtml = readFileSync(join(root, 'index.html'), 'utf8');
+
+const app = new Hono();
+
+app.get('/health', (c) => c.text('ok'));
+app.get('/ready', (c) => c.text('ok'));
+
+app.use(
+  '/assets/*',
+  serveStatic({
+    root,
+    onFound: (_path, c) => {
+      c.header('Cache-Control', 'public, max-age=31536000, immutable');
+    },
+  }),
+);
+
+app.use('*', serveStatic({ root }));
+
+// Anything the static handler did not match is a client route, so the SPA shell
+// answers it and TanStack Router resolves the path in the browser.
+app.notFound((c) => {
+  c.header('Cache-Control', 'no-cache');
+  return c.html(indexHtml);
+});
+
+console.log(`[model-catalog-web] app initializing (static root: ${root})`);
+
+const server = serve({ fetch: app.fetch, port }, (info) => {
+  console.log(`[model-catalog-web] listening on port ${info.port}`);
+});
+
+function gracefulShutdown(): void {
+  server.close(() => process.exit(0));
+  setTimeout(() => process.exit(1), 10_000).unref();
+}
+
+process.on('SIGINT', gracefulShutdown);
+process.on('SIGTERM', gracefulShutdown);

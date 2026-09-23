@@ -1,0 +1,5 @@
+import type { AuthContextType } from './contexts/auth-context';
+
+export type RouterContext = {
+  auth: AuthContextType;
+};

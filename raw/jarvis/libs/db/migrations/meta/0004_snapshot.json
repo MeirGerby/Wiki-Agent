@@ -1,0 +1,968 @@
+{
+  "id": "83b1d367-8f50-4e6c-9a15-2cda0c2a1f9b",
+  "prevId": "ac134721-a9f5-4e42-a67f-6177199a9218",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.deep_wisdom_models": {
+      "name": "deep_wisdom_models",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "model_name": {
+          "name": "model_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "config": {
+          "name": "config",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "creation_time": {
+          "name": "creation_time",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "update_time": {
+          "name": "update_time",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "version": {
+          "name": "version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "file_url": {
+          "name": "file_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "deep_wisdom_models_model_name_unique": {
+          "name": "deep_wisdom_models_model_name_unique",
+          "columns": ["model_name"],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.deep_wisdom_models_objects": {
+      "name": "deep_wisdom_models_objects",
+      "schema": "",
+      "columns": {
+        "object_name": {
+          "name": "object_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "model_name": {
+          "name": "model_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "detection_order": {
+          "name": "detection_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "deep_wisdom_models_objects_object_name_objects_english_name_fk": {
+          "name": "deep_wisdom_models_objects_object_name_objects_english_name_fk",
+          "tableFrom": "deep_wisdom_models_objects",
+          "columnsFrom": ["object_name"],
+          "tableTo": "objects",
+          "columnsTo": ["english_name"],
+          "onUpdate": "cascade",
+          "onDelete": "cascade"
+        },
+        "deep_wisdom_models_objects_model_name_deep_wisdom_models_model_name_fk": {
+          "name": "deep_wisdom_models_objects_model_name_deep_wisdom_models_model_name_fk",
+          "tableFrom": "deep_wisdom_models_objects",
+          "columnsFrom": ["model_name"],
+          "tableTo": "deep_wisdom_models",
+          "columnsTo": ["model_name"],
+          "onUpdate": "cascade",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {
+        "deep_wisdom_models_objects_object_name_model_name_pk": {
+          "name": "deep_wisdom_models_objects_object_name_model_name_pk",
+          "columns": ["object_name", "model_name"]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.dexter_models": {
+      "name": "dexter_models",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "model_name": {
+          "name": "model_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "config": {
+          "name": "config",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "creation_time": {
+          "name": "creation_time",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "update_time": {
+          "name": "update_time",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "version": {
+          "name": "version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "file_url": {
+          "name": "file_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "embedder_id": {
+          "name": "embedder_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "dexter_models_embedder_id_embedder_models_id_fk": {
+          "name": "dexter_models_embedder_id_embedder_models_id_fk",
+          "tableFrom": "dexter_models",
+          "columnsFrom": ["embedder_id"],
+          "tableTo": "embedder_models",
+          "columnsTo": ["id"],
+          "onUpdate": "cascade",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "dexter_models_model_name_unique": {
+          "name": "dexter_models_model_name_unique",
+          "columns": ["model_name"],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.dexter_models_objects": {
+      "name": "dexter_models_objects",
+      "schema": "",
+      "columns": {
+        "object_name": {
+          "name": "object_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "model_name": {
+          "name": "model_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "detection_order": {
+          "name": "detection_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "dexter_models_objects_object_name_objects_english_name_fk": {
+          "name": "dexter_models_objects_object_name_objects_english_name_fk",
+          "tableFrom": "dexter_models_objects",
+          "columnsFrom": ["object_name"],
+          "tableTo": "objects",
+          "columnsTo": ["english_name"],
+          "onUpdate": "cascade",
+          "onDelete": "cascade"
+        },
+        "dexter_models_objects_model_name_dexter_models_model_name_fk": {
+          "name": "dexter_models_objects_model_name_dexter_models_model_name_fk",
+          "tableFrom": "dexter_models_objects",
+          "columnsFrom": ["model_name"],
+          "tableTo": "dexter_models",
+          "columnsTo": ["model_name"],
+          "onUpdate": "cascade",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {
+        "dexter_models_objects_object_name_model_name_pk": {
+          "name": "dexter_models_objects_object_name_model_name_pk",
+          "columns": ["object_name", "model_name"]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.embedder_models": {
+      "name": "embedder_models",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "model_name": {
+          "name": "model_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "creation_time": {
+          "name": "creation_time",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "update_time": {
+          "name": "update_time",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "version": {
+          "name": "version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "file_url": {
+          "name": "file_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.geography": {
+      "name": "geography",
+      "schema": "",
+      "columns": {
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": true,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.object_categories": {
+      "name": "object_categories",
+      "schema": "",
+      "columns": {
+        "english_name": {
+          "name": "english_name",
+          "type": "varchar(255)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "hebrew_name": {
+          "name": "hebrew_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "object_categories_hebrew_name_unique": {
+          "name": "object_categories_hebrew_name_unique",
+          "columns": ["hebrew_name"],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.objects": {
+      "name": "objects",
+      "schema": "",
+      "columns": {
+        "english_name": {
+          "name": "english_name",
+          "type": "varchar(255)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "hebrew_name": {
+          "name": "hebrew_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "creation_time": {
+          "name": "creation_time",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "update_time": {
+          "name": "update_time",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "create_user": {
+          "name": "create_user",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "file_url": {
+          "name": "file_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "category_name": {
+          "name": "category_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "objects_category_name_object_categories_english_name_fk": {
+          "name": "objects_category_name_object_categories_english_name_fk",
+          "tableFrom": "objects",
+          "columnsFrom": ["category_name"],
+          "tableTo": "object_categories",
+          "columnsTo": ["english_name"],
+          "onUpdate": "cascade",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "objects_hebrew_name_unique": {
+          "name": "objects_hebrew_name_unique",
+          "columns": ["hebrew_name"],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.permissions": {
+      "name": "permissions",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "subject_type": {
+          "name": "subject_type",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "subject": {
+          "name": "subject",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "permissions_subject_type_subject_unique": {
+          "name": "permissions_subject_type_subject_unique",
+          "columns": ["subject_type", "subject"],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.rules": {
+      "name": "rules",
+      "schema": "",
+      "columns": {
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "min_resolution": {
+          "name": "min_resolution",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "max_resolution": {
+          "name": "max_resolution",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sensing_type": {
+          "name": "sensing_type",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sensor_group_name": {
+          "name": "sensor_group_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "geography_name": {
+          "name": "geography_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_ids": {
+          "name": "user_ids",
+          "type": "varchar(255)[]",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "rules_sensing_type_sensing_types_name_fk": {
+          "name": "rules_sensing_type_sensing_types_name_fk",
+          "tableFrom": "rules",
+          "columnsFrom": ["sensing_type"],
+          "tableTo": "sensing_types",
+          "columnsTo": ["name"],
+          "onUpdate": "cascade",
+          "onDelete": "cascade"
+        },
+        "rules_sensor_group_name_sensor_groups_name_fk": {
+          "name": "rules_sensor_group_name_sensor_groups_name_fk",
+          "tableFrom": "rules",
+          "columnsFrom": ["sensor_group_name"],
+          "tableTo": "sensor_groups",
+          "columnsTo": ["name"],
+          "onUpdate": "cascade",
+          "onDelete": "cascade"
+        },
+        "rules_geography_name_geography_name_fk": {
+          "name": "rules_geography_name_geography_name_fk",
+          "tableFrom": "rules",
+          "columnsFrom": ["geography_name"],
+          "tableTo": "geography",
+          "columnsTo": ["name"],
+          "onUpdate": "cascade",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.sensing_types": {
+      "name": "sensing_types",
+      "schema": "",
+      "columns": {
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": true,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.sensor_groups": {
+      "name": "sensor_groups",
+      "schema": "",
+      "columns": {
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sensors": {
+          "name": "sensors",
+          "type": "varchar(255)[]",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.sensors": {
+      "name": "sensors",
+      "schema": "",
+      "columns": {
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": true,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.sequence_model_names": {
+      "name": "sequence_model_names",
+      "schema": "",
+      "columns": {
+        "sequence_name": {
+          "name": "sequence_name",
+          "type": "varchar(255)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "deep_wisdom_model_name": {
+          "name": "deep_wisdom_model_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dexter_model_names": {
+          "name": "dexter_model_names",
+          "type": "varchar(255)[]",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "sequence_model_names_deep_wisdom_model_name_deep_wisdom_models_model_name_fk": {
+          "name": "sequence_model_names_deep_wisdom_model_name_deep_wisdom_models_model_name_fk",
+          "tableFrom": "sequence_model_names",
+          "columnsFrom": ["deep_wisdom_model_name"],
+          "tableTo": "deep_wisdom_models",
+          "columnsTo": ["model_name"],
+          "onUpdate": "cascade",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.sequences": {
+      "name": "sequences",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "english_name": {
+          "name": "english_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "hebrew_name": {
+          "name": "hebrew_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "creation_time": {
+          "name": "creation_time",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "update_time": {
+          "name": "update_time",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "version": {
+          "name": "version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "deep_wisdom_model_id": {
+          "name": "deep_wisdom_model_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dexter_model_ids": {
+          "name": "dexter_model_ids",
+          "type": "integer[]",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "sequences_deep_wisdom_model_id_deep_wisdom_models_id_fk": {
+          "name": "sequences_deep_wisdom_model_id_deep_wisdom_models_id_fk",
+          "tableFrom": "sequences",
+          "columnsFrom": ["deep_wisdom_model_id"],
+          "tableTo": "deep_wisdom_models",
+          "columnsTo": ["id"],
+          "onUpdate": "cascade",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.sqrules": {
+      "name": "sqrules",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "english_name": {
+          "name": "english_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "hebrew_name": {
+          "name": "hebrew_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rule_name": {
+          "name": "rule_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sequence_id": {
+          "name": "sequence_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "creation_time": {
+          "name": "creation_time",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "update_time": {
+          "name": "update_time",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "config": {
+          "name": "config",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "performance_rate": {
+          "name": "performance_rate",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "operational_status": {
+          "name": "operational_status",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "sqrules_rule_name_rules_name_fk": {
+          "name": "sqrules_rule_name_rules_name_fk",
+          "tableFrom": "sqrules",
+          "columnsFrom": ["rule_name"],
+          "tableTo": "rules",
+          "columnsTo": ["name"],
+          "onUpdate": "cascade",
+          "onDelete": "cascade"
+        },
+        "sqrules_sequence_id_sequences_id_fk": {
+          "name": "sqrules_sequence_id_sequences_id_fk",
+          "tableFrom": "sqrules",
+          "columnsFrom": ["sequence_id"],
+          "tableTo": "sequences",
+          "columnsTo": ["id"],
+          "onUpdate": "cascade",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.users": {
+      "name": "users",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "display_name": {
+          "name": "display_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "full_name": {
+          "name": "full_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hierarchy": {
+          "name": "hierarchy",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "users_user_id_unique": {
+          "name": "users_user_id_unique",
+          "columns": ["user_id"],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "views": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

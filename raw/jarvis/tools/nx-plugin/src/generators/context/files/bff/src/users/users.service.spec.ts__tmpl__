@@ -1,0 +1,154 @@
+import type { Db } from '@jarvis/db';
+import { describe, expect, it } from 'vitest';
+import { UsersService } from './users.service.js';
+
+type Row = {
+  id: string;
+  userId: string;
+  email: string | null;
+  fullName: string | null;
+  hierarchy: string | null;
+  displayName: string | null;
+  updatedAt?: string;
+};
+
+type FakeDbState = {
+  rows: Row[];
+  lastUpdate: Partial<Row> | undefined;
+};
+
+const BLANK: Row = {
+  id: '',
+  userId: '',
+  email: null,
+  fullName: null,
+  hierarchy: null,
+  displayName: null,
+};
+
+/**
+ * A stand-in for the two query shapes UsersService uses: a select-by-column
+ * lookup, and insert/update returning the affected row.
+ */
+function fakeDb(rows: Row[]) {
+  const state: FakeDbState = { rows, lastUpdate: undefined };
+
+  const db = {
+    select: () => ({
+      from: () => ({
+        where: () => ({
+          limit: () => Promise.resolve(state.rows.slice(0, 1)),
+        }),
+      }),
+    }),
+    insert: () => ({
+      values: (values: Partial<Row>) => ({
+        returning: () => {
+          const row: Row = { ...BLANK, id: 'generated-id', ...values };
+          state.rows.push(row);
+          return Promise.resolve([row]);
+        },
+      }),
+    }),
+    update: () => ({
+      set: (values: Partial<Row>) => {
+        state.lastUpdate = values;
+        return {
+          where: () => ({
+            returning: (): Promise<Row[]> =>
+              Promise.resolve([{ ...BLANK, ...state.rows[0], ...values }]),
+          }),
+        };
+      },
+    }),
+  };
+
+  // eslint-disable-next-line anti-slop/no-chained-type-assertions, anti-slop/require-safety-comment-for-type-assertion -- test double supplies only the two query shapes UsersService builds
+  return { db: db as unknown as Db, state };
+}
+
+const EXISTING: Row = {
+  id: 'row-1',
+  userId: 'tester',
+  email: 'old@example.com',
+  fullName: 'Old Name',
+  hierarchy: 'jarvis/123',
+  displayName: 'old',
+};
+
+describe('UsersService.createNewUserIfNecessary', () => {
+  it('inserts and reports a new user when none exists', async () => {
+    const { db } = fakeDb([]);
+    const service = new UsersService({ db });
+
+    const result = await service.createNewUserIfNecessary('newcomer', {
+      email: 'new@example.com',
+      hierarchy: 'jarvis/1',
+    });
+
+    expect(result.isNewUser).toBe(true);
+    expect(result.wasUpdated).toBe(false);
+    expect(result.user).toMatchObject({
+      userId: 'newcomer',
+      email: 'new@example.com',
+      hierarchy: 'jarvis/1',
+    });
+  });
+
+  it('leaves an unchanged user untouched', async () => {
+    const { db, state } = fakeDb([{ ...EXISTING }]);
+    const service = new UsersService({ db });
+
+    const result = await service.createNewUserIfNecessary('tester', {
+      email: EXISTING.email ?? undefined,
+      fullName: EXISTING.fullName ?? undefined,
+    });
+
+    expect(result.isNewUser).toBe(false);
+    expect(result.wasUpdated).toBe(false);
+    expect(state.lastUpdate).toBeUndefined();
+  });
+
+  it('updates only the fields that actually changed', async () => {
+    const { db, state } = fakeDb([{ ...EXISTING }]);
+    const service = new UsersService({ db });
+
+    const result = await service.createNewUserIfNecessary('tester', {
+      email: 'new@example.com',
+      fullName: EXISTING.fullName ?? undefined,
+    });
+
+    expect(result.wasUpdated).toBe(true);
+    expect(state.lastUpdate).toMatchObject({ email: 'new@example.com' });
+    expect(state.lastUpdate).not.toHaveProperty('fullName');
+    expect(state.lastUpdate?.updatedAt).toEqual(expect.any(String));
+  });
+
+  it('ignores undefined fields rather than nulling stored values', async () => {
+    const { db, state } = fakeDb([{ ...EXISTING }]);
+    const service = new UsersService({ db });
+
+    const result = await service.createNewUserIfNecessary('tester', {});
+
+    expect(result.wasUpdated).toBe(false);
+    expect(state.lastUpdate).toBeUndefined();
+  });
+});
+
+describe('UsersService.findById', () => {
+  it('returns the row when it exists', async () => {
+    const { db } = fakeDb([{ ...EXISTING }]);
+    const service = new UsersService({ db });
+
+    await expect(service.findById('row-1')).resolves.toMatchObject({
+      userId: 'tester',
+    });
+  });
+
+  it('returns null when it does not', async () => {
+    const { db } = fakeDb([]);
+    const service = new UsersService({ db });
+
+    await expect(service.findById('missing')).resolves.toBeNull();
+  });
+});

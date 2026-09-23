@@ -1,0 +1,86 @@
+name: jarvis
+
+# Runs the real production images locally. The `ingress` service does the same path
+# routing the Kubernetes Ingress does, so the browser stays on one origin and the
+# auth cookie behaves exactly as it does in the cluster.
+#
+# It runs no database. Point DATABASE_URL at your own — Neon, or anything else —
+# with a .env file beside this one, which is gitignored:
+#
+#   DATABASE_URL=postgresql://user:pass@ep-xxx.neon.tech/jarvis?sslmode=require
+#
+#   docker compose up --build      then open http://localhost:8080
+#
+# Migrations are applied by hand, so that database needs the SQL in
+# libs/db/migrations before the app can serve real data.
+
+services:
+  bff:
+    image: ${BFF_IMAGE:-model-catalog-bff}:${TAG:-local}
+    build:
+      context: .
+      dockerfile: apps/model-catalog/bff/Dockerfile
+      args:
+        PROJECT: '@jarvis/model-catalog-bff'
+        PROJECT_PATH: apps/model-catalog/bff
+        BASE_IMG: ${BASE_IMG:-node:24-alpine}
+        NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmjs.org/}
+        NPM_STRICT_SSL: ${NPM_STRICT_SSL:-false}
+        NODE_TLS_REJECT_UNAUTHORIZED: ${NODE_TLS_REJECT_UNAUTHORIZED:-0}
+    environment:
+      NODE_ENV: production
+      LOG_LEVEL: info
+      # Your own database. Put it in a .env file beside this one, which is gitignored:
+      #   DATABASE_URL=postgresql://user:pass@ep-xxx.neon.tech/jarvis?sslmode=require
+      DATABASE_URL: ${DATABASE_URL:?set DATABASE_URL, for example in a .env file beside docker-compose.yml}
+      DATABASE_SSL: ${DATABASE_SSL:-true}
+      JWT_SECRET: local-development-only
+      MAX_COOKIE_SIZE: '4000'
+      USER_ID: example@example.com
+      DISABLE_ADFS_AUTH: 'true'
+      MAX_ADFS_LOGIN_ATTEMPTS: '3'
+      ADFS_STUB_DISPLAY_NAME: local
+      ADFS_STUB_FULL_NAME: local user
+      ADFS_STUB_HIERARCHY: jarvis/123
+      ADFS_STUB_EMAIL: local@example.com
+
+  web:
+    image: ${WEB_IMAGE:-model-catalog-web}:${TAG:-local}
+    build:
+      context: .
+      dockerfile: apps/model-catalog/web/Dockerfile
+      args:
+        PROJECT: '@jarvis/model-catalog-web'
+        PROJECT_PATH: apps/model-catalog/web
+        BASE_IMG: ${BASE_IMG:-node:24-alpine}
+        NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmjs.org/}
+        NPM_STRICT_SSL: ${NPM_STRICT_SSL:-false}
+        NODE_TLS_REJECT_UNAUTHORIZED: ${NODE_TLS_REJECT_UNAUTHORIZED:-0}
+
+  ingress:
+    image: ${INGRESS_IMAGE:-nginxinc/nginx-unprivileged:1.29-alpine}
+    ports:
+      - '${PORT:-8080}:8080'
+    configs:
+      - source: ingress
+        target: /etc/nginx/conf.d/default.conf
+    depends_on:
+      - web
+      - bff
+
+configs:
+  ingress:
+    content: |
+      server {
+        listen 8080;
+        server_name _;
+
+        proxy_set_header Host $$host;
+        proxy_set_header X-Real-IP $$remote_addr;
+        proxy_set_header X-Forwarded-For $$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $$scheme;
+
+        location /trpc { proxy_pass http://bff:8080; }
+        location /api  { proxy_pass http://bff:8080; }
+        location /     { proxy_pass http://web:8080; }
+      }

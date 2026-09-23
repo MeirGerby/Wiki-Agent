@@ -1,0 +1,40 @@
+import 'dotenv/config';
+import { LogLevel } from '@jarvis/logging';
+import { z } from 'zod';
+
+const booleanStringSchema = z.string().transform((value) => value === 'true');
+
+const serverEnvSchema = z.object({
+  PORT: z.coerce.number().default(8080),
+  NODE_ENV: z.enum(['development', 'production', 'test']),
+  LOG_LEVEL: z.enum(LogLevel).default('info'),
+
+  DATABASE_URL: z.string().url(),
+  DATABASE_SSL: booleanStringSchema,
+
+  ROBERTO_BASE_URL: z.string().url(),
+  PICASSO_URL: z.string().url(),
+  TASK_MANAGER_URL: z.string().url(),
+
+  OTHER_CATEGORY_KEY: z.string().min(1).optional(),
+
+  JWT_SECRET: z.string().min(1),
+  MAX_COOKIE_SIZE: z.coerce.number(),
+
+  USER_ID: z.string(),
+  DISABLE_ADFS_AUTH: booleanStringSchema,
+  ADFS_PRODUCTION_URL: z.string().url().optional(),
+
+  ADFS_STUB_DISPLAY_NAME: z.string(),
+  ADFS_STUB_FULL_NAME: z.string(),
+  ADFS_STUB_HIERARCHY: z.string(),
+  ADFS_STUB_EMAIL: z.string(),
+});
+
+export type ServerEnv = z.infer<typeof serverEnvSchema>;
+
+export function loadServerEnv(
+  source: NodeJS.ProcessEnv = process.env,
+): ServerEnv {
+  return serverEnvSchema.parse(source);
+}

@@ -1,0 +1,32 @@
+{
+  "name": "<%= bffProject %>",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@jarvis/source": "./src/router.ts",
+      "default": "./src/router.ts"
+    }
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.14.0",
+    "@hono/trpc-server": "^0.4.2",
+    "@jarvis/db": "workspace:*",
+    "@jarvis/logging": "workspace:*",
+    "<%= contractProject %>": "workspace:*",
+    "@trpc/server": "^11.18.0",
+    "awilix": "^13.0.5",
+    "dotenv": "^17.0.0",
+    "drizzle-orm": "^0.45.2",
+    "hono": "^4.13.1",
+    "jsonwebtoken": "^9.0.2",
+    "tslib": "^2.3.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@hono/vite-dev-server": "^0.26.1",
+    "@types/jsonwebtoken": "^9.0.7"
+  }
+}

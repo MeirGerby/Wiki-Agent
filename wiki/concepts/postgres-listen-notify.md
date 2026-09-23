@@ -31,6 +31,7 @@ Asynchronous notification "virtual" with payload "This is the payload"
 ## Related Concepts
 - [[notify-transactions]]
 - [[notify-queue]]
+- [[trigger-based-notify]]
 
 ## Sources
 - [[raw/database/postgres/Postgres Notification.md]]

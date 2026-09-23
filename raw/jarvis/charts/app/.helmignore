@@ -1,0 +1,15 @@
+# Patterns to ignore when building packages.
+.DS_Store
+.git/
+.gitignore
+.idea/
+.vscode/
+*.swp
+*.tmp
+*.orig
+*.bak
+*~
+
+# Per-environment values are supplied with --values at install time, so they do not
+# belong inside the packaged chart.
+values-*.yaml

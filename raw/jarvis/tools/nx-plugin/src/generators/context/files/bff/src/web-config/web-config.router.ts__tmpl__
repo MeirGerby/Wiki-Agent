@@ -1,0 +1,5 @@
+import { publicProcedure, router } from '../trpc.js';
+
+export const webConfigRouter = router({
+  get: publicProcedure.query(({ ctx }) => ctx.cradle.webConfig),
+});

@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "nx serve @jarvis/model-catalog-web",
+    "startTime": "2026-09-20T12:51:58.426Z",
+    "endTime": "2026-09-22T09:01:41.739Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "@jarvis/model-catalog-web:serve",
+      "target": "serve",
+      "projectName": "@jarvis/model-catalog-web",
+      "hash": "15069881872004890398",
+      "startTime": "2026-09-20T12:51:58.497Z",
+      "endTime": "2026-09-22T09:01:41.735Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    }
+  ]
+}

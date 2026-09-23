@@ -1,0 +1,47 @@
+{{- $repository := required "image.repository is required" .Values.image.repository }}
+{{- if .Values.image.registry }}{{- $repository = printf "%s/%s" .Values.image.registry $repository }}{{- end }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "app.fullname" . }}
+  labels:
+    {{- include "app.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicas }}
+  {{- end }}
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      {{- include "app.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "app.labels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- include "app.podSecurityContext" . | nindent 8 }}
+      containers:
+        - name: {{ include "app.fullname" . }}
+          image: {{ printf "%s:%s" $repository (default .Chart.AppVersion .Values.image.tag) }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext:
+            {{- include "app.containerSecurityContext" . | nindent 12 }}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: {{ include "app.fullname" . }}
+            {{- if .Values.secret.enabled }}
+            - secretRef:
+                name: {{ include "app.fullname" . }}
+            {{- end }}
+          {{- include "app.probes" . | nindent 10 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}

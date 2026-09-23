@@ -1,0 +1,21 @@
+# Add files here to ignore them from prettier formatting
+/dist
+/coverage
+/.nx/cache
+/.nx/workspace-data
+.nx/self-healing
+
+# generated — owned by the TanStack Router vite plugin, regenerated on every dev/build
+apps/*/web/src/routeTree.gen.ts
+
+# generator templates — EJS, not valid source until a generator renders them
+tools/nx-plugin/src/generators/context/files
+
+# helm templates — Go templating, not valid YAML until helm renders them
+charts/*/templates
+
+# vendored anti-slop lint plugin — keep upstream style for diffing against the source repo
+tools/eslint/anti-slop
+
+# lockfiles
+pnpm-lock.yaml

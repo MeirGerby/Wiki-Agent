@@ -1,0 +1,24 @@
+import { Toaster } from '@jarvis/ui/components/ui/sonner';
+import { TooltipProvider } from '@jarvis/ui/components/ui/tooltip';
+import { Outlet, createRootRouteWithContext } from '@tanstack/react-router';
+import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
+import { Direction } from 'radix-ui';
+import type { RouterContext } from '../router-context';
+
+export const Route = createRootRouteWithContext<RouterContext>()({
+  component: RootLayout,
+});
+
+function RootLayout() {
+  return (
+    // Radix reads direction from context, not the DOM — without this, menus and the scroll
+    // area anchor to the wrong side even though <html dir="rtl"> is set.
+    <Direction.Provider dir="rtl">
+      <TooltipProvider>
+        <Outlet />
+        <Toaster dir="rtl" position="top-center" />
+        <TanStackRouterDevtools />
+      </TooltipProvider>
+    </Direction.Provider>
+  );
+}

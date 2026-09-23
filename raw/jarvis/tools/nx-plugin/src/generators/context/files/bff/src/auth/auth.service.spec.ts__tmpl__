@@ -1,0 +1,212 @@
+import { Hono } from 'hono';
+import type { Logger } from '@jarvis/logging';
+import { describe, expect, it, vi } from 'vitest';
+import type { ServerEnv } from '../server-env.js';
+import type { UsersService } from '../users/users.service.js';
+import { AUTH_COOKIE_KEY, cookieJar } from '../utils/cookies.js';
+import { generateJwt } from '../utils/jwt.js';
+import { AuthService, type SigninInput } from './auth.service.js';
+
+const JWT_SECRET = 'test-secret';
+const USER = { id: 'abc', userId: 'tester', hierarchy: 'jarvis/123' };
+
+const ROW = {
+  id: 'row-1',
+  userId: 'tester',
+  email: 'a@example.com',
+  fullName: 'Full Name',
+  displayName: 'display',
+  hierarchy: 'jarvis/123',
+};
+
+function makeService(
+  configOverrides: Partial<ServerEnv> = {},
+  usersOverrides: Partial<UsersService> = {},
+) {
+  // eslint-disable-next-line anti-slop/no-chained-type-assertions, anti-slop/require-safety-comment-for-type-assertion -- test double supplies only the ServerEnv fields AuthService reads
+  const config = {
+    JWT_SECRET,
+    MAX_COOKIE_SIZE: 4000,
+    NODE_ENV: 'development',
+    DISABLE_ADFS_AUTH: false,
+    USER_ID: 'fallback@example.com',
+    ...configOverrides,
+  } as unknown as ServerEnv;
+
+  const created: Array<{ userId: string }> = [];
+
+  // eslint-disable-next-line anti-slop/no-chained-type-assertions, anti-slop/require-safety-comment-for-type-assertion -- test double supplies only the UsersService methods AuthService calls
+  const usersService = {
+    createNewUserIfNecessary: (
+      userId: string,
+      fields: Parameters<UsersService['createNewUserIfNecessary']>[1],
+    ) => {
+      created.push({ userId, ...fields });
+      return Promise.resolve({
+        user: { ...ROW, userId },
+        isNewUser: true,
+        wasUpdated: false,
+      });
+    },
+    findById: () => Promise.resolve(ROW),
+    ...usersOverrides,
+  } as unknown as UsersService;
+
+  // eslint-disable-next-line anti-slop/no-chained-type-assertions, anti-slop/require-safety-comment-for-type-assertion -- test double supplies only the Logger method AuthService calls
+  const logger = { error: vi.fn() } as unknown as Logger;
+
+  return {
+    service: new AuthService({ config, usersService, logger }),
+    created,
+    logger,
+  };
+}
+
+/** Runs signin inside a real Hono request so the cookie jar behaves. */
+async function signinThrough(
+  service: AuthService,
+  input: SigninInput,
+) {
+  let thrown: unknown;
+
+  const app = new Hono();
+  app.use('*', cookieJar());
+  app.get('/', async (c) => {
+    try {
+      await service.signin(c, input);
+    } catch (error) {
+      thrown = error;
+    }
+    return c.text('ok');
+  });
+
+  const response = await app.request('/');
+  return { setCookie: response.headers.get('set-cookie'), thrown };
+}
+
+describe('AuthService token handling', () => {
+  it('round-trips a user through sign and verify', () => {
+    const { service } = makeService();
+    const token = service.generateAuthToken(USER);
+    expect(service.parseAuthToken(token)).toMatchObject(USER);
+  });
+
+  it('rejects a token signed with a different secret', () => {
+    const { service } = makeService();
+    const token = generateJwt('other-secret', USER);
+    expect(service.parseAuthToken(token)).toBeUndefined();
+  });
+
+  it('rejects a tampered token', () => {
+    const { service } = makeService();
+    const token = service.generateAuthToken(USER);
+    const [header, , signature] = token.split('.');
+    const forgedPayload = Buffer.from(
+      JSON.stringify({ ...USER, userId: 'someone-else' }),
+    ).toString('base64url');
+
+    expect(
+      service.parseAuthToken(`${header}.${forgedPayload}.${signature}`),
+    ).toBeUndefined();
+  });
+
+  it('rejects a well-signed token whose shape is wrong', () => {
+    const { service } = makeService();
+    expect(
+      service.parseAuthToken(generateJwt(JWT_SECRET, { id: 'abc' })),
+    ).toBeUndefined();
+  });
+
+  it('rejects an expired token', () => {
+    const { service } = makeService();
+    const token = generateJwt(JWT_SECRET, USER, { expiresIn: '-1s' });
+    expect(service.parseAuthToken(token)).toBeUndefined();
+  });
+
+  it('rejects a garbage string', () => {
+    const { service } = makeService();
+    expect(service.parseAuthToken('not-a-jwt')).toBeUndefined();
+  });
+});
+
+describe('AuthService.signin', () => {
+  it('issues an auth-token cookie carrying the signed identity', async () => {
+    const { service } = makeService();
+
+    const { setCookie } = await signinThrough(service, {
+      userId: 'tester',
+      hierarchy: 'jarvis/123',
+    });
+
+    expect(setCookie).toContain(`${AUTH_COOKIE_KEY}=`);
+    expect(setCookie).toContain('HttpOnly');
+
+    const token = /auth-token=([^;]+)/.exec(setCookie ?? '')?.[1] ?? '';
+    expect(service.parseAuthToken(decodeURIComponent(token))).toMatchObject({
+      id: 'row-1',
+      userId: 'tester',
+      hierarchy: 'jarvis/123',
+    });
+  });
+
+  it('trusts whatever userId the client sends, as treasure does', async () => {
+    const { service, created } = makeService();
+
+    await signinThrough(service, { userId: 'not-me@example.com' });
+
+    expect(created[0]).toMatchObject({ userId: 'not-me@example.com' });
+  });
+
+  it('falls back to the server USER_ID when ADFS is disabled', async () => {
+    const { service, created } = makeService({
+      DISABLE_ADFS_AUTH: true,
+    });
+
+    await signinThrough(service, {});
+
+    expect(created[0]).toMatchObject({ userId: 'fallback@example.com' });
+  });
+
+  it('refuses an empty signin when ADFS is enabled', async () => {
+    const { service } = makeService();
+
+    const { thrown } = await signinThrough(service, {});
+
+    expect(thrown).toMatchObject({ code: 'BAD_REQUEST' });
+  });
+
+  it('reports a database failure as INTERNAL_SERVER_ERROR and logs it', async () => {
+    const { service, logger } = makeService({}, {
+      createNewUserIfNecessary: () =>
+        Promise.reject(new Error('connection refused')),
+    });
+
+    const { thrown } = await signinThrough(service, { userId: 'tester' });
+
+    expect(thrown).toMatchObject({ code: 'INTERNAL_SERVER_ERROR' });
+    expect(logger.error).toHaveBeenCalled();
+  });
+});
+
+describe('AuthService.me', () => {
+  it('returns the stored profile without leaking extra columns', async () => {
+    const { service } = makeService();
+
+    await expect(service.me('row-1')).resolves.toEqual({
+      id: ROW.id,
+      userId: ROW.userId,
+      hierarchy: ROW.hierarchy,
+      fullName: ROW.fullName,
+      displayName: ROW.displayName,
+      email: ROW.email,
+    });
+  });
+
+  it('returns null when the user is gone', async () => {
+    const { service } = makeService({}, {
+      findById: () => Promise.resolve(null),
+    });
+
+    await expect(service.me('missing')).resolves.toBeNull();
+  });
+});

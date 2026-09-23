@@ -1,0 +1,45 @@
+{
+  "permissions": {
+    "deny": ["Edit(libs/db/src/schema.ts)", "Write(libs/db/src/schema.ts)"]
+  },
+  "enabledPlugins": {
+    "mattpocock-skills@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "vercel@claude-plugins-official": true,
+    "context-mode@context-mode": true,
+    "nx@nx-claude-plugins": true
+  },
+  "sandbox": {
+    "network": {
+      "allowedDomains": ["www.google-analytics.com"],
+      "allowUnixSockets": ["/tmp/.nx", "~/.nx"]
+    },
+    "filesystem": {
+      "allowRead": ["/tmp/.nx", "~/.nx"],
+      "allowWrite": ["/tmp/.nx", "~/.nx"]
+    }
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // empty' | { read -r f; case \"$f\" in *.ts|*.tsx) out=$(FORCE_COLOR=0 node_modules/.bin/eslint --no-color \"$f\" 2>&1);; *.py) if command -v ruff >/dev/null 2>&1; then out=$(FORCE_COLOR=0 ruff check \"$f\" 2>&1); else exit 0; fi;; *) exit 0;; esac; if [ -n \"$(printf '%s' \"$out\" | tr -d '[:space:]')\" ]; then jq -n --arg out \"$out\" '{hookSpecificOutput:{hookEventName:\"PostToolUse\",additionalContext:(\"Lint output for edited file:\\n\"+$out)}}'; fi; }",
+            "timeout": 30,
+            "statusMessage": "Linting edited file..."
+          }
+        ]
+      }
+    ]
+  },
+  "extraKnownMarketplaces": {
+    "nx-claude-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "nrwl/nx-ai-agents-config"
+      }
+    }
+  }
+}

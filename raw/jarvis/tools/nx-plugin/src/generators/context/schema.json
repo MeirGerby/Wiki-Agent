@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "JarvisContext",
+  "title": "Generate a context: the zod contracts, the BFF and the surface",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Context name, e.g. model-catalog. Produces @jarvis/<name>-{contract,bff,web}.",
+      "$default": { "$source": "argv", "index": 0 },
+      "x-prompt": "What is the context called (e.g. model-catalog)?"
+    },
+    "directory": {
+      "type": "string",
+      "description": "Context root that holds contract/, bff/ and web/. Defaults to apps/<name>."
+    },
+    "title": {
+      "type": "string",
+      "description": "Document title in index.html. Defaults to the context name."
+    },
+    "bffPort": {
+      "type": "number",
+      "description": "Port the BFF serves on. The surface proxies /trpc and /api to it.",
+      "default": 3001
+    },
+    "webPort": {
+      "type": "number",
+      "description": "Port the surface dev server and preview server listen on.",
+      "default": 5173
+    },
+    "skipFormat": {
+      "type": "boolean",
+      "description": "Skip running prettier over the generated files.",
+      "default": false
+    },
+    "skipPackageJson": {
+      "type": "boolean",
+      "description": "Skip the package install that links the new workspace packages.",
+      "default": false
+    },
+    "skipCi": {
+      "type": "boolean",
+      "description": "Do not write .gitlab/ci/contexts/<name>.yml or register it in .gitlab-ci.yml.",
+      "default": false
+    }
+  },
+  "required": ["name"]
+}

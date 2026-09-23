@@ -1,0 +1,101 @@
+import { trpcServer } from '@hono/trpc-server';
+import { initTRPC } from '@trpc/server';
+import { Hono } from 'hono';
+import { describe, expect, it } from 'vitest';
+import { AUTH_COOKIE_KEY, cookieJar, setCookie } from './cookies.js';
+
+const THIRTY_DAYS_IN_SECONDS = 30 * 24 * 60 * 60;
+const DEPS = { maxCookieSize: 4000, isProduction: false };
+
+async function setCookieHeader(
+  value: string,
+  deps: { maxCookieSize: number; isProduction: boolean },
+) {
+  const app = new Hono();
+  app.use('*', cookieJar());
+  app.get('/', (c) => {
+    setCookie(c, deps, AUTH_COOKIE_KEY, value);
+    return c.text('ok');
+  });
+
+  const response = await app.request('/');
+  return response.headers.get('set-cookie');
+}
+
+describe('setCookie', () => {
+  it('sets an httpOnly lax cookie that lives 30 days', async () => {
+    const header = await setCookieHeader('token', DEPS);
+
+    expect(header).toContain(`${AUTH_COOKIE_KEY}=token`);
+    expect(header).toContain('HttpOnly');
+    expect(header).toContain('SameSite=Lax');
+    expect(header).toContain('Path=/');
+    expect(header).toContain(`Max-Age=${THIRTY_DAYS_IN_SECONDS}`);
+  });
+
+  it('omits Secure outside production and sets it in production', async () => {
+    await expect(
+      setCookieHeader('token', { maxCookieSize: 4000, isProduction: false }),
+    ).resolves.not.toContain('Secure');
+
+    await expect(
+      setCookieHeader('token', { maxCookieSize: 4000, isProduction: true }),
+    ).resolves.toContain('Secure');
+  });
+
+  it('sets no cookie at all once the value reaches the size cap', async () => {
+    const header = await setCookieHeader('x'.repeat(4000), DEPS);
+
+    expect(header).toBeNull();
+  });
+
+  it('survives the response tRPC builds, not just a plain Hono handler', async () => {
+    const t = initTRPC.context<{ honoContext: never }>().create();
+    const router = t.router({
+      signin: t.procedure.mutation(({ ctx }) => {
+        setCookie(
+          ctx.honoContext,
+          DEPS,
+          AUTH_COOKIE_KEY,
+          'token-from-a-procedure',
+        );
+        return { ok: true };
+      }),
+    });
+
+    const app = new Hono();
+    app.use('*', cookieJar());
+    app.use(
+      '/trpc/*',
+      trpcServer({
+        router,
+        createContext: (_opts, c) => ({ honoContext: c }),
+      }),
+    );
+
+    const response = await app.request('/trpc/signin', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({}),
+    });
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get('set-cookie')).toContain(
+      `${AUTH_COOKIE_KEY}=token-from-a-procedure`,
+    );
+    expect(await response.json()).toMatchObject({
+      result: { data: { ok: true } },
+    });
+  });
+
+  it('fails loudly when the cookieJar middleware is missing', async () => {
+    const app = new Hono();
+    app.get('/', (c) => {
+      setCookie(c, DEPS, AUTH_COOKIE_KEY, 'token');
+      return c.text('ok');
+    });
+
+    const response = await app.request('/');
+    expect(response.status).toBe(500);
+  });
+});

@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+@import '@jarvis/ui/globals.css';
+
+:root {
+  --radius: 6px;
+
+  --background: #f8f8f8;
+  --foreground: rgba(0, 0, 0, 0.88);
+  --card: #ffffff;
+  --card-foreground: rgba(0, 0, 0, 0.88);
+  --popover: #ffffff;
+  --popover-foreground: rgba(0, 0, 0, 0.88);
+  --primary: #1677ff;
+  --primary-foreground: #ffffff;
+  --secondary: rgba(0, 0, 0, 0.02);
+  --secondary-foreground: rgba(0, 0, 0, 0.88);
+  --muted: rgba(0, 0, 0, 0.02);
+  --muted-foreground: rgba(0, 0, 0, 0.45);
+  --accent: rgba(0, 0, 0, 0.02);
+  --accent-foreground: rgba(0, 0, 0, 0.88);
+  --border: #d9d9d9;
+  --input: #d9d9d9;
+  --ring: #1677ff;
+}
+
+@theme {
+  --font-sans:
+    'Heebo', ui-sans-serif, system-ui, 'Segoe UI', Arial, 'Noto Sans Hebrew',
+    sans-serif;
+
+  /* Design values with no shadcn counterpart. */
+  --color-line-subtle: #f0f0f0;
+  --color-selected: rgba(0, 0, 0, 0.06);
+  --color-placeholder: rgba(0, 0, 0, 0.25);
+  --color-detail-value: rgba(0, 0, 0, 0.78);
+  --color-brand: #7748c2;
+  --color-brand-strong: #531dab;
+  --color-success: #52c41a;
+  --color-success-bg: #f6ffed;
+  --color-success-border: #b7eb8f;
+
+  /* Heebo ramp — Tailwind's defaults carry different line heights than the design. */
+  --text-xs: 12px;
+  --text-xs--line-height: 20px;
+  --text-sm: 14px;
+  --text-sm--line-height: 22px;
+  --text-base: 16px;
+  --text-base--line-height: 24px;
+  --text-xl: 20px;
+  --text-xl--line-height: 28px;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+}

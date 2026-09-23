@@ -1,0 +1,16 @@
+import { serve } from '@hono/node-server';
+import app from './main.js';
+
+const port = Number(process.env.PORT ?? 8080);
+
+const server = serve({ fetch: app.fetch, port }, (info) => {
+  console.log(`[model-catalog-bff] listening on port ${info.port}`);
+});
+
+function gracefulShutdown(): void {
+  server.close(() => process.exit(0));
+  setTimeout(() => process.exit(1), 10_000).unref();
+}
+
+process.on('SIGINT', gracefulShutdown);
+process.on('SIGTERM', gracefulShutdown);

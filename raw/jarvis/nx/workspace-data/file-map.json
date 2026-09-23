@@ -1,0 +1,1937 @@
+{
+  "version": "6.0",
+  "nxVersion": "23.1.1",
+  "pathMappings": {},
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/js/typescript",
+      "options": {
+        "typecheck": {
+          "targetName": "typecheck"
+        },
+        "build": {
+          "targetName": "build",
+          "configName": "tsconfig.lib.json",
+          "buildDepsName": "build-deps",
+          "watchDepsName": "watch-deps"
+        }
+      }
+    },
+    {
+      "name": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "devTargetName": "dev",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static",
+        "typecheckTargetName": "typecheck",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    },
+    {
+      "name": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint",
+        "extensions": [
+          "ts",
+          "cts",
+          "mts",
+          "tsx",
+          "js",
+          "cjs",
+          "mjs",
+          "jsx",
+          "html",
+          "vue",
+          "md"
+        ]
+      }
+    },
+    {
+      "name": "@nx/docker",
+      "version": "23.1.1",
+      "options": {
+        "buildTarget": {
+          "name": "docker:build",
+          "cwd": ".",
+          "args": [
+            "--file {projectRoot}/Dockerfile",
+            "--build-arg PROJECT={projectName}",
+            "--build-arg PROJECT_PATH={projectRoot}"
+          ]
+        },
+        "runTarget": {
+          "name": "docker:run",
+          "args": [
+            "--rm",
+            "-p 8080:8080"
+          ]
+        }
+      }
+    }
+  ],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": "tools/eslint/anti-slop/rules/no-unknown-parameters.ts",
+        "hash": "12541989693991497529"
+      },
+      {
+        "file": "CONTEXT-MAP.md",
+        "hash": "6128964953450595633"
+      },
+      {
+        "file": "tools/eslint/anti-slop/rules/no-chained-type-assertions.ts",
+        "hash": "937644832798459522"
+      },
+      {
+        "file": "tools/eslint/docs/rules/no-missing-link.mjs",
+        "hash": "15993906959839448999"
+      },
+      {
+        "file": "tools/eslint/anti-slop/rules/require-safety-comment-for-type-assertion.ts",
+        "hash": "13499021274496134048"
+      },
+      {
+        "file": "tools/eslint/docs/index.mjs",
+        "hash": "10960422618410255381"
+      },
+      {
+        "file": ".agents/skills/nx-plugins/SKILL.md",
+        "hash": "17761452540263218782"
+      },
+      {
+        "file": "docs/agents/triage-labels.md",
+        "hash": "10731568771615722560"
+      },
+      {
+        "file": "tsconfig.md",
+        "hash": "4968493920961838296"
+      },
+      {
+        "file": ".claude/skills/neon",
+        "hash": "1065172521125266470"
+      },
+      {
+        "file": ".agents/skills/link-workspace-packages/SKILL.md",
+        "hash": "15436383388001770446"
+      },
+      {
+        "file": ".gitlab-ci.yml",
+        "hash": "357966298736389818"
+      },
+      {
+        "file": "charts/app/templates/_helpers.tpl",
+        "hash": "10650043859543745258"
+      },
+      {
+        "file": "charts/app/templates/secret.yaml",
+        "hash": "434893321222837685"
+      },
+      {
+        "file": "charts/app/templates/service.yaml",
+        "hash": "14564196143728599467"
+      },
+      {
+        "file": "docs/agents/issue-tracker.md",
+        "hash": "16997754082481453634"
+      },
+      {
+        "file": "nx.json",
+        "hash": "9466029368113050939"
+      },
+      {
+        "file": "tools/eslint/anti-slop/rules/no-unknown-type-aliases.ts",
+        "hash": "14908726017016551834"
+      },
+      {
+        "file": ".agents/skills/nx-import/references/GRADLE.md",
+        "hash": "3571850575232446918"
+      },
+      {
+        "file": "tools/eslint/anti-slop/shared/dictionary-types.ts",
+        "hash": "17022830147245974091"
+      },
+      {
+        "file": ".agents/skills/monitor-ci/SKILL.md",
+        "hash": "3864522841306718739"
+      },
+      {
+        "file": ".claude/skills/ship/SKILL.md",
+        "hash": "17939794738591446540"
+      },
+      {
+        "file": ".claude/settings.json",
+        "hash": "13892950713095353210"
+      },
+      {
+        "file": ".gitlab/ci/build.yml",
+        "hash": "1303819112175537301"
+      },
+      {
+        "file": "docs/agents/domain.md",
+        "hash": "16302194059913097124"
+      },
+      {
+        "file": ".gitlab/ci/deploy.yml",
+        "hash": "4475225413371206307"
+      },
+      {
+        "file": "charts/app/.helmignore",
+        "hash": "12849479333557592143"
+      },
+      {
+        "file": "charts/app/templates/configmap.yaml",
+        "hash": "17729133109391507505"
+      },
+      {
+        "file": ".agents/skills/nx-import/SKILL.md",
+        "hash": "5320545115991037698"
+      },
+      {
+        "file": "tools/eslint/anti-slop/shared/lexical-type-parameters.ts",
+        "hash": "14901580393950242248"
+      },
+      {
+        "file": ".agents/skills/monitor-ci/scripts/ci-state-update.mjs",
+        "hash": "5814991426194597101"
+      },
+      {
+        "file": ".agents/skills/nx-generate/SKILL.md",
+        "hash": "17577193014563127179"
+      },
+      {
+        "file": ".agents/skills/nx-import/references/ESLINT.md",
+        "hash": "8880796115830228420"
+      },
+      {
+        "file": ".agents/skills/nx-import/references/TURBOREPO.md",
+        "hash": "16683618674426785182"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "13106511912566609422"
+      },
+      {
+        "file": ".github/workflows/ci.yml",
+        "hash": "16884704139618207601"
+      },
+      {
+        "file": ".claude/to-prd/SKILL.md",
+        "hash": "17453913872789822170"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "3570210845865730293"
+      },
+      {
+        "file": ".agents/skills/neon/SKILL.md",
+        "hash": "18187583427737891570"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "13371107566218947292"
+      },
+      {
+        "file": "package.json",
+        "hash": "3884608192691977393"
+      },
+      {
+        "file": ".agents/skills/nx-workspace/references/AFFECTED.md",
+        "hash": "5689225252238354455"
+      },
+      {
+        "file": "skills-lock.json",
+        "hash": "103271220668644844"
+      },
+      {
+        "file": "tools/eslint/anti-slop/rules/no-shape-in-symbol-names.ts",
+        "hash": "5921898239138586086"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "18016835924024660325"
+      },
+      {
+        "file": "charts/app/templates/NOTES.txt",
+        "hash": "9151344227858839146"
+      },
+      {
+        "file": ".dockerignore",
+        "hash": "13893869601921677403"
+      },
+      {
+        "file": ".agents/skills/monitor-ci/scripts/ci-poll-decide.mjs",
+        "hash": "1066301933434915408"
+      },
+      {
+        "file": "tools/eslint/anti-slop/rules/no-conditional-empty-object-spread.ts",
+        "hash": "14864101310156572400"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "8278062881291693168"
+      },
+      {
+        "file": ".agents/skills/nx-import/references/NEXT.md",
+        "hash": "10590097548337933652"
+      },
+      {
+        "file": ".agents/skills/monitor-ci/references/fix-flows.md",
+        "hash": "10043923144049437139"
+      },
+      {
+        "file": ".agents/skills/nx-import/references/VITE.md",
+        "hash": "18159188461087437582"
+      },
+      {
+        "file": ".gitlab/ci/verify.yml",
+        "hash": "15513531219639471053"
+      },
+      {
+        "file": "CLAUDE.md",
+        "hash": "3447898114335691857"
+      },
+      {
+        "file": "apps/model-catalog/docs/CONTEXT.md",
+        "hash": "3784169913683877897"
+      },
+      {
+        "file": "tools/eslint/anti-slop/shared/function-parameters.ts",
+        "hash": "322061418960805829"
+      },
+      {
+        "file": ".agents/skills/nx-workspace/SKILL.md",
+        "hash": "12877893594506374684"
+      },
+      {
+        "file": "docker-compose.yml",
+        "hash": "7307266210255438459"
+      },
+      {
+        "file": ".claude/grill-prd/SKILL.md",
+        "hash": "3364923510144671220"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "3044464719854396884"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "17406833437266424730"
+      },
+      {
+        "file": "AGENTS.md",
+        "hash": "3745967997098992119"
+      },
+      {
+        "file": "opencode.json",
+        "hash": "8366098242203802032"
+      },
+      {
+        "file": ".agents/skills/neon-postgres/SKILL.md",
+        "hash": "13707575901170545932"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "6820402234827505055"
+      },
+      {
+        "file": "charts/app/templates/deployment.yaml",
+        "hash": "15110446086800511373"
+      },
+      {
+        "file": "charts/app/values.yaml",
+        "hash": "16201704600261308323"
+      },
+      {
+        "file": "tools/eslint/anti-slop/index.ts",
+        "hash": "11112428098196648478"
+      },
+      {
+        "file": "tools/eslint/anti-slop/rules/no-object-parameters.ts",
+        "hash": "3646475449963714697"
+      },
+      {
+        "file": "tools/eslint/anti-slop/rules/no-unknown-returns.ts",
+        "hash": "1217667756831197707"
+      },
+      {
+        "file": "tools/eslint/anti-slop/rules/no-unsafe-dictionary-type.ts",
+        "hash": "11244807636378452057"
+      },
+      {
+        "file": ".claude/to-prd/agents/openai.yaml",
+        "hash": "14933135983785823279"
+      },
+      {
+        "file": "nx.md",
+        "hash": "6617478803377661573"
+      },
+      {
+        "file": ".agents/skills/neon/references/claimable-neon.md",
+        "hash": "15439842738117933684"
+      },
+      {
+        "file": ".agents/skills/nx-import/references/JEST.md",
+        "hash": "17388362190464741914"
+      },
+      {
+        "file": ".agents/skills/nx-run-tasks/SKILL.md",
+        "hash": "6310165843200780094"
+      },
+      {
+        "file": "charts/app/templates/hpa.yaml",
+        "hash": "8384484494052422435"
+      },
+      {
+        "file": "tools/eslint/anti-slop/rules/no-module-mocking.ts",
+        "hash": "125165052824279688"
+      },
+      {
+        "file": "tools/eslint/anti-slop/rules/no-runtime-typeof.ts",
+        "hash": "12805162889033123597"
+      },
+      {
+        "file": "tools/eslint/anti-slop/rules/no-known-value-widening.ts",
+        "hash": "8896794763869783172"
+      },
+      {
+        "file": "tools/eslint/docs/rules/context-map-complete.mjs",
+        "hash": "4678149838283949133"
+      },
+      {
+        "file": ".claude/skills/neon-postgres",
+        "hash": "16127405600099441578"
+      },
+      {
+        "file": "charts/app/Chart.yaml",
+        "hash": "9812911012403750072"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "347318939084937463"
+      },
+      {
+        "file": "tools/eslint/anti-slop/rules/no-widen-then-assert.ts",
+        "hash": "10399904113671853494"
+      },
+      {
+        "file": "tools/eslint/anti-slop/shared/type-alias-resolution.ts",
+        "hash": "12176738855844048264"
+      },
+      {
+        "file": ".gitlab/ci/contexts/model-catalog.yml",
+        "hash": "10426262020366392543"
+      }
+    ],
+    "projectFileMap": {
+      "@jarvis/model-catalog-web": [
+        {
+          "file": "apps/model-catalog/web/Dockerfile",
+          "hash": "9884316856918554785"
+        },
+        {
+          "file": "apps/model-catalog/web/index.html",
+          "hash": "509322594436260064"
+        },
+        {
+          "file": "apps/model-catalog/web/package.json",
+          "hash": "1631713413374208021",
+          "deps": [
+            "npm:@hono/node-server",
+            "npm:@tailwindcss/vite",
+            "npm:@tanstack/router-plugin",
+            "npm:hono",
+            "npm:tailwindcss",
+            "@jarvis/logging",
+            "@jarvis/model-catalog-bff",
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui",
+            "npm:@tanstack/react-form",
+            "npm:@tanstack/react-query",
+            "npm:@tanstack/react-router",
+            "npm:@tanstack/react-router-devtools",
+            "npm:@tanstack/react-virtual",
+            "npm:@trpc/client",
+            "npm:@trpc/server",
+            "npm:@trpc/tanstack-react-query",
+            "npm:lucide-react",
+            "npm:radix-ui",
+            "npm:react",
+            "npm:react-dom",
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/project.json",
+          "hash": "3296333367750367872"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/chevron-down-link.svg",
+          "hash": "4053967817354053076"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/chevron-down.svg",
+          "hash": "7666184938545446172"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/chevron-right.svg",
+          "hash": "17577798708861373547"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/chevron-up.svg",
+          "hash": "6406620133829601722"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/clock.svg",
+          "hash": "14386143356737093063"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/close.svg",
+          "hash": "2187792054500348582"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/dots-vertical.svg",
+          "hash": "4762610277407137483"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/info-circle.svg",
+          "hash": "7940003094992108394"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/lock.svg",
+          "hash": "16356953566606838112"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/mail.svg",
+          "hash": "17562064011603131890"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/message-report.svg",
+          "hash": "9044751560297789590"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/object-thumb.png",
+          "hash": "17432726710644088272"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/photo.svg",
+          "hash": "959799986690517815"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/plus-dark.svg",
+          "hash": "3501362957447346956"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/plus.svg",
+          "hash": "11650639749817539134"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/question-mark.svg",
+          "hash": "305207943540651091"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/search.svg",
+          "hash": "13531117135365112774"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/tag-check.svg",
+          "hash": "13174649185661914010"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/user.svg",
+          "hash": "17009847736043573736"
+        },
+        {
+          "file": "apps/model-catalog/web/src/assets/wand.svg",
+          "hash": "2542346687518665215"
+        },
+        {
+          "file": "apps/model-catalog/web/src/catalog/use-catalog-data.ts",
+          "hash": "13785193313670221063",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:@tanstack/react-query",
+            "npm:@tanstack/react-router"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/catalog/use-catalog-sync.ts",
+          "hash": "4759376164045039792",
+          "deps": [
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/catalog/use-sorted-geographies.ts",
+          "hash": "361290322162691086",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/app-header.tsx",
+          "hash": "4909478353685398951",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui",
+            "npm:@tanstack/react-router"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/bilingual-name.tsx",
+          "hash": "16935248098186808523"
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/category-panel.tsx",
+          "hash": "12241668948462701173",
+          "deps": [
+            "@jarvis/ui",
+            "npm:react",
+            "@jarvis/model-catalog-contract"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/create-object-modal.tsx",
+          "hash": "8271126977282306215",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui",
+            "npm:@tanstack/react-form",
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/geography-filter.tsx",
+          "hash": "3952326278401164911",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/icon.tsx",
+          "hash": "10915434142521933322",
+          "deps": [
+            "@jarvis/ui"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-card/model/model-card-edit.tsx",
+          "hash": "1492179912639240890",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui",
+            "npm:@tanstack/react-form",
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-card/model/model-card-view.tsx",
+          "hash": "15671082112303197695",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-card/model/model-card.tsx",
+          "hash": "4571626054915315199",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-card/model/model-edit-row.tsx",
+          "hash": "3196146373521234220",
+          "deps": [
+            "@jarvis/ui",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-card/model/use-model-detail-specs.ts",
+          "hash": "4921372568702157089",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-card/shared/model-card-parts.tsx",
+          "hash": "7466137482284587695",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui",
+            "npm:lucide-react",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-card/shared/status-badge.tsx",
+          "hash": "14101456323945149971",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-card/training/cancel-training-action.tsx",
+          "hash": "12482548780497463662",
+          "deps": [
+            "@jarvis/ui",
+            "npm:@tanstack/react-query",
+            "npm:react",
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-card/training/retry-training-action.tsx",
+          "hash": "1012248991679297455",
+          "deps": [
+            "npm:@tanstack/react-query",
+            "npm:lucide-react",
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-card/training/training-model-card.tsx",
+          "hash": "3487032623854797987",
+          "deps": [
+            "@jarvis/model-catalog-contract"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-card/training/training-models-context.tsx",
+          "hash": "3750476246878068252",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-form/clone-model-modal.tsx",
+          "hash": "7376021334874575614",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-form/create-model-modal.tsx",
+          "hash": "9497188868681275011",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:@tanstack/react-query",
+            "npm:react",
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-form/model-form-context.ts",
+          "hash": "3501044830707480151",
+          "deps": [
+            "npm:@tanstack/react-form"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-form/model-form-dialog.tsx",
+          "hash": "13654140635766701022",
+          "deps": [
+            "@jarvis/ui",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-form/model-form-parts.tsx",
+          "hash": "6408663960216273159",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui",
+            "npm:@tanstack/react-form",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-form/tagging-classes-multi-select.tsx",
+          "hash": "5260832716051431686",
+          "deps": [
+            "@jarvis/ui",
+            "npm:@tanstack/react-virtual",
+            "npm:lucide-react",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-form/use-model-form.ts",
+          "hash": "17911068511364240780",
+          "deps": [
+            "npm:@tanstack/react-form"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/model-panel.tsx",
+          "hash": "15360083923714823262",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui",
+            "npm:@tanstack/react-router"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/object-list/index.tsx",
+          "hash": "5591280741338014953",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/object-list/object-card.tsx",
+          "hash": "152792969088685074",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui",
+            "npm:@tanstack/react-router"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/object-list/object-list-parts.tsx",
+          "hash": "688004935415542227",
+          "deps": [
+            "@jarvis/ui",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/object-list/object-thumbnail.tsx",
+          "hash": "17067392845885885072",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/components/permissions-panel.tsx",
+          "hash": "10475033398843340988",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui",
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/contexts/auth-context.tsx",
+          "hash": "17154692458532789387",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/contexts/config-context.tsx",
+          "hash": "2794009070155906932",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/data/catalog.ts",
+          "hash": "5538901978621650769",
+          "deps": [
+            "@jarvis/model-catalog-contract"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/logging/log.ts",
+          "hash": "12145287296195286255",
+          "deps": [
+            "@jarvis/logging",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/main.tsx",
+          "hash": "9558952220339361236",
+          "deps": [
+            "@jarvis/model-catalog-bff",
+            "@jarvis/ui",
+            "npm:@tanstack/react-query",
+            "npm:@tanstack/react-router",
+            "npm:@trpc/tanstack-react-query",
+            "npm:react",
+            "npm:react-dom"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/routeTree.gen.ts",
+          "hash": "11079481458061952855"
+        },
+        {
+          "file": "apps/model-catalog/web/src/router-context.ts",
+          "hash": "8154640880333334146",
+          "deps": [
+            "@jarvis/model-catalog-bff",
+            "npm:@tanstack/react-query",
+            "npm:@trpc/tanstack-react-query"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/routes/__root.tsx",
+          "hash": "3243081801452724307",
+          "deps": [
+            "@jarvis/ui",
+            "npm:@tanstack/react-router",
+            "npm:@tanstack/react-router-devtools",
+            "npm:radix-ui"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/routes/catalog/index.tsx",
+          "hash": "15699604142981503123",
+          "deps": [
+            "npm:@tanstack/react-router"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/routes/catalog/objects.$objectId/index.tsx",
+          "hash": "15354170613820783277",
+          "deps": [
+            "npm:@tanstack/react-router"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/routes/catalog/objects.$objectId/models.$modelName.edit.tsx",
+          "hash": "1828009812671366514",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:@tanstack/react-router"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/routes/catalog/objects.$objectId/models.new.tsx",
+          "hash": "14477390337344895007",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:@tanstack/react-query",
+            "npm:@tanstack/react-router"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/routes/catalog/objects.$objectId/route.tsx",
+          "hash": "8047391304388424280",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui",
+            "npm:@tanstack/react-query",
+            "npm:@tanstack/react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/routes/catalog/route.tsx",
+          "hash": "6438025720432990042",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui",
+            "npm:@tanstack/react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/routes/index.tsx",
+          "hash": "13992924955071328561",
+          "deps": [
+            "npm:@tanstack/react-router"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/routes/permissions.tsx",
+          "hash": "14196533777313675040",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "@jarvis/ui",
+            "npm:@tanstack/react-router"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/server.ts",
+          "hash": "9787629290126500738",
+          "deps": [
+            "npm:@hono/node-server",
+            "npm:hono"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/styles.css",
+          "hash": "13562637846209969724"
+        },
+        {
+          "file": "apps/model-catalog/web/src/trpc.ts",
+          "hash": "12252379942748340435",
+          "deps": [
+            "@jarvis/logging",
+            "@jarvis/model-catalog-bff",
+            "npm:@trpc/client",
+            "npm:@trpc/tanstack-react-query"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/utils/adfs.ts",
+          "hash": "9937352790531012497",
+          "deps": [
+            "@jarvis/model-catalog-contract"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/src/utils/form-errors.ts",
+          "hash": "4944584738058494109"
+        },
+        {
+          "file": "apps/model-catalog/web/src/utils/roles.ts",
+          "hash": "1652858627293002164",
+          "deps": [
+            "@jarvis/model-catalog-contract"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/web/tsconfig.app.json",
+          "hash": "11244376799243381710"
+        },
+        {
+          "file": "apps/model-catalog/web/tsconfig.json",
+          "hash": "12715789753485625528"
+        },
+        {
+          "file": "apps/model-catalog/web/vite.config.mts",
+          "hash": "16508738260764488924",
+          "deps": [
+            "npm:@tanstack/router-plugin",
+            "npm:@tailwindcss/vite",
+            "npm:@vitejs/plugin-react",
+            "npm:vite"
+          ]
+        }
+      ],
+      "@jarvis/model-catalog-contract": [
+        {
+          "file": "apps/model-catalog/contract/package.json",
+          "hash": "9296070349918563922",
+          "deps": [
+            "@jarvis/db",
+            "npm:drizzle-zod",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/contract/src/index.ts",
+          "hash": "6938650084096351892",
+          "deps": [
+            "@jarvis/db",
+            "npm:drizzle-zod",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/contract/tsconfig.json",
+          "hash": "7220533857271360532"
+        },
+        {
+          "file": "apps/model-catalog/contract/tsconfig.lib.json",
+          "hash": "1078860716743155950"
+        }
+      ],
+      "@jarvis/logging": [
+        {
+          "file": "libs/logging/package.json",
+          "hash": "1158932078737936012",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "libs/logging/src/console-logger.ts",
+          "hash": "11188859657965366949"
+        },
+        {
+          "file": "libs/logging/src/error.utils.ts",
+          "hash": "11821966553532541206"
+        },
+        {
+          "file": "libs/logging/src/index.ts",
+          "hash": "5131482619309024438",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "libs/logging/tsconfig.json",
+          "hash": "8773935681192489593"
+        },
+        {
+          "file": "libs/logging/tsconfig.lib.json",
+          "hash": "5422423666778362257"
+        }
+      ],
+      "@jarvis/nx-plugin": [
+        {
+          "file": "tools/nx-plugin/generators.json",
+          "hash": "52146342021073889"
+        },
+        {
+          "file": "tools/nx-plugin/package.json",
+          "hash": "1855896800419310806",
+          "deps": [
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/assets/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/Dockerfile__tmpl__",
+          "hash": "9884316856918554785"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/__dot__env.example__tmpl__",
+          "hash": "3593488267008071188"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/package.json__tmpl__",
+          "hash": "15996685201029863373"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/project.json__tmpl__",
+          "hash": "8069091102223145020"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/auth/auth.router.ts__tmpl__",
+          "hash": "17276159688980677156"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/auth/auth.service.spec.ts__tmpl__",
+          "hash": "3876772574589748615"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/auth/auth.service.ts__tmpl__",
+          "hash": "13635880455898967633"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/container.ts__tmpl__",
+          "hash": "16201559905392709466"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/context.ts__tmpl__",
+          "hash": "603282675836267135"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/logging/logger.router.ts__tmpl__",
+          "hash": "13816253155201962770"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/main.ts__tmpl__",
+          "hash": "250433542365006803"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/router.ts__tmpl__",
+          "hash": "1836527390515044295"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/server-env.ts__tmpl__",
+          "hash": "14643667535269710278"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/server.ts__tmpl__",
+          "hash": "2059692057860534412"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/trpc.ts__tmpl__",
+          "hash": "7047716880798419639"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/users/users.service.spec.ts__tmpl__",
+          "hash": "16937651129371538498"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/users/users.service.ts__tmpl__",
+          "hash": "17254779638771884829"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/utils/cookies.spec.ts__tmpl__",
+          "hash": "12166745355533186256"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/utils/cookies.ts__tmpl__",
+          "hash": "961521008936536167"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/utils/jwt.ts__tmpl__",
+          "hash": "3340783334000843565"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/web-config/web-config.router.ts__tmpl__",
+          "hash": "15141053550607746945"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/src/web-env.ts__tmpl__",
+          "hash": "7400950514021272943"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/tsconfig.app.json__tmpl__",
+          "hash": "6103691323678928854"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/tsconfig.json__tmpl__",
+          "hash": "8114925153241299019"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/vite.config.mts__tmpl__",
+          "hash": "18351922201449495052"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/bff/vitest.config.mts__tmpl__",
+          "hash": "7918546510588208829"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/contract/package.json__tmpl__",
+          "hash": "6902461229627386073"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/contract/src/index.ts__tmpl__",
+          "hash": "3475487275312284335"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/contract/tsconfig.json__tmpl__",
+          "hash": "12746029823747825758"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/contract/tsconfig.lib.json__tmpl__",
+          "hash": "4878978579785781357"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/Dockerfile__tmpl__",
+          "hash": "9884316856918554785"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/index.html__tmpl__",
+          "hash": "8445695431141019824"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/package.json__tmpl__",
+          "hash": "14428099605519557547"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/project.json__tmpl__",
+          "hash": "7566524986172491808"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/src/contexts/auth-context.tsx__tmpl__",
+          "hash": "10355154686365079967"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/src/contexts/config-context.tsx__tmpl__",
+          "hash": "9562143320826957524"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/src/logging/log.ts__tmpl__",
+          "hash": "12319859905776346531"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/src/main.tsx__tmpl__",
+          "hash": "8650132328702831626"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/src/routeTree.gen.ts__tmpl__",
+          "hash": "16266459816735337280"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/src/router-context.ts__tmpl__",
+          "hash": "16925931261149612332"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/src/routes/__root.tsx__tmpl__",
+          "hash": "4214623303223361666"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/src/routes/index.tsx__tmpl__",
+          "hash": "14129787365727216537"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/src/server.ts__tmpl__",
+          "hash": "4292225071976623159"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/src/styles.css__tmpl__",
+          "hash": "10505148920323239314"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/src/trpc.ts__tmpl__",
+          "hash": "16430356760597495196"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/src/utils/adfs.ts__tmpl__",
+          "hash": "604785578601645580"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/tsconfig.app.json__tmpl__",
+          "hash": "11447543014672311832"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/tsconfig.json__tmpl__",
+          "hash": "8114925153241299019"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/files/web/vite.config.mts__tmpl__",
+          "hash": "8756305538064220321"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/generator.ts",
+          "hash": "17825358373642987620",
+          "deps": [
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/schema.d.ts",
+          "hash": "1115467741968526244"
+        },
+        {
+          "file": "tools/nx-plugin/src/generators/context/schema.json",
+          "hash": "9635660325186196573"
+        },
+        {
+          "file": "tools/nx-plugin/src/utils/context-ci.ts",
+          "hash": "18139895095025612532",
+          "deps": [
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "tools/nx-plugin/src/utils/logging-projects.ts",
+          "hash": "17463226456150092888",
+          "deps": [
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "tools/nx-plugin/src/utils/options.ts",
+          "hash": "14370217561699035764",
+          "deps": [
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "tools/nx-plugin/src/utils/root-tsconfig.ts",
+          "hash": "16356612595358914089",
+          "deps": [
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "tools/nx-plugin/tsconfig.json",
+          "hash": "12404643022427297591"
+        }
+      ],
+      "@jarvis/db": [
+        {
+          "file": "libs/db/drizzle.config.ts",
+          "hash": "15859268510892867087",
+          "deps": [
+            "npm:dotenv@17.4.2",
+            "npm:drizzle-kit"
+          ]
+        },
+        {
+          "file": "libs/db/migrations/0000_high_mattie_franklin.sql",
+          "hash": "11830018999434094172"
+        },
+        {
+          "file": "libs/db/migrations/0001_rapid_shinobi_shaw.sql",
+          "hash": "12221172872937239043"
+        },
+        {
+          "file": "libs/db/migrations/0002_object_file_url_nullable.sql",
+          "hash": "12571745967174597873"
+        },
+        {
+          "file": "libs/db/migrations/0003_sour_black_tom.sql",
+          "hash": "16322306560500189066"
+        },
+        {
+          "file": "libs/db/migrations/0004_uppercase_operational_status.sql",
+          "hash": "8173613533721105588"
+        },
+        {
+          "file": "libs/db/migrations/meta/0000_snapshot.json",
+          "hash": "2859920882342371024"
+        },
+        {
+          "file": "libs/db/migrations/meta/0001_snapshot.json",
+          "hash": "12639086020188929512"
+        },
+        {
+          "file": "libs/db/migrations/meta/0002_snapshot.json",
+          "hash": "14869301414965320332"
+        },
+        {
+          "file": "libs/db/migrations/meta/0003_snapshot.json",
+          "hash": "10881483085169116581"
+        },
+        {
+          "file": "libs/db/migrations/meta/0004_snapshot.json",
+          "hash": "7243018940713815253"
+        },
+        {
+          "file": "libs/db/migrations/meta/_journal.json",
+          "hash": "15666831680991038718"
+        },
+        {
+          "file": "libs/db/package.json",
+          "hash": "11318030763137393",
+          "deps": [
+            "npm:dotenv@17.4.2",
+            "npm:drizzle-orm",
+            "npm:postgres"
+          ]
+        },
+        {
+          "file": "libs/db/src/index.ts",
+          "hash": "7131841971437771628",
+          "deps": [
+            "npm:drizzle-orm",
+            "npm:postgres"
+          ]
+        },
+        {
+          "file": "libs/db/src/relations.ts",
+          "hash": "13757557369546436917",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "libs/db/src/schema.ts",
+          "hash": "17488395616201434612",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "libs/db/src/seed-data.ts",
+          "hash": "15281717809053616617"
+        },
+        {
+          "file": "libs/db/src/seed.ts",
+          "hash": "89700784617968009",
+          "deps": [
+            "npm:dotenv@17.4.2",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "libs/db/tsconfig.json",
+          "hash": "8773935681192489593"
+        },
+        {
+          "file": "libs/db/tsconfig.lib.json",
+          "hash": "5422423666778362257"
+        }
+      ],
+      "@jarvis/model-catalog-bff": [
+        {
+          "file": "apps/model-catalog/bff/.env.example",
+          "hash": "6023883054928801819"
+        },
+        {
+          "file": "apps/model-catalog/bff/Dockerfile",
+          "hash": "9884316856918554785"
+        },
+        {
+          "file": "apps/model-catalog/bff/package.json",
+          "hash": "10615185503953211668",
+          "deps": [
+            "npm:@hono/vite-dev-server",
+            "npm:@types/jsonwebtoken",
+            "npm:@hono/node-server",
+            "npm:@hono/trpc-server",
+            "@jarvis/db",
+            "@jarvis/logging",
+            "@jarvis/model-catalog-contract",
+            "npm:@trpc/server",
+            "npm:awilix",
+            "npm:axios",
+            "npm:dotenv@17.4.2",
+            "npm:drizzle-orm",
+            "npm:hono",
+            "npm:jsonwebtoken",
+            "npm:tslib",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/project.json",
+          "hash": "14028281911574640881"
+        },
+        {
+          "file": "apps/model-catalog/bff/src/auth/auth.router.ts",
+          "hash": "1829188108037540023",
+          "deps": [
+            "@jarvis/model-catalog-contract"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/auth/auth.service.ts",
+          "hash": "10855386633751503276",
+          "deps": [
+            "@jarvis/db",
+            "npm:@trpc/server",
+            "npm:hono",
+            "@jarvis/logging",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/catalog/catalog-visibility.ts",
+          "hash": "6528641384012179586",
+          "deps": [
+            "@jarvis/db",
+            "@jarvis/model-catalog-contract",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/catalog/catalog.router.ts",
+          "hash": "11567539660372890872",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:@trpc/server",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/catalog/catalog.service.ts",
+          "hash": "9740029202101722388",
+          "deps": [
+            "@jarvis/db",
+            "@jarvis/model-catalog-contract",
+            "npm:@trpc/server",
+            "npm:drizzle-orm",
+            "@jarvis/logging"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/catalog/catalog.utils.ts",
+          "hash": "3958711464444364248",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/container.ts",
+          "hash": "11101718178088532942",
+          "deps": [
+            "@jarvis/db",
+            "npm:awilix",
+            "@jarvis/logging"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/context.ts",
+          "hash": "603282675836267135",
+          "deps": [
+            "@jarvis/logging",
+            "npm:@trpc/server",
+            "npm:awilix",
+            "npm:hono"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/logging/logger.router.ts",
+          "hash": "14262004427934428532",
+          "deps": [
+            "@jarvis/logging",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/main.ts",
+          "hash": "10817181242320266166",
+          "deps": [
+            "npm:@hono/trpc-server",
+            "npm:drizzle-orm",
+            "npm:hono"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/permissions/permissions.router.ts",
+          "hash": "15876715461806222648",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/permissions/permissions.service.ts",
+          "hash": "3119586001198977770",
+          "deps": [
+            "@jarvis/db",
+            "@jarvis/model-catalog-contract",
+            "npm:@trpc/server",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/picasso/picasso.service.ts",
+          "hash": "11250584825198097826",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:axios",
+            "npm:@trpc/server",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/roberto/roberto.service.ts",
+          "hash": "2550563939715716072",
+          "deps": [
+            "npm:axios",
+            "npm:@trpc/server",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/router.ts",
+          "hash": "852533646518658792"
+        },
+        {
+          "file": "apps/model-catalog/bff/src/server-env.ts",
+          "hash": "6795928273812494604",
+          "deps": [
+            "npm:dotenv@17.4.2",
+            "@jarvis/logging",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/server.ts",
+          "hash": "15114362314239702442",
+          "deps": [
+            "npm:@hono/node-server"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/task-manager/task-manager.service.ts",
+          "hash": "2443528965410133227",
+          "deps": [
+            "npm:axios",
+            "npm:@trpc/server",
+            "@jarvis/model-catalog-contract",
+            "@jarvis/logging",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/test-support.ts",
+          "hash": "8819353140211942383"
+        },
+        {
+          "file": "apps/model-catalog/bff/src/trpc.ts",
+          "hash": "3413848134330889387",
+          "deps": [
+            "@jarvis/model-catalog-contract",
+            "npm:@trpc/server"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/users/users.service.ts",
+          "hash": "17254779638771884829",
+          "deps": [
+            "@jarvis/db",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/utils/cookies.ts",
+          "hash": "961521008936536167",
+          "deps": [
+            "npm:hono"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/utils/jwt.ts",
+          "hash": "3340783334000843565",
+          "deps": [
+            "npm:jsonwebtoken"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/web-config/web-config.router.ts",
+          "hash": "3054326312419986645",
+          "deps": [
+            "@jarvis/model-catalog-contract"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/src/web-env.ts",
+          "hash": "11527939280924125615",
+          "deps": [
+            "npm:dotenv@17.4.2",
+            "@jarvis/model-catalog-contract",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/tsconfig.app.json",
+          "hash": "3066297708091725694"
+        },
+        {
+          "file": "apps/model-catalog/bff/tsconfig.json",
+          "hash": "12715789753485625528"
+        },
+        {
+          "file": "apps/model-catalog/bff/vite.config.mts",
+          "hash": "17401523967884919332",
+          "deps": [
+            "npm:@hono/vite-dev-server",
+            "npm:vite"
+          ]
+        },
+        {
+          "file": "apps/model-catalog/bff/vitest.config.mts",
+          "hash": "2839599281885472944",
+          "deps": [
+            "npm:vitest"
+          ]
+        }
+      ],
+      "@jarvis/ui": [
+        {
+          "file": "libs/ui/components.json",
+          "hash": "1765752323225658044"
+        },
+        {
+          "file": "libs/ui/package.json",
+          "hash": "14968807558199443896",
+          "deps": [
+            "npm:react",
+            "npm:class-variance-authority",
+            "npm:clsx",
+            "npm:lucide-react",
+            "npm:radix-ui",
+            "npm:sonner",
+            "npm:tailwind-merge",
+            "npm:tw-animate-css"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/error-component.tsx",
+          "hash": "7973995553451227407",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/loading-spinner.tsx",
+          "hash": "889376914261962005"
+        },
+        {
+          "file": "libs/ui/src/components/ui/badge.tsx",
+          "hash": "11215137504482838977",
+          "deps": [
+            "npm:react",
+            "npm:class-variance-authority",
+            "npm:radix-ui"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/button.tsx",
+          "hash": "17711856742604859579",
+          "deps": [
+            "npm:react",
+            "npm:class-variance-authority",
+            "npm:radix-ui"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/card.tsx",
+          "hash": "14415275534300784222",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/checkbox.tsx",
+          "hash": "10323865810216473952",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:radix-ui"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/dialog.tsx",
+          "hash": "13463273934716699667",
+          "deps": [
+            "npm:react",
+            "npm:radix-ui"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/dropdown-menu.tsx",
+          "hash": "10934219767965649477",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:radix-ui"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/input.tsx",
+          "hash": "6454869448558219658",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/label.tsx",
+          "hash": "12923619038046369025",
+          "deps": [
+            "npm:react",
+            "npm:radix-ui"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/multi-select.tsx",
+          "hash": "11726154796638331656",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/popover.tsx",
+          "hash": "17992823802270787215",
+          "deps": [
+            "npm:react",
+            "npm:radix-ui"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/scroll-area.tsx",
+          "hash": "18025142732668289744",
+          "deps": [
+            "npm:react",
+            "npm:radix-ui"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/select.tsx",
+          "hash": "11175014434230063074",
+          "deps": [
+            "npm:react",
+            "npm:radix-ui",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/separator.tsx",
+          "hash": "14792215299685334326",
+          "deps": [
+            "npm:react",
+            "npm:radix-ui"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/skeleton.tsx",
+          "hash": "18018507987376063179",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/slider.tsx",
+          "hash": "3026010763345595783",
+          "deps": [
+            "npm:react",
+            "npm:radix-ui"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/sonner.tsx",
+          "hash": "12398617770794221641",
+          "deps": [
+            "npm:react",
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/switch.tsx",
+          "hash": "5136098273988080610",
+          "deps": [
+            "npm:react",
+            "npm:radix-ui"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/tabs.tsx",
+          "hash": "17456808994393811007",
+          "deps": [
+            "npm:react",
+            "npm:class-variance-authority",
+            "npm:radix-ui"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/textarea.tsx",
+          "hash": "6949839421100173952",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/ui/src/components/ui/tooltip.tsx",
+          "hash": "9730960265928783261",
+          "deps": [
+            "npm:react",
+            "npm:radix-ui"
+          ]
+        },
+        {
+          "file": "libs/ui/src/lib/utils.ts",
+          "hash": "11932429050483444162",
+          "deps": [
+            "npm:clsx",
+            "npm:tailwind-merge"
+          ]
+        },
+        {
+          "file": "libs/ui/src/styles/globals.css",
+          "hash": "5734495305973034191"
+        },
+        {
+          "file": "libs/ui/tsconfig.json",
+          "hash": "15212183933937989739"
+        },
+        {
+          "file": "libs/ui/tsconfig.lib.json",
+          "hash": "11208580042824062213"
+        }
+      ]
+    }
+  },
+  "externalNodesHash": "9925194113673184929"
+}

@@ -1,0 +1,16 @@
+import { authRouter } from './auth/auth.router.js';
+import { webConfigRouter } from './web-config/web-config.router.js';
+import { loggerRouter } from './logging/logger.router.js';
+import { router } from './trpc.js';
+
+/**
+ * The package entrypoint (`exports` in package.json). <%= webProject %> imports
+ * `AppRouter` from here as a *type* — the real router, not a generated stand-in.
+ */
+export const appRouter = router({
+  auth: authRouter,
+  webConfig: webConfigRouter,
+  logger: loggerRouter,
+});
+
+export type AppRouter = typeof appRouter;

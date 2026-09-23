@@ -1,0 +1,14 @@
+import { authedProcedure, publicProcedure, router } from '../trpc.js';
+import { SigninInput } from './auth.service.js';
+
+export const authRouter = router({
+  signin: publicProcedure
+    .input(SigninInput)
+    .mutation(({ input, ctx }) =>
+      ctx.cradle.authService.signin(ctx.honoContext, input),
+    ),
+
+  me: authedProcedure.query(({ ctx }) =>
+    ctx.cradle.authService.me(ctx.user.id),
+  ),
+});
