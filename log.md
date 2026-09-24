@@ -382,3 +382,33 @@
 - Linked: 15 outbound links from the two new pages, 9 new inbound links across six existing pages
 - Notes: `raw/docs/nx.md` is a substantially more detailed reference than the `raw/jarvis/nx.md` already cited by three pages — it added plugin configuration, named inputs, target defaults, and the full layer-rule table that exposed the module-boundaries error above. The three agent-facing files (grill-prd, domain, triage-labels) are a different category from the rest of the wiki: conventions for how AI skills operate on this repo, not application architecture. Recorded as their own concept rather than folded into ci-monitoring/ci-self-healing, since the pattern (generic skill logic + repo-specific config) recurs independently of CI. Verified before writing: git showed raw/jarvis/claude/grill-prd/SKILL.md, raw/jarvis/claude/skills/ship/SKILL.md and raw/jarvis/docs/agents/domain.md as modified and Untitled.md as deleted; confirmed all three "modifications" are core.autocrlf line-ending bookkeeping with zero content diff (`git diff --ignore-all-space` empty) and Untitled.md was already absent from disk before this session (flagged in the 2026-09-23 lint entry) — none caused by this ingest, and no raw/ file was written to. Verified after: 0 broken links, 0 missing raw sources, 0 orphans, 59 wiki pages.
 - Orphan concepts (mentioned, not documented): `/grill-me`, `/to-prd`, `/domain-modeling`, `/grill-with-docs`, `/improve-codebase-architecture` (all named as skills this repo configures or composes, none of their own logic read); PostGIS as a general concept (still pending from the libs ingest); the `mattpocock/skills` package itself.
+
+## [2026-09-24] create | Nx common commands reference
+
+- Created: [[wiki/concepts/nx-common-commands]] — Day-to-day Nx commands organized by use case
+- Updated: index.md — Added nx-common-commands to Architecture & Monorepos section
+- Linked: Cross-references to nx-monorepo, nx-task-execution, nx-generators, module-boundaries, typescript-project-references
+- Notes: A practical reference guide collecting commands scattered across the workspace. Eight sections: Exploration & Discovery (show projects, dep-graph), Daily Development (format, lint, typecheck, build, test, watch), Pre-Push Quality Gate, Generators & Scaffolding, Debugging & Inspection (why tasks run/cached, why tasks run, boundary violations), CI/Build Simulation, Container Operations, and Tips & Patterns (affected vs run-many, parallelization, filtering). Commands assume `pnpm` and `@jarvis/nx-plugin`. Verified: 0 broken links, 0 missing raw sources, 0 orphans, 60 wiki pages.
+
+## [2026-09-24] create | Claude skill: /audit-boundaries (Tier 1, Priority 1)
+
+- Created: `.claude/skills/audit-boundaries/SKILL.md` — Validates PR against module-boundary ESLint rules
+- Specification:
+  - Input: base branch (default: `origin/main`)
+  - Output: summary of violations (file → rule → fix options) or pass
+  - Scope: only affected projects, only @nx/enforce-module-boundaries errors
+  - Does NOT auto-fix (humans decide refactor vs waiver)
+- Execution: `pnpm nx affected -t lint --base=origin/main | parse violations`
+- Fix guidance: For each violation, three options (move file, refactor import, request waiver)
+- Notes: Tier 1 skill for immediate developer ergonomics. Prevents architectural guardrail violations before PRs accumulate bad patterns. Next skills in priority: /new-lib, /analyze-deps.
+
+## [2026-09-24] create | Claude skill: /new-lib (Tier 1, Priority 2)
+
+- Created: `.claude/skills/new-lib/SKILL.md` — Scaffolds a new shared library under `libs/` matching existing conventions
+- Specification:
+  - Input: library name, purpose, `type:` tag (data/util/ui), buildable vs non-buildable
+  - Base generator: `@nx/js:library` — no custom `@jarvis/nx-plugin:lib` generator exists today, so this layers Jarvis conventions on top of the stock plugin generator rather than inventing a command that isn't there
+  - Applies conventions from [[jarvis-shared-libs]]: private:true, type:module, version 0.0.1, the `@jarvis/source` exports condition, the tsconfig router/lib split, scope:shared + type: tags
+  - Explicitly refuses to guess an ambiguous `type:` tag or allow a lib-to-lib import — both flagged back to the user rather than silently decided
+  - Distinguished from `@jarvis/nx-plugin:context` (bounded contexts) — this is for `libs/*` leaves only
+- Notes: Tier 1, priority 2. Verified the base-generator choice against [[nx-generators]] and [[jarvis-shared-libs]] before writing — confirmed no custom lib generator is documented anywhere in the ingested raw sources, so the skill says so explicitly instead of implying one exists. Next: /analyze-deps.

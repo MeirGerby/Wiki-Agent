@@ -27,6 +27,7 @@
 - [[wiki/concepts/nx-monorepo]] — Nx workspace for managing multiple projects
 - [[wiki/concepts/nx-task-execution]] — Running tasks on single, multiple, or affected projects
 - [[wiki/concepts/nx-generators]] — Scaffolding code with Nx generators
+- [[wiki/concepts/nx-common-commands]] — Day-to-day Nx commands organized by use case
 - [[wiki/concepts/nx-import]] — Importing repositories into an Nx workspace
 - [[wiki/concepts/workspace-linking]] — Linking packages in a monorepo with symlinks
 - [[wiki/concepts/bounded-contexts]] — Domain-driven design boundaries in a monorepo
