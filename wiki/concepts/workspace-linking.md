@@ -55,6 +55,8 @@ npm auto-symlinks because it knows about workspaces.
 
 ## Related Concepts
 
+- [[conditional-exports]] — Resolving one package to source or to built output
+
 - [[nx-monorepo]]
 - [[bounded-contexts]]
 

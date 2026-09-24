@@ -41,15 +41,15 @@ The key insight: **maintenance is not separate from building**. Each operation (
 
 Week 1:
 1. Read everything in `raw/database/postgres/`.
-2. Create pages: `[[postgres-performance]]`, `[[query-optimization]]`, `[[indexing]]`.
-3. Update existing `[[postgres-connections]]` to link to the new pages.
+2. Create pages: `postgres-performance`, `query-optimization`, `indexing`.
+3. Update existing [[postgres-connections]] to link to the new pages.
 4. Add 2-3 Q&A pairs: "How do indexes speed up queries?" etc.
 5. Log the work.
 
 Week 2:
 1. Use the pages in `/learn` — test if they make sense.
 2. Spot issues? Fix them immediately (typos, missing examples, unclear wording).
-3. Notice that `[[scaling]]` and `[[postgres-performance]]` overlap? Decide: merge or keep separate with clear boundaries.
+3. Notice that [[scaling]] and the new `postgres-performance` overlap? Decide: merge or keep separate with clear boundaries.
 4. Final lint check, update log.
 
 Result: 3 new pages, 1 updated page, 2-3 Q&A pairs, 0 orphans, 100% of links verified.

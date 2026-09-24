@@ -104,6 +104,24 @@ const result = await trpc.catalog.objects.query(filter);
 // result type is inferred from server schema
 ```
 
+### The coupling is real enough for CI to model it
+
+Because the frontend's types are inferred from `typeof appRouter`, the router is
+part of the frontend's compile-time contract — and Jarvis's pipeline encodes that.
+The web app's build is triggered not only by its own directory, but by three
+specific backend paths:
+
+```yaml
+- apps/model-catalog/bff/src/router.ts
+- apps/model-catalog/bff/src/trpc.ts
+- apps/model-catalog/bff/src/**/*.router.ts
+```
+
+Changing a router changes what the client can call, so the web app rebuilds.
+Changing a service or repository behind it does not, so it stays untouched. That
+line — router files are frontend dependencies, the rest of the backend is not — is
+the practical consequence of inferred types. See [[pipeline-change-rules]].
+
 ## Related Concepts
 
 - [[bff-pattern]] — tRPC as API layer for BFF
@@ -113,9 +131,11 @@ const result = await trpc.catalog.objects.query(filter);
 - [[nx-monorepo]] — Monorepo organization
 - [[bounded-contexts]] — Domain separation
 - [[drizzle-orm]] — Supplies the database types tRPC exposes
+- [[pipeline-change-rules]] — CI treats router files as frontend dependencies
 
 ## Sources
 
 - [[raw/jarvis/nx.md]]
 - [[raw/jarvis/package.json]]
 - [[raw/jarvis/BFF-ARCHITECTURE.md]]
+- [[raw/jarvis/gitlab/ci/contexts/model-catalog.yml]]

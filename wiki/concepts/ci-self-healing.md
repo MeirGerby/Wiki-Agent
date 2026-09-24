@@ -75,6 +75,7 @@ If budget exhausted, the agent commits empty/current state and exits.
 - [[nx-monorepo]]
 - [[module-boundaries]]
 - [[ci-monitoring]] — Polling loop that produces these fix states
+- [[ci-pipeline]] — The pipeline whose failures these fixes target
 
 ## Sources
 

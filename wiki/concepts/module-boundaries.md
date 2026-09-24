@@ -51,6 +51,20 @@ Configured in `eslint.config.mjs` with `depConstraints`:
 }
 ```
 
+## Tags in Jarvis
+
+The three shared libraries declare their tags in `package.json` under `nx`:
+
+| Package | Tags |
+|---|---|
+| `@jarvis/db` | `type:data`, `scope:shared` |
+| `@jarvis/logging` | `type:util`, `scope:shared` |
+| `@jarvis/ui` | `type:ui`, `scope:shared` |
+
+Every library is `scope:shared` — there is no per-context library, because
+`model-catalog` is currently the only bounded context consuming them. See
+[[jarvis-shared-libs]].
+
 ## Related Concepts
 
 - [[nx-monorepo]]

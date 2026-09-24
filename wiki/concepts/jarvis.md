@@ -143,6 +143,8 @@ See [[jarvis-permissions]] for access control:
 - [[jarvis-model-training]] — How models get trained
 - [[jarvis-external-integrations]] — Roberto, Picasso, Task Manager
 - [[jarvis-permissions]] — Access control and visibility
+- [[ci-pipeline]] — How Jarvis is verified, built and shipped
+- [[jarvis-shared-libs]] — The three libraries under `libs/`
 
 ## Sources
 

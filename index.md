@@ -6,6 +6,13 @@
 
 - [[wiki/concepts/jarvis]] — Model catalog and detection system monorepo
 
+### Shared Libraries
+
+- [[wiki/concepts/jarvis-shared-libs]] — The three `libs/` packages and their conventions
+- [[wiki/concepts/conditional-exports]] — Resolving one package to source or to built output
+- [[wiki/concepts/shadcn-ui]] — Vendored component library behind `@jarvis/ui`
+- [[wiki/concepts/schema-source-of-truth]] — Code-first vs introspected schemas, and drift
+
 ### Jarvis Model Catalog System
 
 - [[wiki/concepts/jarvis-bff]] — Backend For Frontend (Hono + tRPC + services)
@@ -57,6 +64,9 @@
 
 ### CI & DevOps
 
+- [[wiki/concepts/ci-pipeline]] — Verify, build and deploy stages across GitHub Actions and GitLab CI
+- [[wiki/concepts/pipeline-change-rules]] — Path-based gating of jobs in a monorepo pipeline
+- [[wiki/concepts/kaniko-builds]] — Building container images without a Docker daemon
 - [[wiki/concepts/ci-monitoring]] — Polling CI status and making deterministic decisions
 - [[wiki/concepts/ci-self-healing]] — Automated CI failure detection and fix application
 

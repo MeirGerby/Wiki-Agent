@@ -82,6 +82,7 @@ Three field sets balance data fetching vs context usage:
 
 - [[ci-self-healing]]
 - [[nx-monorepo]]
+- [[ci-pipeline]] — The pipeline being watched (this page is the watcher, not the pipeline)
 
 ## Sources
 

@@ -88,6 +88,24 @@ Pooled connections are essential for serverless (request-per-connection) but ins
 
 Scale-to-zero saves cost but adds cold-start latency. Replica queries don't compete with write workload.
 
+## Confirmed in the Jarvis Drizzle config
+
+`libs/db/drizzle.config.ts` states the rule in a comment and encodes it in the URL
+it picks:
+
+```ts
+// `generate` needs no database and ignores the URL below. `migrate`, `push` and
+// `studio` do connect. They read the BFF's .env, and use the direct (unpooled)
+// Neon connection — pooled connections break migrations.
+
+const migrationUrl =
+  process.env['DATABASE_URL_UNPOOLED'] ?? process.env['DATABASE_URL'] ?? '';
+```
+
+Note that `generate` is exempt: it only diffs the schema file and never opens a
+connection. Only `migrate`, `push` and `studio` need the direct URL. See
+[[schema-source-of-truth]] for what `generate` diffs against.
+
 ## Related Concepts
 
 - [[neon-lakebase]] — Overview of Neon and Lakebase Postgres

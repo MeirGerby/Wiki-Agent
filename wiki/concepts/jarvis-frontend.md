@@ -440,6 +440,8 @@ const config = await client.webConfig.get.query();
 
 ## Related Concepts
 
+- [[shadcn-ui]] — The component library the frontend renders
+
 - [[jarvis]] — Project overview
 - [[trpc]] — Type-safe API client
 - [[jwt-authentication]] — Auth tokens

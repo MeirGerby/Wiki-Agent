@@ -143,6 +143,26 @@ nx affected -t lint typecheck build test
 nx affected -t test --parallel=2
 ```
 
+Real pipelines usually pick a mode rather than always using `affected`. Jarvis's
+GitLab verify job branches on whether a diff base exists at all:
+
+```bash
+if [ -n "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ]; then
+  nx affected -t lint typecheck build test --base="$CI_MERGE_REQUEST_DIFF_BASE_SHA"
+else
+  nx run-many -t lint typecheck build test
+fi
+```
+
+A merge request has a base to diff against, so `affected` is meaningful. A branch
+or tag pipeline does not, so it runs everything. See [[ci-pipeline]] for the full
+pipeline and [[q-nx-affected-vs-run-many]] for when the diff stops being the right
+signal.
+
+`affected` also needs real git history — a shallow CI clone gives it nothing to
+diff. GitHub Actions pipelines pair `fetch-depth: 0` with `nrwl/nx-set-shas` to
+supply the base commit.
+
 ### Local Development
 
 ```bash
@@ -174,9 +194,13 @@ nx run-many -t build test lint
 
 - [[nx-monorepo]] — Workspace architecture and caching
 - [[module-boundaries]] — How projects relate (used by affected detection)
+- [[ci-pipeline]] — Where these modes are chosen in practice
+- [[pipeline-change-rules]] — Path-based gating, for stages that cannot run nx
 
 ## Sources
 
 - [[raw/jarvis/agents/skills/nx-run-tasks/SKILL.md]]
 - [[raw/jarvis/agents/skills/nx-workspace/SKILL.md]]
 - [[raw/jarvis/agents/skills/nx-workspace/references/AFFECTED.md]]
+- [[raw/jarvis/gitlab/ci/verify.yml]]
+- [[raw/jarvis/github/workflows/ci.yml]]

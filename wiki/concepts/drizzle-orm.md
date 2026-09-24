@@ -104,7 +104,83 @@ pnpm db:migrate
 pnpm db:seed
 ```
 
-Migrations are version-controlled; no manual SQL needed.
+Migrations are version-controlled. "No manual SQL needed" holds for schema changes,
+but not universally — Jarvis's `0004_uppercase_operational_status` is hand-written
+SQL that no schema diff would produce:
+
+```sql
+UPDATE "sqrules" SET "operational_status" = upper("operational_status")
+WHERE "operational_status" != upper("operational_status");
+```
+
+`generate` diffs structure. Data fixes are still written by hand and dropped into
+the same folder.
+
+**Caveat on what `generate` diffs against.** It compares the database to
+`schema.ts` — not to the migration history. In Jarvis those two have diverged, so
+the next generated migration is computed from an introspected snapshot rather than
+from the replayed history. See [[schema-source-of-truth]].
+
+## The connection factory
+
+`libs/db/src/index.ts` wires Drizzle to the `postgres` driver and returns both:
+
+```ts
+export const createDb = ({ connectionString, ssl, max = 10 }: CreateDbOptions) => {
+  const client = postgres(connectionString, { max, ssl });
+  const db = drizzle(client, { schema });
+  return { db, client };
+};
+
+export type Db = ReturnType<typeof createDb>['db'];
+```
+
+Passing `{ schema }` into `drizzle()` is what enables the relational query builder
+(`db.query.<table>.findFirst(...)`). Without it you still get the SQL-like builder,
+but `db.query` is empty.
+
+`Db` being *derived* from the return type rather than declared is what carries the
+schema generic to every consumer. A hand-written `Db` interface would compile and
+silently lose the table types.
+
+## Inferred row types
+
+Every table exports a select/insert pair:
+
+```ts
+export type ObjectRow    = typeof objects.$inferSelect;
+export type NewObjectRow = typeof objects.$inferInsert;
+```
+
+They differ in the ways that matter: `$inferInsert` makes columns with defaults
+optional and respects nullability, so an insert type is not just a partial of the
+select type.
+
+Note the naming workaround — `ObjectRow`, `PermissionRow`, `SpatialRefSysRow` carry
+a `Row` suffix because `Object` and `Permission` collide with global names, and
+`GeographyArea` avoids the same problem. Worth knowing before assuming a type is
+missing.
+
+Typing fixtures against the insert types (`SEED_USERS: readonly NewUser[]`) makes a
+schema change break the seed at compile time rather than at runtime.
+
+## Relations are not constraints
+
+`relations.ts` declares associations separately from the table definitions:
+
+```ts
+export const rulesRelations = relations(rules, ({ one, many }) => ({
+  detectingModelsRules: many(detectingModelsRules),
+  geography: one(geographies, {
+    fields: [rules.geographyName], references: [geographies.name],
+  }),
+}));
+```
+
+These drive `db.query.<table>.with(...)`. They are **application-level metadata, not
+database constraints** — declaring a relation creates no foreign key, and Drizzle
+will happily describe a relationship the database does not enforce. Jarvis has
+several such cases; see [[jarvis-data-model]].
 
 ## Related Concepts
 
@@ -114,9 +190,20 @@ Migrations are version-controlled; no manual SQL needed.
 - [[neon-lakebase]] — Database provider
 - [[postgres-connections]] — Connection management
 - [[nx-monorepo]] — Monorepo organization
+- [[jarvis-shared-libs]] — The `@jarvis/db` package around this
+- [[schema-source-of-truth]] — What `generate` diffs against, and the drift
 
 ## Sources
 
 - [[raw/jarvis/package.json]]
+- [[raw/jarvis/libs/db/src/index.ts]]
+- [[raw/jarvis/libs/db/src/schema.ts]]
+- [[raw/jarvis/libs/db/src/relations.ts]]
+- [[raw/jarvis/libs/db/src/seed-data.ts]]
+- [[raw/jarvis/libs/db/migrations/0004_uppercase_operational_status.sql]]
+
+The `models` table in the "Type System in Jarvis" example above is illustrative and
+does not exist in the real schema — the catalog has four separate model tables. See
+[[jarvis-data-model]].
 - [[raw/jarvis/nx.md]]
 - [[raw/jarvis/MODEL-CATALOG-DATA-MODEL.md]]

@@ -330,3 +330,40 @@
 - Created: MAINTENANCE.md — Operational guide with weekly/monthly/seasonal workflows, templates, checklists
 - Updated: index.md — Added "Meta" section with link to wiki-maintenance
 - Notes: User chose personal use for knowledge preservation and research, so the focus is on sustainable practices without bureaucracy. Two levels: wiki-maintenance page (why + patterns) and MAINTENANCE.md (how + steps). Includes templates for seasonal deep-dives (2-3 weeks on a topic), weekly lint checks (10 min), monthly reviews (30 min), and as-needed spot fixes. Operational checklist provided for seasonal work. Total wiki now 50 pages + 1 operational guide + 3 command pages.
+
+## [2026-09-24] ingest | Processed the GitHub Actions workflow and the four GitLab CI files
+
+- Created: [[wiki/concepts/ci-pipeline]] — the two CI systems, the three GitLab stages, the manual deploy gate, and the closed-network registry setup
+- Created: [[wiki/concepts/kaniko-builds]] — daemonless image builds, registry auth, dual tagging, registry-backed layer cache
+- Created: [[wiki/concepts/pipeline-change-rules]] — YAML-anchored path globs gating build and deploy jobs
+- Updated: [[wiki/concepts/nx-task-execution]] — added the real MR-vs-branch conditional from verify.yml and the shallow-clone/`nx-set-shas` note
+- Updated: [[wiki/concepts/kubernetes-deployment]] — new "Installing from CI" section covering `--atomic`, `--cleanup-on-fail`, `--timeout`, and SHA-as-tag
+- Updated: [[wiki/concepts/trpc]] — added why CI treats three BFF router paths as frontend dependencies
+- Updated: [[wiki/concepts/jarvis]], [[wiki/concepts/ci-monitoring]], [[wiki/concepts/ci-self-healing]] — linked to the new pipeline page
+- Updated: index.md — CI & DevOps section now leads with the pipeline pages before the monitoring ones
+- Fixed: [[wiki/concepts/wiki-maintenance]] — four `[[...]]` links in the worked example named hypothetical pages that do not exist; demoted to code spans
+- Linked: 17 outbound links from the three new pages, 8 new inbound links from existing pages
+- Notes: The existing CI pages describe the Nx Cloud *monitoring agent*, not the pipeline it watches — that was the gap. Sharpest finding: the web change set does not include the BFF wholesale, only `router.ts`, `trpc.ts` and `**/*.router.ts`, which encodes the tRPC type coupling as a path list. Recorded with its drift risk (a router file not matching the glob silently stops triggering web builds) marked as analysis, not source. Preserved as uncertain: why two CI systems exist at all, and whether it is deliberate that a push to `main` runs `affected` on GitHub but `run-many` on GitLab. The `SECRET: 'true'` override on the BFF deploy is flagged as an inference. Kaniko flag semantics, GitLab rule-replacement-on-`extends`, Helm flag behaviour and the air-gapped-CA reading are all marked general knowledge. Verified: 0 broken links and 0 missing raw sources across the new and updated pages, 0 orphans, 53 wiki pages.
+- Orphan concepts (mentioned, not documented): `nx sync:check` (run by both CI systems, undocumented anywhere in the wiki), OpenShift/`oc`, Artifactory, and the per-project Dockerfiles — the Dockerfiles are what the build stage actually executes and are not among the raw sources.
+
+## [2026-09-24] map | Built architecture maps for raw/jarvis/libs
+
+- Created (inside `raw/`, at the user's explicit instruction): `raw/jarvis/libs/LIBS-ARCHITECTURE.md`, `raw/jarvis/libs/DB-SCHEMA-MAP.md`, `raw/jarvis/libs/UI-INVENTORY.md`
+- Notes: This departs from core principle 4 ("never modify files inside `raw/`") and was flagged to the user before writing. Creating is not modifying, and `raw/jarvis/` already holds architecture documents, but the integrity risk is that a derived document in `raw/` becomes citable as a primary source. Two safeguards applied: each map opens with a provenance header naming it a derived document and listing the files it was read from, and the wiki pages below cite the underlying code files rather than the maps. Where a map is cited, the citation says it is derived.
+
+## [2026-09-24] ingest | Processed raw/jarvis/libs (db, logging, ui)
+
+- Created: [[wiki/concepts/jarvis-shared-libs]] — the three libraries as independent leaves rather than a stack, shared conventions, the `createDb` factory
+- Created: [[wiki/concepts/conditional-exports]] — the `@jarvis/source` condition serving source to the workspace and `dist/` to everyone else
+- Created: [[wiki/concepts/shadcn-ui]] — vendored components, `cn`/`twMerge`, the cva + `asChild` + `data-slot` contract
+- Created: [[wiki/concepts/schema-source-of-truth]] — code-first vs introspected schemas, how to recognise generated schema files, and the Jarvis drift
+- Updated: [[wiki/concepts/logging]] — was 20 lines of generic NestJS guidance with nothing about `@jarvis/logging`; merged in the wire schema, the severity-gated JSON logger, the field-collision edge and the two error serializers
+- Updated: [[wiki/concepts/drizzle-orm]] — added the connection factory, `$inferSelect`/`$inferInsert`, relations-are-not-constraints, and the caveat that `generate` diffs `schema.ts` rather than the migration history
+- Updated: [[wiki/concepts/jarvis-data-model]] — added a storage view: four model families, the composition chain, the API-field-to-table mapping, integrity gaps, bilingual keys
+- Updated: [[wiki/concepts/postgres-connections]] — the drizzle config confirms pooled connections break migrations, and exempts `generate`
+- Updated: [[wiki/concepts/module-boundaries]] — the actual nx tags on the three libraries
+- Updated: [[wiki/concepts/workspace-linking]], [[wiki/concepts/jarvis]], [[wiki/concepts/jarvis-frontend]] — links to the new pages
+- Updated: index.md — new "Shared Libraries" section
+- Linked: 19 outbound links from the four new pages, 9 new inbound links from existing pages
+- Notes: Three findings drove most of this. (1) `schema.ts` and `migrations/` have diverged — migration 0002 drops NOT NULL on `objects.file_url` and the schema still declares `.notNull()`, plus `creation_time`/`create_time`, `jsonb`/`json`, `text`/`varchar` and varchar-length disagreements. Recorded as a live contradiction, not resolved. That `schema.ts` was introspected is inference, supported by the `unknown` customType with `failed to parse database type` TODOs, inlined PostGIS system views, a `_backup` table, `nextval(...)` in place of `serial()`, and duplicate PascalCase/snake_case sequences. (2) The existing data-model page describes the API shape, but there is no `models` table — there are four model families, and the API's resolution/sensor/geography fields live on `rules` while status and performance live on `sqrules`. Both views recorded; the mapping between them is marked as inference. (3) The three `*_models_objects` join tables carry a FK on `object_name` but none on `model_name`, and array columns (`dexter_model_ids`, `sensor_groups.sensors`) cannot carry FKs at all — several documented relationships are unenforced. Also preserved: `serializeError` vs `toLogError` disagree on non-Error input with neither marked preferred; `@jarvis/ui` exports `./hooks/*` for a directory that does not exist and has no `dist/` despite its exports map pointing there. Of 20 UI primitives only `button.tsx` was read in full — noted on the page. Verified: 0 broken links, 0 missing raw sources, 0 orphans, 57 wiki pages.
+- Orphan concepts (mentioned, not documented): where `@jarvis/source` is activated (workspace root config, not in `libs/`), the BFF endpoint receiving log batches, PostGIS as a concept, and `multi-select` (the one non-stock UI primitive, not read).

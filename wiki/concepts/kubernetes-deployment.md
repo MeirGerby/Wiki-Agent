@@ -326,11 +326,42 @@ helm install jarvis-prod ./charts/app -f values-prod.yaml
 
 **Key benefit**: One template (`deployment.yaml`), infinite configurations.
 
+## Installing from CI
+
+An automated deploy needs flags an interactive one can skip, because nobody is
+watching to clean up after a failure:
+
+```bash
+helm upgrade --install "$RELEASE" charts/app   --namespace jarvis   --set image.registry="$DOCKER_TEAM_REGISTRY"   --set image.repository="jarvis-$RELEASE"   --set image.tag="$CI_COMMIT_SHA"   --set secret.enabled="$SECRET"   --set autoscaling.enabled=true   --atomic   --cleanup-on-fail   --timeout 10m
+```
+
+| Flag | Effect |
+|---|---|
+| `upgrade --install` | Upgrade if the release exists, install if not — one idempotent command for both cases |
+| `--atomic` | Roll back to the previous revision if the upgrade fails, instead of leaving a half-applied release |
+| `--cleanup-on-fail` | Delete resources the failed upgrade newly created |
+| `--timeout 10m` | How long to wait for resources to become ready before calling it a failure |
+
+`--atomic` is the important one. Without it a failed upgrade leaves the release
+wedged between two revisions, and the next deploy starts from that broken state.
+With it, a failure is a no-op.
+
+Note that `--atomic` implies waiting for readiness, so it only behaves as intended
+if the pods have working probes — see [[health-checks]]. A Deployment with no
+readiness probe reports ready immediately and a broken rollout can still be
+recorded as a success.
+
+`image.tag` is set to the commit SHA rather than a moving tag like `latest`, so a
+release always names the exact image it deployed and a rollback is unambiguous. See
+[[kaniko-builds]] for where that tag comes from.
+
 ## Related Concepts
 
 - [[scaling]] — Horizontal vs vertical scaling decisions
 - [[health-checks]] — Liveness and readiness probes (part of Deployment)
 - [[nestjs-deployment]] — Application deployment practices
+- [[ci-pipeline]] — The pipeline stage that runs this Helm command
+- [[kaniko-builds]] — How the deployed image is built and tagged
 - [[q-helm-multi-env]] — Q&A: deploying one chart to several environments
 
 ## Sources
@@ -340,3 +371,8 @@ helm install jarvis-prod ./charts/app -f values-prod.yaml
 - [[raw/jarvis/charts/app/templates/deployment.yaml]]
 - [[raw/jarvis/charts/app/templates/service.yaml]]
 - [[raw/jarvis/charts/app/templates/hpa.yaml]]
+- [[raw/jarvis/gitlab/ci/deploy.yml]]
+
+Helm flag semantics (`--atomic`, `--cleanup-on-fail`, `--timeout`) and the
+readiness-probe caveat are general knowledge; the deploy file sets the flags
+without commentary.
