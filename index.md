@@ -84,6 +84,10 @@
 - [[wiki/commands/sed]] — Stream editor
 - [[wiki/commands/awk]] — Text processing and pattern scanning
 
+## Meta
+
+- [[wiki/concepts/wiki-maintenance]] — Keeping the wiki healthy, preventing decay
+
 ## Q&A
 
 Questions paired one-to-one with answers. 13 pairs: 1 asked, 12 generated as

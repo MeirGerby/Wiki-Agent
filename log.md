@@ -323,3 +323,10 @@
 - Updated: index.md — points at the Q&A index rather than listing pairs
 - Updated: CLAUDE.md — documented the `origin` field, added it to both templates, added lint check 13 (origin declared and consistent across a pair)
 - Notes: The user asked for a bank of possible questions, so these were written without being asked. Rather than presenting them as real questions, `origin` distinguishes the one genuinely asked (Helm) from the twelve written as practice material. Questions were chosen to target documented gotchas rather than definitions — pooled-vs-direct migration failures, NOTIFY lost to a rollback, the empty HPA memory target, environment-vs-code classification in CI. Every answer cites raw sources; where content exceeds them (JWT revocation strategies, the webhook flow specifics) it is marked as general knowledge or uncertain. Verified: 13 pairs, front matter cross-referenced both ways, origin agrees within each pair, 0 broken links, all pairs indexed.
+
+## [2026-09-24] create | Wiki maintenance guide
+
+- Created: [[wiki/concepts/wiki-maintenance]] — Conceptual page on maintaining a personal wiki over time
+- Created: MAINTENANCE.md — Operational guide with weekly/monthly/seasonal workflows, templates, checklists
+- Updated: index.md — Added "Meta" section with link to wiki-maintenance
+- Notes: User chose personal use for knowledge preservation and research, so the focus is on sustainable practices without bureaucracy. Two levels: wiki-maintenance page (why + patterns) and MAINTENANCE.md (how + steps). Includes templates for seasonal deep-dives (2-3 weeks on a topic), weekly lint checks (10 min), monthly reviews (30 min), and as-needed spot fixes. Operational checklist provided for seasonal work. Total wiki now 50 pages + 1 operational guide + 3 command pages.
