@@ -190,12 +190,37 @@ nx affected -t typecheck lint
 nx run-many -t build test lint
 ```
 
+## Why build always runs dependencies first
+
+Target defaults in `nx.json` apply to every project unless overridden:
+
+```json
+"build":     { "dependsOn": ["^build"] },
+"typecheck": { "dependsOn": ["^build"] },
+"test":      { "dependsOn": ["^build"] }
+```
+
+The `^` means "this target, on every dependency, first." Run `nx build
+@jarvis/model-catalog-bff` and Nx silently builds `@jarvis/db` and
+`@jarvis/logging` first if they haven't been built yet — not because the BFF's own
+task says so, but because the default does.
+
+**The detail worth catching:** `typecheck` also depends on `^build`, not `^typecheck`.
+A project type-checks *its own source* against its dependencies' **built output**
+(`dist/*.d.ts`), not against their source directly. In the ordinary case this is
+invisible — build output should match source. But paired with
+[[conditional-exports]]'s `@jarvis/source` condition, which routes some tools
+straight to `.ts` source instead, there are two different answers available to
+"what type does this dependency have" depending on which resolution path a given
+tool takes. Nx's own `typecheck` task takes the built-output path either way.
+
 ## Related Concepts
 
 - [[nx-monorepo]] — Workspace architecture and caching
 - [[module-boundaries]] — How projects relate (used by affected detection)
 - [[ci-pipeline]] — Where these modes are chosen in practice
 - [[pipeline-change-rules]] — Path-based gating, for stages that cannot run nx
+- [[conditional-exports]] — The source-vs-built distinction `^build` sits on top of
 
 ## Sources
 
@@ -204,3 +229,4 @@ nx run-many -t build test lint
 - [[raw/jarvis/agents/skills/nx-workspace/references/AFFECTED.md]]
 - [[raw/jarvis/gitlab/ci/verify.yml]]
 - [[raw/jarvis/github/workflows/ci.yml]]
+- [[raw/docs/nx.md]]

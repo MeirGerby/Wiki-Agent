@@ -37,12 +37,55 @@ Contexts can share code only through the `libs/` layer (ui, db, logging, etc.). 
 - **Dependency rule** — A project in one scope can only depend on projects in the same scope + `scope:shared`
 - **Enforced by** — ESLint rule `@nx/enforce-module-boundaries`
 
+## How a context documents itself
+
+Each context is expected to carry its own glossary and its own architectural
+decisions, and a workspace-level file points at where to find them:
+
+```
+/
+├── CONTEXT-MAP.md                     ← one row per app, links to its glossary
+├── docs/adr/                          ← system-wide decisions
+└── apps/
+    └── model-catalog/
+        └── docs/
+            ├── CONTEXT.md             ← this context's glossary
+            └── adr/                   ← decisions scoped to this context
+```
+
+The rule that keeps this from sprawling: **one app has one glossary; a library has
+none.** A library's vocabulary belongs to whichever context uses it — `@jarvis/db`
+does not get its own `CONTEXT.md` because its tables are Model Catalog's
+vocabulary, not a separate domain.
+
+This convention exists specifically so that engineering skills exploring the
+codebase read domain vocabulary before writing about it — an issue title, a refactor
+proposal, a test name should use the term as `CONTEXT.md` defines it rather than a
+synonym the glossary avoids. If a needed concept isn't in any glossary yet, that's a
+signal: either the skill is inventing language the project doesn't use, or there is
+a genuine gap worth flagging separately, not papering over with an invented name.
+
+None of this is provisioned upfront — if `CONTEXT-MAP.md` or a context's `docs/adr/`
+doesn't exist yet, the convention is to proceed silently rather than flag the
+absence. These files get created lazily, the first time a term or a decision
+actually needs recording, by a `/domain-modeling` skill reached through
+`/grill-with-docs` or `/improve-codebase-architecture`. See
+[[jarvis-agent-skills]] for how that skill relates to others configured the same
+way.
+
+**Contradicting an ADR is a flaggable event, not a silent override.** The convention
+calls for surfacing it explicitly — "Contradicts ADR-0007, but worth reopening
+because..." — rather than quietly proposing something that conflicts with a
+recorded decision.
+
 ## Related Concepts
 
 - [[nx-monorepo]]
 - [[module-boundaries]]
+- [[jarvis-agent-skills]] — Other skills that read repo-specific configuration this way
 
 ## Sources
 
 - [[raw/jarvis/nx.md]]
 - [[raw/jarvis/AGENTS.md]]
+- [[raw/jarvis/docs/agents/domain.md]]

@@ -17,7 +17,14 @@ In Jarvis:
 - `type:bff` → can use: `contract`, `data`, `util`
 - `type:contract` → can use: `data`, `util`
 - `type:ui` → can use: `util`
-- `type:data` → can use: nothing (leaf layer)
+- `type:data` → can use: `util`
+- `type:util` → can use: nothing (leaf layer)
+
+**Correction:** an earlier version of this page listed `type:data` as the leaf
+layer. The source (`raw/jarvis/nx.md`, confirmed again by the more detailed
+`raw/docs/nx.md`) has `type:data → util` and puts `type:util` at the bottom instead.
+`@jarvis/logging` — the only `type:util` project — is the one library nothing else
+may depend on.
 
 **Scope rules** (`scope:*`):
 - Projects in `scope:model-catalog` can only use other `scope:model-catalog` projects + `scope:shared`
@@ -73,4 +80,5 @@ Every library is `scope:shared` — there is no per-context library, because
 ## Sources
 
 - [[raw/jarvis/nx.md]]
+- [[raw/docs/nx.md]]
 - [[raw/jarvis/eslint.config.mjs]]

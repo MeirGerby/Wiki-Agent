@@ -95,10 +95,23 @@ string with no conditions, because there is no compiled variant.
 
 ## Gotchas
 
-**The condition has to be switched on somewhere.** A custom name means nothing by
-itself; a bundler or tsconfig has to declare it active. In Jarvis that setting is
-not in `libs/` — it lives in workspace root config. A reader looking only at the
-library sees the condition and no explanation of when it applies.
+**The condition has to be switched on somewhere — and now this page can say where.**
+A custom name means nothing by itself; a bundler or tsconfig has to declare it
+active. `tsconfig.base.json` does exactly that:
+
+```json
+"moduleResolution": "bundler",
+"customConditions": ["@jarvis/source"]
+```
+
+Every project's tsconfig inherits it, so TypeScript's language service and any
+bundler reading the same config resolve workspace imports straight to `.ts` source.
+One project opts back out: `tools/nx-plugin` sets `customConditions: []` and
+`moduleResolution: "node10"`, because Nx generators run directly under Node, and
+`node10` resolution predates conditional exports entirely — declaring the condition
+there would do nothing, so the config clears it explicitly rather than leaving a
+dead setting. See [[typescript-project-references]] for the full tier-by-tier
+breakdown.
 
 **Declared paths are not checked against disk.** `@jarvis/ui` exports `./hooks/*`,
 but `src/hooks/` does not exist. Nothing errors until someone imports from it.
@@ -111,6 +124,7 @@ map claims a capability the package does not have.
 ## Related Concepts
 
 - [[jarvis-shared-libs]] — The three libraries using this
+- [[typescript-project-references]] — Where `customConditions` is declared and why one project clears it
 - [[workspace-linking]] — How workspace packages resolve to each other
 - [[nx-monorepo]] — The workspace context
 - [[module-boundaries]] — The other mechanism restricting what may import what
@@ -121,8 +135,10 @@ map claims a capability the package does not have.
 - [[raw/jarvis/libs/logging/package.json]]
 - [[raw/jarvis/libs/ui/package.json]]
 - [[raw/jarvis/libs/LIBS-ARCHITECTURE.md]]
+- [[raw/docs/tsconfig.md]]
 
 Node's `exports` resolution rules and the stale-`dist/` problem are general
 knowledge. The Jarvis files declare `@jarvis/source` without stating its purpose, so
-the rationale above is inference; the configuration that activates the condition was
-not among the files read.
+the rationale above is inference. The configuration that activates the condition —
+previously an open question on this page — was found in `raw/docs/tsconfig.md` and
+is now documented above.

@@ -31,6 +31,8 @@
 - [[wiki/concepts/workspace-linking]] — Linking packages in a monorepo with symlinks
 - [[wiki/concepts/bounded-contexts]] — Domain-driven design boundaries in a monorepo
 - [[wiki/concepts/module-boundaries]] — ESLint dependency rules in Nx projects
+- [[wiki/concepts/typescript-project-references]] — Composite builds and the tsconfig hierarchy
+- [[wiki/concepts/jarvis-agent-skills]] — Repo-specific configuration for generic agent skills
 
 ### Backend Architecture Patterns
 
