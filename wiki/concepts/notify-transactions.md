@@ -14,9 +14,31 @@ Letters that pile up in an outbox. The postman neither takes a letter from an op
 - **Ordering:** distinct payloads stay distinct; notifications from different transactions are never folded; events from the same transaction arrive in sent order, and events from different transactions arrive in commit order.
 - A transaction that executed NOTIFY cannot be prepared for two-phase commit.
 
+## Example
+
+```sql
+-- Delivery waits for COMMIT
+BEGIN;
+NOTIFY jobs, 'done';   -- nothing delivered yet
+COMMIT;                -- listeners receive it here
+
+-- An aborted transaction produces no notification at all
+BEGIN;
+NOTIFY jobs, 'done';
+ROLLBACK;              -- listeners receive nothing
+
+-- Identical payloads in one transaction collapse into one event
+BEGIN;
+NOTIFY jobs, 'done';
+NOTIFY jobs, 'done';   -- duplicate, dropped
+NOTIFY jobs, 'other';  -- distinct payload, kept
+COMMIT;                -- two events delivered, in sent order
+```
+
 ## Related Concepts
 - [[postgres-listen-notify]]
 - [[notify-queue]]
+- [[trigger-based-notify]] — Triggers fire inside the transaction described here
 
 ## Sources
 - [[raw/database/postgres/Postgres Notification.md]]

@@ -46,12 +46,77 @@ const newModel = await db.insert(models).values({
   pnpm db:seed      # run seed script (fresh data)
   ```
 
+## Type System in Jarvis
+
+Drizzle integrates with tRPC to create end-to-end type safety:
+
+```typescript
+// 1. Define database schema
+export const models = pgTable('models', {
+  id: text('id').primaryKey(),
+  englishName: text('english_name').notNull(),
+  operationalStatus: text('operational_status').notNull(),
+  // ... more fields
+});
+
+// 2. Generate database type
+const ModelRow = createSelectSchema(models);
+
+// 3. Create API type (refined, fewer fields)
+const Model = z.object({
+  id: z.string(),
+  englishName: z.string(),
+  operationalStatus: OperationalStatus,
+  // Only expose what frontend needs
+});
+
+// 4. Use in tRPC
+catalog.query('getModel', {
+  input: z.object({ id: z.string() }),
+  output: Model,
+  resolve: async ({ input }) => {
+    const row = await db.query.models.findFirst({
+      where: eq(models.id, input.id),
+    });
+    // row has all database fields
+    // Return statement type-checked against Model output schema
+    return { id: row.id, englishName: row.englishName, ... };
+  },
+});
+
+// 5. Client gets full type
+const model = await client.catalog.getModel.query({ id: 'model_123' });
+// model is typed as Model (only the public fields)
+```
+
+## Migrations
+
+Drizzle generates SQL migrations from schema changes:
+
+```bash
+# Generate migration from schema diff
+pnpm db:generate
+
+# Apply to database
+pnpm db:migrate
+
+# Run seed script
+pnpm db:seed
+```
+
+Migrations are version-controlled; no manual SQL needed.
+
 ## Related Concepts
 
-- [[nx-monorepo]]
-- [[postgres-listen-notify]]
+- [[jarvis-bff]] — BFF uses Drizzle for queries
+- [[jarvis-data-model]] — Schema definition
+- [[trpc]] — Type safety end-to-end
+- [[neon-lakebase]] — Database provider
+- [[postgres-connections]] — Connection management
+- [[nx-monorepo]] — Monorepo organization
 
 ## Sources
 
 - [[raw/jarvis/package.json]]
 - [[raw/jarvis/nx.md]]
+- [[raw/jarvis/MODEL-CATALOG-DATA-MODEL.md]]

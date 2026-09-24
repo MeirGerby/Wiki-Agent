@@ -46,6 +46,7 @@ pnpm nx affected -t build        # only rebuilds changed projects + dependents
 - [[module-boundaries]]
 - [[drizzle-orm]]
 - [[trpc]]
+- [[nx-task-execution]] — Running build, test and lint across the workspace
 
 ## Sources
 

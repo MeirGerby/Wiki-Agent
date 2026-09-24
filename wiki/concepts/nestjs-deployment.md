@@ -22,6 +22,7 @@ NODE_ENV=production node dist/main.js
 - [[health-checks]]
 - [[logging]]
 - [[scaling]]
+- [[kubernetes-deployment]] — Container-based alternative to a plain Node process
 
 ## Sources
 - [[raw/python/nestjs-deploy.md]]

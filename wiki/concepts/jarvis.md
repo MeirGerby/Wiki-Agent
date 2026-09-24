@@ -83,14 +83,66 @@ jarvis/
 └── nx.json                       # Workspace config
 ```
 
+## System Architecture
+
+### Backend
+
+See [[jarvis-bff]] for complete BFF design:
+- [[hono]] for HTTP routing
+- [[trpc]] for type-safe RPC
+- [[awilix]] for dependency injection
+- [[jwt-authentication]] + [[adfs-authentication]] for auth
+- [[request-context-pattern]] for request flow
+
+### Data Layer
+
+See [[jarvis-data-model]] for entities:
+- Objects (things to detect)
+- Models (trained detection models)
+- Categories, Geographies, Sensor Groups
+- User permissions and visibility rules
+
+### Training Pipeline
+
+See [[jarvis-model-training]] for complete flow:
+- User initiates → BFF creates model → Roberto trains → Task Manager orchestrates
+- See [[jarvis-external-integrations]] for Roberto, Picasso, Task Manager
+
+### Async Processing
+
+- [[async-job-processing]] — Job queuing and status tracking
+- [[webhook-integration]] — Async notifications
+- [[resilience-patterns]] — Retries, timeouts, error handling
+
+### Frontend
+
+See [[jarvis-frontend]] for React architecture:
+- TanStack Router for routing
+- tRPC client for type-safe API calls
+- React Hooks + Context for state
+
+### Permissions
+
+See [[jarvis-permissions]] for access control:
+- Role-based access (guest, user, admin)
+- Catalog visibility filtering
+- Permission checks in BFF
+
 ## Related Concepts
 
-- [[wiki/concepts/nx-monorepo]] — How Jarvis is organized
-- [[wiki/concepts/bounded-contexts]] — Multi-context pattern in Jarvis
-- [[wiki/concepts/module-boundaries]] — Dependency rules between layers
-- [[wiki/concepts/trpc]] — API between frontend and backend
-- [[wiki/concepts/drizzle-orm]] — Database layer
-- [[wiki/concepts/logging]] — Shared logging across services
+- [[nx-monorepo]] — How Jarvis is organized
+- [[bounded-contexts]] — Multi-context pattern in Jarvis
+- [[module-boundaries]] — Dependency rules between layers
+- [[neon-lakebase]] — Database provider
+- [[postgres-connections]] — Connection management
+- [[logging]] — Shared logging across services
+- [[bff-pattern]] — Architectural pattern Jarvis uses
+- [[jarvis-bff]] — Backend service and API layer
+- [[jarvis-data-model]] — Core entities and relationships
+- [[jarvis-frontend]] — React web application
+- [[jarvis-model-training]] — How models get trained
+- [[jarvis-external-integrations]] — Roberto, Picasso, Task Manager
+- [[jarvis-permissions]] — Access control and visibility
 
 ## Sources
 

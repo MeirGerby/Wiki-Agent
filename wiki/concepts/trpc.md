@@ -53,12 +53,69 @@ await trpc.models.create.mutate({
 - **Contract** — Shared types live in `apps/model-catalog/contract` (Zod schemas)
 - **No API docs needed** — Types are the contract
 
+## Request/Response Validation
+
+tRPC uses Zod for input and output validation:
+```typescript
+catalog.mutation('createModel', {
+  input: z.object({
+    objectId: z.string(),
+    sensorGroup: z.string(),
+    geography: z.string(),
+  }),
+  output: z.object({
+    modelId: z.string(),
+    status: z.enum(['TRAINING', 'OPERATIONAL', 'FAILED']),
+  }),
+  resolve: async ({ input, ctx }) => {
+    // Both input and output automatically validated
+    // TypeScript enforces correct types
+  },
+});
+```
+
+## Procedure Types
+
+tRPC procedures can require different authentication levels:
+```typescript
+// Public procedure (guest access)
+procedure.query(...)
+
+// Authenticated user required
+authedProcedure.mutation(...)
+
+// Specific role required
+roleProcedure('admin').mutation(...)
+```
+
+## Client Type Safety
+
+The client automatically gets the server's types:
+```typescript
+// Server defines this
+export const appRouter = router({ /* ... */ });
+export type AppRouter = typeof appRouter;
+
+// Client imports and uses
+import { trpc } from '@trpc/react';
+
+// All operations type-checked against server
+const result = await trpc.catalog.objects.query(filter);
+// result type is inferred from server schema
+```
+
 ## Related Concepts
 
-- [[nx-monorepo]]
-- [[bounded-contexts]]
+- [[bff-pattern]] — tRPC as API layer for BFF
+- [[hono]] — HTTP transport for tRPC
+- [[jarvis-bff]] — tRPC implementation in Jarvis
+- [[jarvis-frontend]] — tRPC client in React
+- [[nx-monorepo]] — Monorepo organization
+- [[bounded-contexts]] — Domain separation
+- [[drizzle-orm]] — Supplies the database types tRPC exposes
 
 ## Sources
 
 - [[raw/jarvis/nx.md]]
 - [[raw/jarvis/package.json]]
+- [[raw/jarvis/BFF-ARCHITECTURE.md]]

@@ -18,6 +18,7 @@ NODE_ENV=production node dist/main.js   # run on each server
 ## Related Concepts
 - [[nestjs-deployment]]
 - [[health-checks]]
+- [[kubernetes-deployment]] — Horizontal scaling via HorizontalPodAutoscaler
 
 ## Sources
 - [[raw/python/nestjs-deploy.md]]

@@ -47,9 +47,11 @@ Run order: `node setup.js` → `node listen.js` → `node send.js`.
 - The guide's summary describes this as "webhook-like": triggers selectively listen to table changes and invoke `pg_notify` to reach connected listeners.
 
 ## Related Concepts
+
 - [[postgres-listen-notify]]
 - [[notify-transactions]]
 - [[notify-queue]]
+- [[webhook-integration]] — HTTP callbacks as the alternative delivery mechanism
 
 ## Sources
 - [[raw/database/neon/postgres/Real-Time Notifications using pg_notify with Lakebase Postgres.md]]

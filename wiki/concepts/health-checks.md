@@ -15,6 +15,7 @@ npm install @nestjs/terminus
 ## Related Concepts
 - [[nestjs-deployment]]
 - [[logging]]
+- [[kubernetes-deployment]] — Liveness and readiness probes in a Deployment
 
 ## Sources
 - [[raw/python/nestjs-deploy.md]]

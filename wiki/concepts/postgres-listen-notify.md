@@ -32,6 +32,7 @@ Asynchronous notification "virtual" with payload "This is the payload"
 - [[notify-transactions]]
 - [[notify-queue]]
 - [[trigger-based-notify]]
+- [[postgres-connections]] — LISTEN/NOTIFY needs a direct, unpooled connection
 
 ## Sources
 - [[raw/database/postgres/Postgres Notification.md]]
