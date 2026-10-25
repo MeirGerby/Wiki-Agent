@@ -76,8 +76,12 @@ minus test files, test config and lint config:
 "production": [
   "default",
   "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+  "!{projectRoot}/tsconfig.spec.json",
+  "!{projectRoot}/src/test-setup.[jt]s",
+  "!{projectRoot}/.eslintrc.json",
+  "!{projectRoot}/eslint.config.mjs",
   "!{projectRoot}/vitest.config.*",
-  "!{projectRoot}/eslint.config.mjs"
+  "!{projectRoot}/test-setup.[jt]s"
 ]
 ```
 
@@ -86,6 +90,49 @@ change the hash `build` keys off — the previous build result is still valid an
 gets served from cache. `lint` and `test` still key off broader inputs, so they do
 rerun. This is the same caching principle [[nx-task-execution]] exploits at the
 task level; named inputs are what make the cache key precise enough for it to work.
+
+## All projects in Jarvis
+
+| Project | Type | Location | Tags | Purpose |
+|---------|------|----------|------|---------|
+| `@jarvis/model-catalog-web` | Application | `apps/model-catalog/web` | `type:web`, `scope:model-catalog` | React frontend |
+| `@jarvis/model-catalog-bff` | Application | `apps/model-catalog/bff` | `type:bff`, `scope:model-catalog` | Hono + tRPC backend |
+| `@jarvis/model-catalog-contract` | Library | `apps/model-catalog/contract` | `type:contract`, `scope:model-catalog` | Shared Zod schemas |
+| `@jarvis/ui` | Library | `libs/ui` | `type:ui`, `scope:shared` | Shared React components |
+| `@jarvis/db` | Library | `libs/db` | `type:data`, `scope:shared` | Database schemas + migrations |
+| `@jarvis/logging` | Library | `libs/logging` | `type:util`, `scope:shared` | Logging utilities |
+| `@jarvis/nx-plugin` | Tool | `tools/nx-plugin` | `type:tooling`, `scope:tooling` | Nx generators |
+
+## Module boundary rules (enforced by ESLint)
+
+Dependency constraints by layer:
+
+```
+type:web      → can use: contract, ui, util
+type:bff      → can use: contract, data, util
+type:contract → can use: data, util
+type:ui       → can use: util
+type:data     → can use: util
+type:util     → can use: nothing (leaf layer)
+type:tooling  → can use: tooling only
+```
+
+Scope constraints:
+- `scope:model-catalog` projects → only other `model-catalog` + `scope:shared`
+- `scope:shared` projects → only other `shared` (isolated leaf)
+- `scope:tooling` projects → only `tooling` (isolated)
+
+Violation is caught by `nx lint` via `@nx/enforce-module-boundaries` ESLint rule.
+
+## Troubleshooting
+
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| Module boundary error | Dependency violates eslint rule | Check `depConstraints` in `eslint.config.mjs` |
+| Task not found | Plugin didn't infer it | Check project.json has correct `projectType` |
+| Cache miss when nothing changed | Stale input filter | Check `namedInputs` includes correct files |
+| Circular dependency | Two projects depend on each other | Use project references or shared lib |
+| Build fails but lint passes | Different input filters | `build` uses `production` inputs (excludes tests) |
 
 ## Related Concepts
 

@@ -404,6 +404,61 @@
 
 ## [2026-09-24] create | Claude skill: /new-lib (Tier 1, Priority 2)
 
+- Created: `.claude/skills/new-lib/SKILL.md` — Scaffolds new shared library under `libs/` following Jarvis conventions
+- Specification:
+  - Input: library name, purpose, `type:` tag (data/util/ui), buildable vs non-buildable
+  - Base generator: `@nx/js:library` (no custom `@jarvis/nx-plugin:lib` generator exists)
+  - Applies conventions from [[jarvis-shared-libs]]: private:true, type:module, version 0.0.1, @jarvis/source condition, tsconfig router/lib split, scope:shared + type: tags
+  - Explicitly refuses to guess ambiguous type: tag or allow lib-to-lib imports
+- Notes: Tier 1, priority 2. Verified the base-generator choice against ingested sources.
+
+## [2026-09-24] ingest | Processed remaining raw/jarvis files (8 files)
+
+### Files Ingested
+
+1. `raw/jarvis/CLAUDE.md` — Project development guidelines for agents
+2. `raw/jarvis/AGENTS.md` — Meta-instructions for agent workflows
+3. `raw/jarvis/apps/model-catalog/docs/CONTEXT.md` — Domain glossary (tagging classes, training, missions)
+4. `raw/jarvis/claude/skills/ship/SKILL.md` — /ship skill (implement + drive CI to green)
+5. `raw/jarvis/claude/to-prd/SKILL.md` — /to-prd skill (synthesize PRD from conversation)
+6. `raw/jarvis/docs/agents/issue-tracker.md` — Linear MCP operations and wayfinding
+7. `raw/jarvis/tsconfig.md` — Detailed TypeScript configuration (JSX, DOM, paths, strictness)
+8. `raw/jarvis/nx.md` — Detailed Nx workspace reference (projects table, layer rules, troubleshooting)
+
+### Pages Updated
+
+- [[wiki/concepts/typescript-project-references]] — Added JSX, DOM, path aliases, strictness settings
+- [[wiki/concepts/nx-monorepo]] — Added projects table, module boundary rules, troubleshooting
+- [[wiki/concepts/jarvis-agent-skills]] — Added /ship and /to-prd skill descriptions
+- [[wiki/concepts/jarvis-data-model]] — Added domain glossary (tagging classes, training, missions, task manager, picasso)
+
+### Pages Created
+
+- [[wiki/concepts/linear-issue-tracker]] — MCP operations, workflow statuses, triage labels, wayfinding
+- [[wiki/concepts/jarvis-development-guidelines]] — STE100 language, comments, Nx patterns, agent skills, database, version control
+
+### Updates to index.md
+
+- Added new "Issue Tracking & Operations" section with three links
+- Reorganized to surface linear-issue-tracker and jarvis-development-guidelines as top-level concepts
+
+### Metrics
+
+- **New pages created**: 2 (linear-issue-tracker, jarvis-development-guidelines)
+- **Existing pages updated**: 4 (typescript-project-references, nx-monorepo, jarvis-agent-skills, jarvis-data-model)
+- **New cross-links added**: 15+ across existing pages
+- **Total wiki pages**: 61
+
+### Notes
+
+- raw/jarvis/tsconfig.md and raw/jarvis/nx.md are more detailed versions of raw/docs/* counterparts; ingested both to capture full complexity
+- /ship and /to-prd skills were minimal (7-10 lines each) but important for the skill system; added as part of jarvis-agent-skills update
+- Domain glossary (CONTEXT.md) added to jarvis-data-model to clarify Jarvis-specific terminology (avoid "class", "tag", "job" ambiguity)
+- jarvis-development-guidelines captures language (ASD-STE100), commenting philosophy, and Nx/boundary/skill patterns — makes conventions explicit rather than tribal knowledge
+- Verified: 0 broken links, 0 orphans, 61 wiki pages, all ingested files properly cited
+
+## [2026-09-24] create | Claude skill: /new-lib (Tier 1, Priority 2)
+
 - Created: `.claude/skills/new-lib/SKILL.md` — Scaffolds a new shared library under `libs/` matching existing conventions
 - Specification:
   - Input: library name, purpose, `type:` tag (data/util/ui), buildable vs non-buildable
@@ -412,3 +467,13 @@
   - Explicitly refuses to guess an ambiguous `type:` tag or allow a lib-to-lib import — both flagged back to the user rather than silently decided
   - Distinguished from `@jarvis/nx-plugin:context` (bounded contexts) — this is for `libs/*` leaves only
 - Notes: Tier 1, priority 2. Verified the base-generator choice against [[nx-generators]] and [[jarvis-shared-libs]] before writing — confirmed no custom lib generator is documented anywhere in the ingested raw sources, so the skill says so explicitly instead of implying one exists. Next: /analyze-deps.
+
+## [2026-10-25] add-source | Wrote raw/linux/git.md
+
+- Created: `raw/linux/git.md` — git command reference (setup, everyday, history, branching, remotes, undo) plus advanced commands (rebase, cherry-pick, stash, reflog, bisect, worktree, submodule/subtree, tags, filter-repo, hooks, plumbing)
+- Notes: Added as a new source only; not yet ingested. Run /ingest to create `wiki/commands/git.md` and related concept pages.
+
+## [2026-10-25] update-source | Added patch workflow to raw/linux/git.md
+
+- Updated: `raw/linux/git.md` — new "Patches" section: `format-patch`, `am`, `apply`, `diff > .patch`, `send-email`, conflict handling, comparison table
+- Notes: Still not ingested. Source file edited by the user's explicit request (own addition, same file created earlier today).

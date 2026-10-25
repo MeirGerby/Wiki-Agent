@@ -385,6 +385,28 @@ catalog.abortTraining(modelId)   — Cancel training
 
 All write operations require authentication and permission checks.
 
+## Domain Glossary (Model Catalog Context)
+
+When discussing model-catalog work, use this language:
+
+**Tagging Class**: A kind of thing that a model can identify or label (e.g., vehicle, person). Each has an English name (ID) and Hebrew name. Avoid: "class", "tag", "label", "מחלקה" (which is overloaded in Hebrew).
+
+**Positive Tagging Class**: A tagging class acting as a target — something the model is trained to identify. Avoid: "positive tag".
+
+**Empty-Fields Class**: A tagging class used to mark empty fields for the model (negative examples). Same tagging class can be both positive and empty-fields in different models. Avoid: "empty class", "negative class".
+
+**Training**: The process that creates a new model. Starts when a user initiates model creation. Avoid: "creation task", "job" (which is overloaded).
+
+**Training Model**: A model currently in training, not yet in the catalog. Avoid: "pending model", "placeholder model".
+
+**Mission**: One execution in the Task Manager, with a mission ID and status. One training = one mission. Avoid: "task", "job".
+
+**Task Manager**: The external service orchestrating missions.
+
+**Picasso**: The external service that owns and manages the list of tagging classes.
+
+See [[raw/jarvis/apps/model-catalog/docs/CONTEXT.md]] for the full glossary and rationale.
+
 ## Related Concepts
 
 - [[jarvis]] — Project overview

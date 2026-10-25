@@ -112,6 +112,21 @@ ships still needs the standard `import`/`default` conditions in each package's
 Tooling's `noEmit: true` exists because Nx's own build system produces the output
 for generators; the tsconfig here is purely a type-checking gate.
 
+## Per-project type differences: JSX, DOM, and aliases
+
+**Web (React frontend)** adds:
+- `jsx: "react-jsx"` — Uses React 17+ JSX transform (no `import React` needed)
+- `lib: ["dom"]` — Browser/DOM APIs only (not ES2022 stdlib)
+
+**UI Library** adds:
+- `jsx: "react-jsx"` — JSX transform for component library
+- `lib: ["es2022", "dom"]` — Both browser APIs and modern JS
+- `types: ["react"]` — React type definitions for peer dependency
+- `paths: { "@jarvis/ui/*": ["./src/*"] }` — Import alias for consuming code
+
+**BFF (Node backend)** inherits:
+- `types: ["node"]` — Node.js APIs, no browser APIs
+
 ## `forceConsistentCasingInFileNames`
 
 Set on every library and on the contract package, absent from the base config —
@@ -119,6 +134,22 @@ each one opts in individually. It errors on an import whose casing does not matc
 the file on disk. On a case-insensitive filesystem (macOS, Windows — [[node-env]]
 territory) that mismatch compiles locally and breaks in CI on Linux, so the check
 exists specifically to catch a class of bug that a same-OS dev loop cannot surface.
+
+## Base strictness settings
+
+All projects inherit from `tsconfig.base.json`:
+
+```json
+"strict": true,
+"noImplicitOverride": true,
+"noImplicitReturns": true,
+"noFallthroughCasesInSwitch": true,
+"noUnusedLocals": true
+```
+
+These are maximally strict. The workspace allows one exception:
+`noUncheckedSideEffectImports: false` — packages that declare side effects are
+loaded without type checking (required for CSS imports and some vendor libraries).
 
 ## Related Concepts
 

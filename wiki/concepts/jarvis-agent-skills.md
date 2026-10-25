@@ -81,6 +81,43 @@ this skill mid-conversation — a human has to call it explicitly. *Inference:*
 appropriate for a skill whose entire value is enforcing a strict question boundary;
 letting the model reach for it automatically would defeat the reason it exists.
 
+## The to-prd skill: synthesizing PRDs without interview
+
+```markdown
+---
+name: to-prd
+description: Turn the current conversation into a product requirements document (PRD) and publish it to the project issue tracker.
+disable-model-invocation: false
+---
+```
+
+Takes the current conversation context and produces a PRD directly from it — no
+interviews, no follow-up questions, just synthesis. All sections (problem, solution,
+definition of done, out-of-scope) are written from the user's perspective using the
+project's domain glossary vocabulary. Issues are created in Linear via `save_issue`.
+
+## The ship skill: implement + drive to green CI
+
+```markdown
+---
+name: ship
+description: Implement a piece of work from a spec or tickets, then drive it to green CI.
+disable-model-invocation: true
+---
+```
+
+A three-phase workflow:
+
+1. Implement from the spec or tickets
+2. Use TDD at pre-agreed seams
+3. Run type-checking + test suite regularly, and full suite at the end
+4. Commit to the current branch and push
+5. Use `/nx:monitor-ci` to drive the branch to green
+
+The skill composes lower-level capabilities (TDD, commits, CI monitoring) into a
+cohesive development workflow. `disable-model-invocation: true` reflects that this
+is a deliberate decision to ship, not something to reach for automatically.
+
 ## Domain documentation: the third instance of the same pattern
 
 `docs/agents/domain.md` tells engineering skills how to find this repo's

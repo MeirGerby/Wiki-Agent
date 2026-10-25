@@ -73,6 +73,12 @@
 - [[wiki/concepts/ci-monitoring]] — Polling CI status and making deterministic decisions
 - [[wiki/concepts/ci-self-healing]] — Automated CI failure detection and fix application
 
+### Issue Tracking & Operations
+
+- [[wiki/concepts/linear-issue-tracker]] — Linear MCP operations, workflow statuses, triage labels
+- [[wiki/concepts/jarvis-agent-skills]] — Repo-specific configuration for generic agent skills (including /ship and /to-prd)
+- [[wiki/concepts/jarvis-development-guidelines]] — Development conventions (Nx patterns, comments, language, module boundaries)
+
 ### Database & Events
 
 - [[wiki/concepts/postgres-connections]] — Pooled vs direct connections, schema migrations
