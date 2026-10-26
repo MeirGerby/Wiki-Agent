@@ -16,6 +16,9 @@ grep -r "error" ./logs
 - [[../concepts/stdout]]
 - [[../concepts/regex]]
 - [[../concepts/recursive-search]]
+- [[../concepts/log-investigation]]
+- [[../concepts/linux-permissions]]
+- [[git]]
 
 ## Sources
 - [[raw/linux/grep.md]]

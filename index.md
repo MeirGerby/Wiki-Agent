@@ -87,11 +87,41 @@
 - [[wiki/concepts/recursive-search]] — Traversing directory trees for matches
 - [[wiki/concepts/latitude-longitude]] — How angles pinpoint positions on Earth
 
+### Git, GitHub & SSH
+
+- [[wiki/concepts/git-patches]] — Moving commits between machines with format-patch and am
+- [[wiki/concepts/git-undo-and-recovery]] — restore, reset, revert, clean and the reflog
+- [[wiki/concepts/git-history-rewriting]] — rebase, cherry-pick, amend, filter-repo
+- [[wiki/concepts/ssh-keys-and-agent]] — Key pairs, authorized_keys and ssh-agent
+- [[wiki/concepts/ssh-tunnels]] — Port forwarding and jump hosts
+- [[wiki/concepts/github-multi-account-auth]] — gh auth switch vs SSH host aliases
+
+### Linux Cyber Path
+
+- [[wiki/concepts/cyber-learning-path]] — 20-step path from Linux basics to a security assessment
+- [[wiki/concepts/linux-permissions]] — Owners, groups, mode bits and sudo
+- [[wiki/concepts/linux-processes-services]] — Processes, systemd services and their logs
+- [[wiki/concepts/network-fundamentals]] — IP, DNS, TCP/UDP and Linux network tools
+- [[wiki/concepts/packet-capture]] — tcpdump and Wireshark
+- [[wiki/concepts/network-scanning]] — Nmap: hosts, ports, services
+- [[wiki/concepts/log-investigation]] — Finding patterns in auth and system logs
+- [[wiki/concepts/linux-firewall]] — ufw/nftables and least privilege
+- [[wiki/concepts/system-hardening]] — Reducing attack surface, hardening checklist
+- [[wiki/concepts/persistence-mechanisms]] — Where programs survive a reboot
+- [[wiki/concepts/suid-and-capabilities]] — Special permissions and privilege-escalation surface
+- [[wiki/concepts/cyber-lab]] — Isolated VM lab, snapshots, Kali tools
+- [[wiki/concepts/web-security]] — OWASP Top 10, SQL injection, XSS
+- [[wiki/concepts/incident-response]] — Preserve, collect, timeline, hash, report
+- [[wiki/concepts/security-assessment-report]] — Capstone report: findings, risk, evidence, fixes
+
 ## Commands
 
 - [[wiki/commands/grep]] — Search text using patterns
 - [[wiki/commands/sed]] — Stream editor
 - [[wiki/commands/awk]] — Text processing and pattern scanning
+- [[wiki/commands/git]] — Version control: everyday and advanced commands
+- [[wiki/commands/gh]] — GitHub CLI: PRs, issues, Actions, releases, API
+- [[wiki/commands/ssh]] — Secure remote login, config, keys
 
 ## Meta
 

@@ -16,6 +16,9 @@ cat raw/linux/pipes.md | grep "stderr"
 - [[stdout]]
 - [[stderr]]
 - [[../commands/grep]]
+- [[log-investigation]]
+- [[../commands/git]]
+- [[../commands/gh]]
 
 ## Sources
 - [[raw/linux/pipes.md]]

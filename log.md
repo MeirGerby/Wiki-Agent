@@ -496,3 +496,28 @@
 - Updated: index.md, qa/index.md; removed or reworded inbound links in ci-pipeline, jarvis-bff, jarvis-development-guidelines, linear-issue-tracker, nx-common-commands, nx-monorepo, pipeline-change-rules, typescript-project-references, bounded-contexts, wiki-maintenance, a-notify-never-arrived
 - Updated: `## Example` sections added to 13 pages; 6 existing example sections retitled `## Example: ...`
 - Notes: Deleted pages also held content from other raw sources (raw/database/neon, raw/database/postgres, raw/docs/nx.md); that synthesis is gone from the wiki but recoverable from git history (commit a4c8d91). Nx merge skipped: the main overlap partners were deleted, leaving nx-common-commands (command cheatsheet) and nx-monorepo (concept) distinct. Lint afterwards: 0 broken links, 0 orphans, 0 missing sections.
+
+## [2026-10-27] create | learner-tutor agent and learn/ steps
+
+- Created: `.claude/agents/learner-tutor.md` — tutor subagent that profiles the learner before teaching
+- Created: `learn/01-assess.md`, `learn/02-teach.md`, `learn/03-check.md`, `learn/profile.md`
+- Notes: Extends /learn. Reads the wiki, never edits `raw/` or `wiki/`; only writes `learn/profile.md`. Not committed.
+
+## [2026-10-27] update | learner-tutor now has 5 steps
+
+- Created: `learn/00-review.md`, `learn/03-practice.md`
+- Updated: `learn/04-check.md` (renamed from 03-check), `learn/profile.md` (review dates), `.claude/agents/learner-tutor.md`
+- Notes: Order is Review → Assess → Teach → Practice → Check. Practice runs only in a sandbox.
+
+## [2026-10-27] add-source | Wrote raw/learn/cyber-linux/ stage files A-D
+
+- Created: `raw/learn/cyber-linux/stage-a-linux-foundations.md`, `stage-b-networking.md`, `stage-c-linux-security.md`, `stage-d-security-practice.md`
+- Notes: Expands stages A-D of the existing Hebrew path (original untouched). Written in English; commands and explanations beyond the original outline are general knowledge. Lab/own-machine framing kept throughout. Not yet ingested.
+
+## [2026-10-27] ingest | git, gh, ssh-config and 4 cyber-path stage files
+
+- Sources: `raw/linux/git.md`, `raw/linux/gh.md`, `raw/linux/ssh-config.md`, `raw/learn/cyber-linux/stage-a..d-*.md` (plus the Hebrew outline `raw/learn/מסלול לימוד סייבר בלינוקס — 20 צעדיםהמטרה.md` as the path source)
+- Created (commands): [[wiki/commands/git]], [[wiki/commands/gh]], [[wiki/commands/ssh]]
+- Created (concepts): [[wiki/concepts/git-patches]], [[wiki/concepts/git-undo-and-recovery]], [[wiki/concepts/git-history-rewriting]], [[wiki/concepts/ssh-keys-and-agent]], [[wiki/concepts/ssh-tunnels]], [[wiki/concepts/github-multi-account-auth]], [[wiki/concepts/cyber-learning-path]], [[wiki/concepts/linux-permissions]], [[wiki/concepts/linux-processes-services]], [[wiki/concepts/network-fundamentals]], [[wiki/concepts/packet-capture]], [[wiki/concepts/network-scanning]], [[wiki/concepts/log-investigation]], [[wiki/concepts/linux-firewall]], [[wiki/concepts/system-hardening]], [[wiki/concepts/persistence-mechanisms]], [[wiki/concepts/suid-and-capabilities]], [[wiki/concepts/cyber-lab]], [[wiki/concepts/web-security]], [[wiki/concepts/incident-response]], [[wiki/concepts/security-assessment-report]]
+- Updated: wiki/commands/grep, sed, awk and wiki/concepts/pipes (links to log-investigation, git, gh, linux-permissions); index.md (two new sections, three new commands)
+- Notes: Pages are condensed summaries; the raw files hold the full command lists (stash, bisect, worktree, submodules, hooks, gh api, sshd_config, etc. are only touched on, not given their own pages). The stage files are general knowledge beyond the Hebrew outline, as are git/gh/ssh. The gh multi-account page also reflects the 403/active-account behaviour seen in this repo's own push. No contradictions found with existing pages.

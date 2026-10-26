@@ -18,6 +18,7 @@ sed 's/apple/orange/g' fruit.txt
 - [[../concepts/stdout]]
 - [[../concepts/pipes]]
 - [[awk]] — Another text processing tool
+- [[../concepts/log-investigation]]
 
 ## Sources
 - [[raw/linux/sed.md]]
