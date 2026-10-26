@@ -13,6 +13,11 @@ nmap -sn 192.168.56.0/24
 nmap -sV -p 1-1000 192.168.56.101
 ```
 
+## Guided Practice
+- Scan yourself (`nmap 127.0.0.1`) and compare with `ss -tulpn`; they should agree.
+- In the lab, scan the target, turn its firewall on, and scan again: which ports changed from `open` to `filtered`?
+- Record a table: port, state, service, version, "needed?". Version detection can be wrong; confirm on the host.
+
 ## Related Concepts
 - [[network-fundamentals]]
 - [[packet-capture]]
@@ -20,7 +25,9 @@ nmap -sV -p 1-1000 192.168.56.101
 - [[cyber-lab]]
 - [[security-assessment-report]]
 - [[cyber-learning-path]]
+- [[kali-tools]]
 
 ## Sources
 - [[raw/learn/cyber-linux/stage-b-networking.md]]
 - [[raw/learn/cyber-linux/stage-d-security-practice.md]]
+- [[raw/learn/cyber-linux/steps/step-09-network-scanning.md]]

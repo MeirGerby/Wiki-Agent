@@ -14,11 +14,19 @@ journalctl -u ssh --since "1 hour ago"
 kill PID        # polite; kill -9 skips cleanup
 ```
 
+## Guided Practice
+- For each service say what it is, who runs it, which port it uses and where its log is: `systemctl status NAME`, `journalctl -u NAME --since "1 hour ago"`, `sudo ss -tulpn | grep NAME`.
+- `enable` starts a service at boot; `start` only starts it now.
+- Prefer SIGTERM (`kill`) to SIGKILL (`kill -9`), which skips cleanup.
+
 ## Related Concepts
 - [[linux-permissions]]
 - [[log-investigation]]
 - [[persistence-mechanisms]]
 - [[cyber-learning-path]]
+- [[suspicious-connections]]
+- [[mass-file-changes]]
 
 ## Sources
 - [[raw/learn/cyber-linux/stage-a-linux-foundations.md]]
+- [[raw/learn/cyber-linux/steps/step-04-processes-and-services.md]]

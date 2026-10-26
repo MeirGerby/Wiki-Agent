@@ -13,7 +13,37 @@ Stages: A [[linux-permissions]], [[linux-processes-services]]; B [[network-funda
 
 Note: the Hebrew outline is the original; the stage files expand it with general-knowledge commands and explanations.
 
+## Step map
+
+| Step | Page |
+| --- | --- |
+| 1 | [[linux-filesystem-navigation]] |
+| 2 | [[grep]] |
+| 3 | [[linux-permissions]] |
+| 4 | [[linux-processes-services]] |
+| 5 | [[bash-scripting]] |
+| 6 | [[network-fundamentals]] |
+| 7 | [[network-fundamentals]] |
+| 8 | [[packet-capture]] |
+| 9 | [[network-scanning]] |
+| 10 | [[ssh-keys-and-agent]] |
+| 11 | [[log-investigation]] |
+| 12 | [[linux-firewall]] |
+| 13 | [[system-hardening]] |
+| 14 | [[persistence-mechanisms]] |
+| 15 | [[suid-and-capabilities]] |
+| 16 | [[cyber-lab]] |
+| 17 | [[kali-tools]] |
+| 18 | [[web-security]] |
+| 19 | [[incident-response]] |
+| 20 | [[security-assessment-report]] |
+
+Each step has a guided lab file under `raw/learn/cyber-linux/steps/`; the practice notes are on the linked pages.
+
 ## Related Concepts
+- [[linux-filesystem-navigation]]
+- [[bash-scripting]]
+- [[kali-tools]]
 - [[linux-permissions]]
 - [[linux-processes-services]]
 - [[network-fundamentals]]
@@ -29,6 +59,8 @@ Note: the Hebrew outline is the original; the stage files expand it with general
 - [[incident-response]]
 - [[security-assessment-report]]
 - [[ssh]]
+- [[security-scenarios]]
+- [[cyber-command-reference]]
 
 ## Sources
 - [[raw/learn/מסלול לימוד סייבר בלינוקס — 20 צעדיםהמטרה.md]]
@@ -36,3 +68,23 @@ Note: the Hebrew outline is the original; the stage files expand it with general
 - [[raw/learn/cyber-linux/stage-b-networking.md]]
 - [[raw/learn/cyber-linux/stage-c-linux-security.md]]
 - [[raw/learn/cyber-linux/stage-d-security-practice.md]]
+- [[raw/learn/cyber-linux/steps/step-01-filesystem-navigation.md]]
+- [[raw/learn/cyber-linux/steps/step-02-files-and-text.md]]
+- [[raw/learn/cyber-linux/steps/step-03-users-and-permissions.md]]
+- [[raw/learn/cyber-linux/steps/step-04-processes-and-services.md]]
+- [[raw/learn/cyber-linux/steps/step-05-bash-scripting.md]]
+- [[raw/learn/cyber-linux/steps/step-06-networking-fundamentals.md]]
+- [[raw/learn/cyber-linux/steps/step-07-network-tools.md]]
+- [[raw/learn/cyber-linux/steps/step-08-traffic-analysis.md]]
+- [[raw/learn/cyber-linux/steps/step-09-network-scanning.md]]
+- [[raw/learn/cyber-linux/steps/step-10-ssh-secure-communication.md]]
+- [[raw/learn/cyber-linux/steps/step-11-log-investigation.md]]
+- [[raw/learn/cyber-linux/steps/step-12-firewall.md]]
+- [[raw/learn/cyber-linux/steps/step-13-system-hardening.md]]
+- [[raw/learn/cyber-linux/steps/step-14-persistence.md]]
+- [[raw/learn/cyber-linux/steps/step-15-advanced-permissions.md]]
+- [[raw/learn/cyber-linux/steps/step-16-cyber-lab.md]]
+- [[raw/learn/cyber-linux/steps/step-17-kali-tools.md]]
+- [[raw/learn/cyber-linux/steps/step-18-web-security.md]]
+- [[raw/learn/cyber-linux/steps/step-19-incident-response.md]]
+- [[raw/learn/cyber-linux/steps/step-20-capstone.md]]

@@ -16,6 +16,7 @@ ls nonexistent_folder 2>&1 | grep "No such"
 - [[stdin]]
 - [[stdout]]
 - [[pipes]]
+- [[bash-scripting]]
 
 ## Sources
 - [[raw/linux/pipes.md]]

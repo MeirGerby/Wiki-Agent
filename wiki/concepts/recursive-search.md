@@ -13,6 +13,7 @@ grep -r "critical" ./logs/
 
 ## Related Concepts
 - [[../commands/grep]]
+- [[linux-filesystem-navigation]]
 
 ## Sources
 - [[raw/linux/grep.md]]

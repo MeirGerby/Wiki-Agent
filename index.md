@@ -98,7 +98,10 @@
 
 ### Linux Cyber Path
 
-- [[wiki/concepts/cyber-learning-path]] — 20-step path from Linux basics to a security assessment
+- [[wiki/concepts/cyber-learning-path]] — 20-step path from Linux basics to a security assessment (with step map)
+- [[wiki/concepts/linux-filesystem-navigation]] — Directory tree, ls/cd/find/stat
+- [[wiki/concepts/bash-scripting]] — Variables, conditions, loops, exit codes, safe scripts
+- [[wiki/concepts/kali-tools]] — Nmap, Wireshark, Burp Suite: when to use which
 - [[wiki/concepts/linux-permissions]] — Owners, groups, mode bits and sudo
 - [[wiki/concepts/linux-processes-services]] — Processes, systemd services and their logs
 - [[wiki/concepts/network-fundamentals]] — IP, DNS, TCP/UDP and Linux network tools
@@ -113,6 +116,14 @@
 - [[wiki/concepts/web-security]] — OWASP Top 10, SQL injection, XSS
 - [[wiki/concepts/incident-response]] — Preserve, collect, timeline, hash, report
 - [[wiki/concepts/security-assessment-report]] — Capstone report: findings, risk, evidence, fixes
+- [[wiki/concepts/cyber-command-reference]] — Grouped index of every cyber-path command
+- [[wiki/concepts/security-scenarios]] — 10 advanced defensive scenarios
+- [[wiki/concepts/suspicious-connections]] — Unexpected listeners and outbound connections
+- [[wiki/concepts/web-log-analysis]] — Spotting probing in web access logs
+- [[wiki/concepts/rogue-accounts]] — Hidden or unexpected user accounts
+- [[wiki/concepts/file-integrity]] — Hashes and package verification
+- [[wiki/concepts/mass-file-changes]] — Responding to sudden bulk file changes
+- [[wiki/concepts/lateral-movement-review]] — Checking SSH movement between hosts
 
 ## Commands
 

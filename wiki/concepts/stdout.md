@@ -15,6 +15,7 @@ echo "success" > log.txt
 - [[stdin]]
 - [[stderr]]
 - [[pipes]]
+- [[bash-scripting]]
 
 ## Sources
 - [[raw/linux/grep.md]]

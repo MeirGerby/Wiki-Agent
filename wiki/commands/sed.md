@@ -19,6 +19,7 @@ sed 's/apple/orange/g' fruit.txt
 - [[../concepts/pipes]]
 - [[awk]] — Another text processing tool
 - [[../concepts/log-investigation]]
+- [[cyber-command-reference]]
 
 ## Sources
 - [[raw/linux/sed.md]]

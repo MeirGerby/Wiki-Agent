@@ -19,6 +19,9 @@ awk '{print \$1, \$3}' data.txt
 - [[../concepts/pipes]]
 - [[sed]] — Another text processing tool
 - [[../concepts/log-investigation]]
+- [[bash-scripting]]
+- [[cyber-command-reference]]
+- [[web-log-analysis]]
 
 ## Sources
 - [[raw/linux/awk.md]]

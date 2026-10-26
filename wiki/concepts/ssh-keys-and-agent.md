@@ -15,6 +15,11 @@ chmod 700 ~/.ssh && chmod 600 ~/.ssh/id_ed25519
 ```
 ssh refuses keys whose permissions are too open. Without `IdentitiesOnly yes`, ssh may try every agent key and hit the server's `MaxAuthTries`.
 
+## Guided Practice
+- Generate a key, `ssh-copy-id` it to your lab VM, add a `Host lab` block with `IdentitiesOnly yes`.
+- Harden the server with `PasswordAuthentication no` and `PermitRootLogin no`, validate with `sudo sshd -t`, reload, and keep a second session open.
+- Prove it: `ssh -o PubkeyAuthentication=no user@host` should be refused.
+
 ## Related Concepts
 - [[ssh]]
 - [[ssh-tunnels]]
@@ -23,7 +28,9 @@ ssh refuses keys whose permissions are too open. Without `IdentitiesOnly yes`, s
 - [[system-hardening]]
 - [[network-fundamentals]]
 - [[persistence-mechanisms]]
+- [[lateral-movement-review]]
 
 ## Sources
 - [[raw/linux/ssh-config.md]]
 - [[raw/learn/cyber-linux/stage-b-networking.md]]
+- [[raw/learn/cyber-linux/steps/step-10-ssh-secure-communication.md]]

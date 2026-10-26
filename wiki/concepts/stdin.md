@@ -16,6 +16,7 @@ cat | grep "error"
 - [[stderr]]
 - [[pipes]]
 - [[../commands/grep]]
+- [[bash-scripting]]
 
 ## Sources
 - [[raw/linux/grep.md]]

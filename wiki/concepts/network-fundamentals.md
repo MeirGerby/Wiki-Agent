@@ -14,6 +14,12 @@ dig example.com A +short
 curl -I https://example.com
 ```
 
+## Guided Practice
+- Write the sequence for `curl https://example.com`: DNS query, TCP handshake to 443, TLS handshake, HTTP request and response; check each with `dig` and `curl -v`.
+- CIDR by hand: a `/26` has 64 addresses, 62 usable.
+- Build a table of `ss -tulpn`: port, protocol, bind address, program. Decide whether each `0.0.0.0` listener is needed.
+- `ping` failing does not mean the host is down; ICMP is often filtered.
+
 ## Related Concepts
 - [[packet-capture]]
 - [[network-scanning]]
@@ -22,6 +28,9 @@ curl -I https://example.com
 - [[ssh-keys-and-agent]]
 - [[ssh-tunnels]]
 - [[cyber-learning-path]]
+- [[suspicious-connections]]
 
 ## Sources
 - [[raw/learn/cyber-linux/stage-b-networking.md]]
+- [[raw/learn/cyber-linux/steps/step-06-networking-fundamentals.md]]
+- [[raw/learn/cyber-linux/steps/step-07-network-tools.md]]

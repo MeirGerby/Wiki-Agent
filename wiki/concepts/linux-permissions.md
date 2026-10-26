@@ -14,12 +14,21 @@ id; groups; sudo -l
 ```
 A file `-rw-r----- root adm` can be read by root and members of `adm`.
 
+## Guided Practice
+- For any "permission denied", name the user, group, mode and the missing bit.
+- Create a file, `chmod 640`, then read it as a test user with `sudo -u tester cat note.txt`. Add the user to the file's group: reading works, writing still fails.
+- Compare `ls -l /etc/passwd /etc/shadow` to see why one is world-readable.
+- Group changes apply to new sessions. `chmod -R 777` fixes the symptom and breaks the security.
+
 ## Related Concepts
 - [[linux-processes-services]]
 - [[suid-and-capabilities]]
 - [[system-hardening]]
 - [[cyber-learning-path]]
 - [[grep]]
+- [[linux-filesystem-navigation]]
+- [[rogue-accounts]]
 
 ## Sources
 - [[raw/learn/cyber-linux/stage-a-linux-foundations.md]]
+- [[raw/learn/cyber-linux/steps/step-03-users-and-permissions.md]]

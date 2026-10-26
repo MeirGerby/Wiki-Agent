@@ -19,6 +19,7 @@ ssh -N -f -L 5433:localhost:5432 user@host
 - [[ssh-keys-and-agent]]
 - [[network-fundamentals]]
 - [[linux-firewall]]
+- [[lateral-movement-review]]
 
 ## Sources
 - [[raw/linux/ssh-config.md]]

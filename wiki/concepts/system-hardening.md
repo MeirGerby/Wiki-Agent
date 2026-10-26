@@ -13,6 +13,11 @@ sudo awk -F: '$2==""' /etc/shadow     # users with empty passwords
 sudo lynis audit system
 ```
 
+## Guided Practice
+- Turn the checklist into check commands with expected results (pending updates, listening ports, `sshd -T` settings, empty passwords, sudo group, firewall, `/etc/shadow` permissions).
+- Fix one item at a time and rerun its check; compare with `sudo lynis audit system`.
+- Snapshot the VM first; hardening can break services.
+
 ## Related Concepts
 - [[linux-firewall]]
 - [[linux-permissions]]
@@ -22,6 +27,8 @@ sudo lynis audit system
 - [[security-assessment-report]]
 - [[cyber-learning-path]]
 - [[ssh]]
+- [[file-integrity]]
 
 ## Sources
 - [[raw/learn/cyber-linux/stage-c-linux-security.md]]
+- [[raw/learn/cyber-linux/steps/step-13-system-hardening.md]]

@@ -521,3 +521,33 @@
 - Created (concepts): [[wiki/concepts/git-patches]], [[wiki/concepts/git-undo-and-recovery]], [[wiki/concepts/git-history-rewriting]], [[wiki/concepts/ssh-keys-and-agent]], [[wiki/concepts/ssh-tunnels]], [[wiki/concepts/github-multi-account-auth]], [[wiki/concepts/cyber-learning-path]], [[wiki/concepts/linux-permissions]], [[wiki/concepts/linux-processes-services]], [[wiki/concepts/network-fundamentals]], [[wiki/concepts/packet-capture]], [[wiki/concepts/network-scanning]], [[wiki/concepts/log-investigation]], [[wiki/concepts/linux-firewall]], [[wiki/concepts/system-hardening]], [[wiki/concepts/persistence-mechanisms]], [[wiki/concepts/suid-and-capabilities]], [[wiki/concepts/cyber-lab]], [[wiki/concepts/web-security]], [[wiki/concepts/incident-response]], [[wiki/concepts/security-assessment-report]]
 - Updated: wiki/commands/grep, sed, awk and wiki/concepts/pipes (links to log-investigation, git, gh, linux-permissions); index.md (two new sections, three new commands)
 - Notes: Pages are condensed summaries; the raw files hold the full command lists (stash, bisect, worktree, submodules, hooks, gh api, sshd_config, etc. are only touched on, not given their own pages). The stage files are general knowledge beyond the Hebrew outline, as are git/gh/ssh. The gh multi-account page also reflects the 403/active-account behaviour seen in this repo's own push. No contradictions found with existing pages.
+
+## [2026-10-27] add-source | Wrote raw/learn/cyber-linux/steps/ (steps 5-20)
+
+- Created: 16 files `raw/learn/cyber-linux/steps/step-05-*.md` to `step-20-capstone.md`, one per step, each with goal, concepts, guided lab exercise, pitfalls, summary prompts and review questions
+- Notes: Interpreted "from שלב ה to 20" as steps 5-20 (ה = 5). Deeper walkthroughs than the stage files; general knowledge beyond the Hebrew outline. Own-machine and isolated-lab framing kept. Not yet ingested.
+
+## [2026-10-27] add-source | Wrote steps 1-4 in raw/learn/cyber-linux/steps/
+
+- Created: `step-01-filesystem-navigation.md`, `step-02-files-and-text.md`, `step-03-users-and-permissions.md`, `step-04-processes-and-services.md` (steps 1-20 now all have a guided file)
+
+## [2026-10-27] ingest | Cyber path steps 1-20 (guided lab files)
+
+- Sources: `raw/learn/cyber-linux/steps/step-01..20-*.md`
+- Created: [[wiki/concepts/linux-filesystem-navigation]], [[wiki/concepts/bash-scripting]], [[wiki/concepts/kali-tools]]
+- Updated: added a "Guided Practice" section and step-file sources to [[wiki/concepts/pipes]], linux-permissions, linux-processes-services, network-fundamentals, packet-capture, network-scanning, ssh-keys-and-agent, log-investigation, linux-firewall, system-hardening, persistence-mechanisms, suid-and-capabilities, cyber-lab, web-security, incident-response, security-assessment-report; [[wiki/concepts/cyber-learning-path]] now has a step-to-page map and all 20 step sources; index.md lists the 3 new pages
+- Linked: reverse links added for every "Related Concepts" entry on the new pages
+- Notes: Merged into existing pages rather than creating one page per step, to avoid duplicates (steps 2, 6/7 and 17 share pages with others). General knowledge beyond the Hebrew outline; lab and own-machine framing kept. Metrics: 3 new pages, 17 updated, no contradictions found.
+
+## [2026-10-27] add-source | Wrote raw/linux/cyber-commands.md and raw/linux/cyber-scenarios.md
+
+- Created: `raw/linux/cyber-commands.md` — all commands used across raw/learn/cyber-linux (16 topic groups, with flags and examples)
+- Created: `raw/linux/cyber-scenarios.md` — 10 advanced defensive scenarios (brute force, persistence hunt, privilege audit, rogue listener, web log probing, rogue user, file integrity, mass file changes, lateral movement, capstone drill)
+- Notes: Not yet ingested. General knowledge beyond the Hebrew outline; lab and own-machine framing kept, scenarios are investigation and response only.
+
+## [2026-10-27] ingest | raw/linux/cyber-commands.md and cyber-scenarios.md
+
+- Sources: `raw/linux/cyber-commands.md`, `raw/linux/cyber-scenarios.md`
+- Created: [[wiki/concepts/cyber-command-reference]], [[wiki/concepts/security-scenarios]], [[wiki/concepts/suspicious-connections]], [[wiki/concepts/web-log-analysis]], [[wiki/concepts/rogue-accounts]], [[wiki/concepts/file-integrity]], [[wiki/concepts/mass-file-changes]], [[wiki/concepts/lateral-movement-review]]
+- Updated: "Advanced Scenario" sections (with scenario source) on log-investigation, persistence-mechanisms, suid-and-capabilities, security-assessment-report, incident-response; reverse links on all pages the new ones link to; index.md (8 entries in the Linux Cyber Path section)
+- Notes: Scenarios 1, 2, 3, 10 merged into existing pages instead of duplicating them; scenarios 4-9 got their own pages. The command table is an index pointing to existing pages; the full flag tables stay in the raw file. General knowledge; defensive and lab-only framing kept. Metrics: 8 new pages, 5 updated plus reverse-link updates, no contradictions found.

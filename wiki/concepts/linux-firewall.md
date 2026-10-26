@@ -14,12 +14,20 @@ sudo ufw enable
 ```
 Verify with a scan from another lab machine.
 
+## Guided Practice
+- Allow SSH from the lab network, allow the lab service from the attacker VM only, enable, then scan: expected 22 and 8000 open, 8080 filtered.
+- Delete a rule with `sudo ufw delete N` and rescan to confirm.
+- Docker can bypass `ufw` with its own rules; IPv6 needs its own rules.
+
 ## Related Concepts
 - [[network-scanning]]
 - [[network-fundamentals]]
 - [[system-hardening]]
 - [[ssh-tunnels]]
 - [[cyber-learning-path]]
+- [[suspicious-connections]]
+- [[lateral-movement-review]]
 
 ## Sources
 - [[raw/learn/cyber-linux/stage-c-linux-security.md]]
+- [[raw/learn/cyber-linux/steps/step-12-firewall.md]]

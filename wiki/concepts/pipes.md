@@ -11,6 +11,11 @@ Think of assembly line pipes connecting manufacturing stations. Instead of putti
 cat raw/linux/pipes.md | grep "stderr"
 ```
 
+## Guided Practice
+- Build the answer one stage at a time and check each stage's output.
+- Rank the top items in a log: `awk '{print $1}' access.log | sort | uniq -c | sort -rn`. Read it aloud: take field 1, sort, count duplicates, rank.
+- `uniq` merges only adjacent lines, so `sort` first. `>` overwrites silently; `>>` appends.
+
 ## Related Concepts
 - [[stdin]]
 - [[stdout]]
@@ -19,6 +24,9 @@ cat raw/linux/pipes.md | grep "stderr"
 - [[log-investigation]]
 - [[../commands/git]]
 - [[../commands/gh]]
+- [[bash-scripting]]
+- [[cyber-command-reference]]
 
 ## Sources
 - [[raw/linux/pipes.md]]
+- [[raw/learn/cyber-linux/steps/step-02-files-and-text.md]]

@@ -25,6 +25,7 @@ Then `ssh myserver`. The first matching value for each option wins, so put speci
 - [[network-fundamentals]]
 - [[system-hardening]]
 - [[cyber-learning-path]]
+- [[cyber-command-reference]]
 
 ## Sources
 - [[raw/linux/ssh-config.md]]

@@ -19,6 +19,10 @@ grep -r "error" ./logs
 - [[../concepts/log-investigation]]
 - [[../concepts/linux-permissions]]
 - [[git]]
+- [[linux-filesystem-navigation]]
+- [[bash-scripting]]
+- [[cyber-command-reference]]
+- [[web-log-analysis]]
 
 ## Sources
 - [[raw/linux/grep.md]]
