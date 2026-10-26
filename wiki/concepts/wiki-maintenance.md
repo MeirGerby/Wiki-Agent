@@ -42,7 +42,7 @@ The key insight: **maintenance is not separate from building**. Each operation (
 Week 1:
 1. Read everything in `raw/database/postgres/`.
 2. Create pages: `postgres-performance`, `query-optimization`, `indexing`.
-3. Update existing [[postgres-connections]] to link to the new pages.
+3. Update existing related pages to link to the new pages.
 4. Add 2-3 Q&A pairs: "How do indexes speed up queries?" etc.
 5. Log the work.
 

@@ -53,7 +53,7 @@ Data Layer
 
 - **Framework**: [[hono]] (HTTP server)
 - **API**: [[trpc]] (type-safe RPC)
-- **Database**: [[drizzle-orm]] + [[neon-lakebase]] (Lakebase Postgres)
+- **Database**: [[drizzle-orm]] + Neon / Lakebase (Postgres)
 - **DI**: [[awilix]] (dependency injection)
 - **Auth**: [[jwt-authentication]] + [[adfs-authentication]]
 - **Validation**: Zod (schema validation)
@@ -115,7 +115,7 @@ app.use('/trpc/*', trpcServer({
 export default app;
 ```
 
-## Request Flow Example: Create Model
+## Example: Request Flow — Create Model
 
 ```
 1. Frontend: catalog.createModel.mutate({ objectId, sensorGroup, ... })

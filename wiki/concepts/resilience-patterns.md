@@ -236,7 +236,7 @@ async function getModelMetrics(modelId) {
 }
 ```
 
-## Jarvis Example: Training Flow
+## Example: Jarvis Training Flow
 
 ```
 User: "Train model"

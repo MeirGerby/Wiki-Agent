@@ -62,7 +62,7 @@ pnpm nx typecheck @jarvis/db
 pnpm nx affected -t build
 
 # Build with full dependency chain
-pnpm nx build @jarvis/model-catalog-bff   # Builds deps first (see [[nx-task-execution]])
+pnpm nx build @jarvis/model-catalog-bff   # Builds deps first
 
 # Run tests
 pnpm nx affected -t test
@@ -175,7 +175,7 @@ pnpm nx docker:run @jarvis/model-catalog-bff
 
 ### Affected vs Run-Many
 
-See [[nx-task-execution]] for the full explanation. Quick version:
+Quick version:
 
 ```bash
 # Use on feature branches (has a diff base)
@@ -216,11 +216,18 @@ pnpm nx run-many -t build --projects="tag:scope:shared"
 pnpm nx run-many -t build --exclude="*-e2e"
 ```
 
+## Example
+
+The local pre-push gate, mirroring what CI runs:
+
+```bash
+pnpm format:check
+pnpm nx affected -t lint typecheck build test
+```
+
 ## Related Concepts
 
 - [[nx-monorepo]] — How the workspace is organized
-- [[nx-task-execution]] — Affected vs run-many explained
-- [[nx-generators]] — Scaffolding templates
 - [[module-boundaries]] — Why `nx lint` checks matter
 - [[typescript-project-references]] — Why `^build` dependencies matter
 

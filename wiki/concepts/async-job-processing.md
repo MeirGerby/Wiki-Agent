@@ -128,7 +128,7 @@ const pollStatus = async (jobId) => {
 pollStatus(jobId);
 ```
 
-## Jarvis Model Training Example
+## Example: Jarvis Model Training
 
 Complete flow with three services:
 

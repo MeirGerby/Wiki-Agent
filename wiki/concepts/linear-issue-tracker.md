@@ -64,7 +64,7 @@ failed agent run waiting for human intervention.
 
 ## Triage Labels
 
-Five canonical label names (see [[jarvis-agent-skills]] for how they map):
+Five canonical label names:
 
 | Label | Meaning |
 |-------|---------|
@@ -108,9 +108,17 @@ Used by `/wayfinder` skill to track exploratory work:
 **"fetch the relevant ticket"**: Run `get_issue` on the `JAR-` identifier with `includeRelations: true`,
 and read its comments.
 
+## Example
+
+Closing an issue the way the conventions describe:
+
+1. `save_comment` on `JAR-123` explaining why.
+2. `save_issue` with `id: "JAR-123"` and `state: "Done"` (or `"Canceled"`).
+
+To add a label without wiping the others, pass `addLabels: ["needs-triage"]`, never `labels`, which replaces the whole set.
+
 ## Related Concepts
 
-- [[jarvis-agent-skills]] — Triage workflow and how skills interact with Linear
 - [[jarvis]] — Project overview
 - [[bounded-contexts]] — How domain docs organize issues by context
 

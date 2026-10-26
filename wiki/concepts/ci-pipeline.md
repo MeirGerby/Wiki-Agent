@@ -62,10 +62,9 @@ else
 fi
 ```
 
-Merge request pipelines have a diff base, so they run [[nx-task-execution]]'s
+Merge request pipelines have a diff base, so they run Nx's
 `affected`. Branch and tag pipelines have no meaningful base, so they run
-everything. See [[q-nx-affected-vs-run-many]] for why the diff stops being the
-right signal there.
+everything.
 
 pnpm's store is cached on the lockfile, so the cache is reused until a dependency
 actually changes:
@@ -152,13 +151,25 @@ CA would be the stricter fix. The sources show the shortcut and do not discuss t
 tradeoff — treat the reasoning here as general knowledge rather than a documented
 decision.
 
+## Example
+
+The GitLab `verify` stage picks its scope from whether the pipeline has a diff base:
+
+```bash
+if [ -n "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ]; then
+  pnpm exec nx affected -t lint typecheck build test --base="$CI_MERGE_REQUEST_DIFF_BASE_SHA"
+else
+  pnpm exec nx run-many -t lint typecheck build test
+fi
+```
+
+A merge request checks only what its diff touches; a branch or tag pipeline checks everything.
+
 ## Related Concepts
 
 - [[kaniko-builds]] — How the build stage produces images without Docker
 - [[pipeline-change-rules]] — Which path changes trigger which job
-- [[nx-task-execution]] — `affected` and `run-many`, the verify stage's two modes
 - [[kubernetes-deployment]] — What the deploy stage's Helm call does
-- [[ci-monitoring]] — Watching a pipeline run and reacting to failures
 - [[nx-monorepo]] — Why one repository needs selective builds at all
 - [[jarvis]] — The project this pipeline ships
 

@@ -45,9 +45,8 @@ pnpm nx affected -t build        # only rebuilds changed projects + dependents
 `nx.json` sets `neverConnectToCloud: true` and disables analytics. Nx Cloud's usual
 selling points — remote caching shared across machines, distributed task execution
 — are unavailable here; every cache hit is local to the machine that produced it.
-This is why [[ci-monitoring]] (Nx Cloud's polling agent) is documented separately
-from this page: it describes tooling built to *watch* CI, not a feature this
-workspace's `nx.json` opts into.
+Nx Cloud's CI-watching tooling is likewise not something this workspace's
+`nx.json` opts into.
 
 ## How tasks get inferred, not declared
 
@@ -88,8 +87,7 @@ minus test files, test config and lint config:
 `build` depends on `production` inputs, so changing a `.spec.ts` file does not
 change the hash `build` keys off — the previous build result is still valid and
 gets served from cache. `lint` and `test` still key off broader inputs, so they do
-rerun. This is the same caching principle [[nx-task-execution]] exploits at the
-task level; named inputs are what make the cache key precise enough for it to work.
+rerun. Named inputs are what make the cache key precise enough for this to work.
 
 ## All projects in Jarvis
 
@@ -140,9 +138,6 @@ Violation is caught by `nx lint` via `@nx/enforce-module-boundaries` ESLint rule
 - [[module-boundaries]]
 - [[drizzle-orm]]
 - [[trpc]]
-- [[nx-task-execution]] — Running build, test and lint across the workspace
-- [[ci-monitoring]] — Nx Cloud's CI-watching agent, unrelated to this workspace's caching
-- [[nx-generators]] — The context generator mentioned above, in full
 
 ## Sources
 

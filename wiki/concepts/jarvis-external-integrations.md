@@ -267,7 +267,7 @@ TASK_MANAGER_WEBHOOK_SECRET=***secret***
 
 Never commit credentials to git. Use a secrets manager (AWS Secrets Manager, Vault, etc.).
 
-## Complete Example: Training a New Model
+## Example: Training a New Model
 
 ```
 1. User clicks "Train new model" in web frontend

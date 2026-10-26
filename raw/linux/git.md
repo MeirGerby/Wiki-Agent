@@ -13,16 +13,17 @@ Distributed version control system. Tracks changes to files as a graph of commit
 
 ## Setup and configuration
 
-```bash
-git init                                   # create a repo in the current dir
-git clone <url> [dir]                      # copy a remote repo
-git clone --depth 1 <url>                  # shallow clone (latest commit only)
-git config --global user.name "Name"
-git config --global user.email "me@example.com"
-git config --global core.editor "vim"
-git config --global alias.st status        # create an alias: git st
-git config --list --show-origin            # show all settings and where they come from
-```
+* [ ] 
+  ```bash
+  git init                                   # create a repo in the current dir
+  git clone <url> [dir]                      # copy a remote repo
+  git clone --depth 1 <url>                  # shallow clone (latest commit only)
+  git config --global user.name "Name"
+  git config --global user.email "me@example.com"
+  git config --global core.editor "vim"
+  git config --global alias.st status        # create an alias: git st
+  git config --list --show-origin            # show all settings and where they come from
+  ```
 
 Config levels: `--system`, `--global` (`~/.gitconfig`), `--local` (`.git/config`).
 
@@ -105,14 +106,14 @@ git push --tags
 
 ## Undoing changes
 
-| Goal | Command |
-| --- | --- |
-| Discard unstaged edits to a file | `git restore file.txt` |
-| Unstage a file | `git restore --staged file.txt` |
-| Undo a commit, keep changes staged | `git reset --soft HEAD~1` |
-| Undo a commit, keep changes unstaged | `git reset --mixed HEAD~1` (default) |
-| Undo a commit, discard changes | `git reset --hard HEAD~1` |
-| Undo a commit safely with a new commit | `git revert <commit>` |
+| Goal                                   | Command                                  |
+| -------------------------------------- | ---------------------------------------- |
+| Discard unstaged edits to a file       | `git restore file.txt`                 |
+| Unstage a file                         | `git restore --staged file.txt`        |
+| Undo a commit, keep changes staged     | `git reset --soft HEAD~1`              |
+| Undo a commit, keep changes unstaged   | `git reset --mixed HEAD~1` (default)   |
+| Undo a commit, discard changes         | `git reset --hard HEAD~1`              |
+| Undo a commit safely with a new commit | `git revert <commit>`                  |
 | Delete untracked files (dry run first) | `git clean -n`, then `git clean -fd` |
 
 - `reset` moves the branch pointer (rewrites history). Avoid on shared branches.
@@ -185,10 +186,10 @@ git apply --3way changes.patch            # try a 3-way merge on conflicts
 
 Which to use:
 
-| Tool | Creates a commit | Keeps author, date, message |
-| --- | --- | --- |
-| `format-patch` + `am` | yes | yes |
-| `diff` + `apply` | no | no |
+| Tool                      | Creates a commit | Keeps author, date, message |
+| ------------------------- | ---------------- | --------------------------- |
+| `format-patch` + `am` | yes              | yes                         |
+| `diff` + `apply`      | no               | no                          |
 
 Notes:
 

@@ -163,6 +163,23 @@ so the app can offer an explicit toggle rather than only following the OS. Varia
 carry their dark classes inline — `dark:bg-destructive/60` — rather than in a
 separate theme file.
 
+## Example
+
+A component is a `cva` variant table plus a thin wrapper, as in `button.tsx`:
+
+```tsx
+const buttonVariants = cva("inline-flex shrink-0 items-center ...", {
+  variants: { variant: { default, destructive, outline, secondary, ghost, link } },
+  defaultVariants: { variant: 'default' },
+});
+
+function Button({ className, variant, ...props }) {
+  return <button className={cn(buttonVariants({ variant, className }))} {...props} />;
+}
+```
+
+(Abridged from the full file; `size` and `asChild` omitted.)
+
 ## Related Concepts
 
 - [[jarvis-shared-libs]] — `@jarvis/ui` and its siblings

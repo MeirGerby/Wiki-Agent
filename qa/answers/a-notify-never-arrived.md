@@ -31,7 +31,7 @@ transaction finishes -- committed or aborted.
 - **Deduplication.** Identical payloads on the same channel inside one transaction
   collapse into a single event. Distinct payloads are always kept distinct.
 - **Pooled connection.** LISTEN is session state; over PgBouncer in transaction
-  mode the subscription does not survive. See [[postgres-connections]].
+  mode the subscription does not survive.
 
 ## Practical rule
 

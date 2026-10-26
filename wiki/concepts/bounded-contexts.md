@@ -69,9 +69,7 @@ None of this is provisioned upfront — if `CONTEXT-MAP.md` or a context's `docs
 doesn't exist yet, the convention is to proceed silently rather than flag the
 absence. These files get created lazily, the first time a term or a decision
 actually needs recording, by a `/domain-modeling` skill reached through
-`/grill-with-docs` or `/improve-codebase-architecture`. See
-[[jarvis-agent-skills]] for how that skill relates to others configured the same
-way.
+`/grill-with-docs` or `/improve-codebase-architecture`.
 
 **Contradicting an ADR is a flaggable event, not a silent override.** The convention
 calls for surfacing it explicitly — "Contradicts ADR-0007, but worth reopening
@@ -82,7 +80,6 @@ recorded decision.
 
 - [[nx-monorepo]]
 - [[module-boundaries]]
-- [[jarvis-agent-skills]] — Other skills that read repo-specific configuration this way
 
 ## Sources
 

@@ -25,15 +25,10 @@
 ### Architecture & Monorepos
 
 - [[wiki/concepts/nx-monorepo]] — Nx workspace for managing multiple projects
-- [[wiki/concepts/nx-task-execution]] — Running tasks on single, multiple, or affected projects
-- [[wiki/concepts/nx-generators]] — Scaffolding code with Nx generators
 - [[wiki/concepts/nx-common-commands]] — Day-to-day Nx commands organized by use case
-- [[wiki/concepts/nx-import]] — Importing repositories into an Nx workspace
-- [[wiki/concepts/workspace-linking]] — Linking packages in a monorepo with symlinks
 - [[wiki/concepts/bounded-contexts]] — Domain-driven design boundaries in a monorepo
 - [[wiki/concepts/module-boundaries]] — ESLint dependency rules in Nx projects
 - [[wiki/concepts/typescript-project-references]] — Composite builds and the tsconfig hierarchy
-- [[wiki/concepts/jarvis-agent-skills]] — Repo-specific configuration for generic agent skills
 
 ### Backend Architecture Patterns
 
@@ -54,7 +49,6 @@
 
 - [[wiki/concepts/trpc]] — End-to-end type-safe RPC for TypeScript
 - [[wiki/concepts/drizzle-orm]] — TypeScript ORM for SQL databases
-- [[wiki/concepts/neon-lakebase]] — Serverless Postgres and backend primitives
 
 ### Deployment & Operations
 
@@ -70,18 +64,14 @@
 - [[wiki/concepts/ci-pipeline]] — Verify, build and deploy stages across GitHub Actions and GitLab CI
 - [[wiki/concepts/pipeline-change-rules]] — Path-based gating of jobs in a monorepo pipeline
 - [[wiki/concepts/kaniko-builds]] — Building container images without a Docker daemon
-- [[wiki/concepts/ci-monitoring]] — Polling CI status and making deterministic decisions
-- [[wiki/concepts/ci-self-healing]] — Automated CI failure detection and fix application
 
 ### Issue Tracking & Operations
 
 - [[wiki/concepts/linear-issue-tracker]] — Linear MCP operations, workflow statuses, triage labels
-- [[wiki/concepts/jarvis-agent-skills]] — Repo-specific configuration for generic agent skills (including /ship and /to-prd)
 - [[wiki/concepts/jarvis-development-guidelines]] — Development conventions (Nx patterns, comments, language, module boundaries)
 
 ### Database & Events
 
-- [[wiki/concepts/postgres-connections]] — Pooled vs direct connections, schema migrations
 - [[wiki/concepts/postgres-listen-notify]] — Async pub/sub inside PostgreSQL
 - [[wiki/concepts/notify-transactions]] — Delivery timing, dedup & ordering of NOTIFY
 - [[wiki/concepts/notify-queue]] — Queue warnings and full-queue failures
@@ -109,7 +99,7 @@
 
 ## Q&A
 
-Questions paired one-to-one with answers. 13 pairs: 1 asked, 12 generated as
+Questions paired one-to-one with answers. 8 pairs: 1 asked, 7 generated as
 practice material.
 
 - [[qa/index]] — Full Q&A index, grouped by topic

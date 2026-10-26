@@ -127,6 +127,17 @@ The `import type` form erases at compile time, so no runtime cycle exists. Chang
 it to a value import would reintroduce one — and the comment is there because the
 next person would not guess.
 
+## Example
+
+One call, one line of newline-delimited JSON:
+
+```ts
+logger.info({ modelId: 'model_456' }, 'training submitted');
+// {"level":"info","time":"2026-10-27T09:00:00.000Z","modelId":"model_456","msg":"training submitted"}
+```
+
+With the level set to `warn`, that `info` call returns before writing anything. The output line above is illustrative, built from the `{ level, time, ...fields, msg }` shape described here.
+
 ## Related Concepts
 
 - [[nestjs-deployment]] — Where the general guidance comes from

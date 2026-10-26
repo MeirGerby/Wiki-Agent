@@ -187,8 +187,6 @@ several such cases; see [[jarvis-data-model]].
 - [[jarvis-bff]] — BFF uses Drizzle for queries
 - [[jarvis-data-model]] — Schema definition
 - [[trpc]] — Type safety end-to-end
-- [[neon-lakebase]] — Database provider
-- [[postgres-connections]] — Connection management
 - [[nx-monorepo]] — Monorepo organization
 - [[jarvis-shared-libs]] — The `@jarvis/db` package around this
 - [[schema-source-of-truth]] — What `generate` diffs against, and the drift

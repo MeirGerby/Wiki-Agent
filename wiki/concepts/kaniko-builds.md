@@ -126,6 +126,21 @@ hashing full contents — faster, at the cost of missing a change that preserves
 size and mtime. The flag semantics here are general knowledge; the sources set
 them without commentary.
 
+## Example
+
+A job extending the `.build` template only supplies three variables; the template does the rest:
+
+```yaml
+.build:
+  stage: build
+  image:
+    name: $KANIKO_IMAGE
+    entrypoint: ['']      # let GitLab run the script as shell commands
+  needs: [verify]         # no image until checks pass
+  variables:
+    IMAGE: $DOCKER_TEAM_REGISTRY/jarvis-$IMAGE_NAME
+```
+
 ## Related Concepts
 
 - [[ci-pipeline]] — The stage this runs in, and what happens either side of it

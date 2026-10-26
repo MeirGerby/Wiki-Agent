@@ -359,6 +359,22 @@ Frontend polling eventually sees update
 
 See [[webhook-integration]].
 
+## Example
+
+Step 1, the frontend call that starts everything:
+
+```typescript
+const response = await client.catalog.createModel.mutate({
+  objectId: 'car',
+  sensorGroup: 'RGB',
+  geography: 'israel',
+  datasetUrl: 'https://datasets.company.com/cars-rgb-israel.zip',
+});
+// => { modelId: 'model_456', status: 'TRAINING' }
+```
+
+The frontend keeps `modelId` and polls until the webhook from Roberto has flipped the record to its finished status.
+
 ## Related Concepts
 
 - [[jarvis]] — Project overview

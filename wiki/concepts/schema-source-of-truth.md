@@ -118,7 +118,6 @@ the sources say.
 
 - [[drizzle-orm]] — The ORM whose `generate` / `pull` commands this is about
 - [[jarvis-data-model]] — The schema in question
-- [[postgres-connections]] — Why migrations need a direct, unpooled connection
 - [[jarvis-shared-libs]] — The library holding both artifacts
 
 ## Sources

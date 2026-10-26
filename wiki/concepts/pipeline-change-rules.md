@@ -16,7 +16,7 @@ by different machinery:
 | Which **tasks** should run? | `nx affected` | project graph |
 | Which **jobs** should exist? | `changes:` path globs | pipeline config |
 
-[[nx-task-execution]]'s `affected` is the smarter of the two — it walks the
+Nx's `affected` is the smarter of the two — it walks the
 dependency graph and knows that editing `libs/ui` reaches every app importing it.
 But it only works inside a job that can run nx. The build stage runs
 [[kaniko-builds]], whose image has no node at all, so nx cannot be the thing that
@@ -132,11 +132,25 @@ deploy-model-catalog-web:
 `needs:` names both the verify job and the matching build job, so a deploy can
 never run against an image this pipeline did not produce.
 
+## Example
+
+One list of paths, defined once as a YAML anchor and reused by the build and deploy jobs:
+
+```yaml
+.model-catalog-changes:
+  bff: &bff-changes
+    - apps/model-catalog/bff/**/*
+    - libs/db/**/*
+    - charts/**/*
+    - pnpm-lock.yaml   # (excerpt of the full list)
+```
+
+Editing one entry changes both jobs together, so a build never runs without its deploy.
+
 ## Related Concepts
 
 - [[ci-pipeline]] — The stages these rules gate
 - [[kaniko-builds]] — The build job, and why nx cannot gate it
-- [[nx-task-execution]] — `affected`, the graph-level equivalent
 - [[trpc]] — The type coupling the web change set encodes
 - [[nx-monorepo]] — Why selective building is necessary
 - [[module-boundaries]] — Declared dependencies between projects

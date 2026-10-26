@@ -477,3 +477,22 @@
 
 - Updated: `raw/linux/git.md` — new "Patches" section: `format-patch`, `am`, `apply`, `diff > .patch`, `send-email`, conflict handling, comparison table
 - Notes: Still not ingested. Source file edited by the user's explicit request (own addition, same file created earlier today).
+
+## [2026-10-25] add-source | Wrote raw/linux/gh.md and raw/linux/ssh-config.md
+
+- Created: `raw/linux/gh.md` — GitHub CLI reference (auth incl. multi-account, repos, PRs, issues, Actions, releases, secrets, `gh api`, JSON/jq output, gotchas)
+- Created: `raw/linux/ssh-config.md` — SSH client/server configuration (keys, agent, `~/.ssh/config`, ProxyJump, tunnels, multiplexing, multiple GitHub accounts, sshd hardening, debugging)
+- Notes: New sources only; not yet ingested. Both are general knowledge, not drawn from existing raw sources. Related to `raw/linux/git.md`; run /ingest to create wiki pages and cross-links.
+
+## [2026-10-27] lint | Wiki health check (report only)
+
+- Notes: 1 broken link (`[[audit-boundaries]]` in jarvis-development-guidelines), 26 pages missing "Example", ~70 missing backlinks, 3 un-ingested raw sources (git, gh, ssh-config). No fixes applied.
+
+## [2026-10-27] cleanup | Removed raw/jarvis agents, claude, jarvis-git and dependent pages; added Example sections
+
+- Deleted (raw): `raw/jarvis/agents/`, `raw/jarvis/claude/`, `raw/jarvis/jarvis-git/` (user request)
+- Deleted (wiki): ci-monitoring, ci-self-healing, neon-lakebase, nx-generators, nx-import, nx-task-execution, postgres-connections, workspace-linking, jarvis-agent-skills (all cited the deleted sources)
+- Deleted (Q&A): 5 pairs — ci-skips-some-fixes, migration-prepared-statement-error, neon-branch-copies-what, nx-affected-vs-run-many, nx-buildable-library. 8 pairs remain.
+- Updated: index.md, qa/index.md; removed or reworded inbound links in ci-pipeline, jarvis-bff, jarvis-development-guidelines, linear-issue-tracker, nx-common-commands, nx-monorepo, pipeline-change-rules, typescript-project-references, bounded-contexts, wiki-maintenance, a-notify-never-arrived
+- Updated: `## Example` sections added to 13 pages; 6 existing example sections retitled `## Example: ...`
+- Notes: Deleted pages also held content from other raw sources (raw/database/neon, raw/database/postgres, raw/docs/nx.md); that synthesis is gone from the wiki but recoverable from git history (commit a4c8d91). Nx merge skipped: the main overlap partners were deleted, leaving nx-common-commands (command cheatsheet) and nx-monorepo (concept) distinct. Lint afterwards: 0 broken links, 0 orphans, 0 missing sections.

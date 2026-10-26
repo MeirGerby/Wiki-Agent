@@ -125,7 +125,6 @@ map claims a capability the package does not have.
 
 - [[jarvis-shared-libs]] — The three libraries using this
 - [[typescript-project-references]] — Where `customConditions` is declared and why one project clears it
-- [[workspace-linking]] — How workspace packages resolve to each other
 - [[nx-monorepo]] — The workspace context
 - [[module-boundaries]] — The other mechanism restricting what may import what
 

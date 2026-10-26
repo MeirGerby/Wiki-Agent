@@ -133,8 +133,6 @@ See [[jarvis-permissions]] for access control:
 - [[nx-monorepo]] — How Jarvis is organized
 - [[bounded-contexts]] — Multi-context pattern in Jarvis
 - [[module-boundaries]] — Dependency rules between layers
-- [[neon-lakebase]] — Database provider
-- [[postgres-connections]] — Connection management
 - [[logging]] — Shared logging across services
 - [[bff-pattern]] — Architectural pattern Jarvis uses
 - [[jarvis-bff]] — Backend service and API layer

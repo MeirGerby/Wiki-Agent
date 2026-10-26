@@ -407,6 +407,23 @@ When discussing model-catalog work, use this language:
 
 See [[raw/jarvis/apps/model-catalog/docs/CONTEXT.md]] for the full glossary and rationale.
 
+## Example
+
+An Object, the simplest entity (a thing a model can detect):
+
+```json
+{
+  "id": "obj_car",
+  "englishName": "Car",
+  "hebrewName": "מכונית",
+  "categoryName": "vehicle",
+  "fileUrl": "https://storage/car.jpg",
+  "modelCount": 5
+}
+```
+
+`modelCount: 5` means five Models are trained to detect it. See [Core Entities](#core-entities) for the other entities.
+
 ## Related Concepts
 
 - [[jarvis]] — Project overview

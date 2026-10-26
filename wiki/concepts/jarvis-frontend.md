@@ -225,7 +225,7 @@ useCatalogSync();
 7. User clicks object → fetch related models
 ```
 
-## Data Flow: Creating a Model
+## Example: Data Flow — Creating a Model
 
 ```
 1. User navigates to "Train Model" form

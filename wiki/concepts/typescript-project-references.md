@@ -22,7 +22,7 @@ root tsconfig.json (files: [], references: [...])
 ```
 
 TypeScript uses each project's `.tsbuildinfo` to know what changed and rechecks only
-the affected slice of the graph — the same incremental idea [[nx-task-execution]]'s
+the affected slice of the graph — the same incremental idea Nx's
 `affected` applies at the task level, one layer down at the compiler level.
 
 ## The hierarchy in Jarvis
@@ -151,13 +151,25 @@ These are maximally strict. The workspace allows one exception:
 `noUncheckedSideEffectImports: false` — packages that declare side effects are
 loaded without type checking (required for CSS imports and some vendor libraries).
 
+## Example
+
+A per-project `tsconfig.json` is only a router to the real config:
+
+```json
+{
+  "extends": "../../../tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [{ "path": "./tsconfig.lib.json" }],
+  "compilerOptions": { "composite": false }
+}
+```
+
 ## Related Concepts
 
 - [[conditional-exports]] — What `customConditions` activates, and where the switch actually lives
 - [[jarvis-shared-libs]] — The libraries whose `tsconfig.lib.json` this generalizes
 - [[nx-monorepo]] — The workspace this hierarchy spans
-- [[nx-task-execution]] — Incremental task caching, one layer above incremental compiling
-- [[workspace-linking]] — How a workspace package resolves before TypeScript is even involved
 
 ## Sources
 

@@ -220,6 +220,23 @@ const logout = async () => {
 - **Secure cookies**: Use HttpOnly + Secure flags
 - **Token validation**: Always verify token signature
 
+## Example
+
+The first leg of the Authorization Code flow: the BFF sends the user to ADFS with a random `state` it also stores in a cookie, and checks that value when ADFS calls back.
+
+```typescript
+app.get('/api/adfs', (c) => {
+  const state = generateRandomString();
+  c.cookie('adfs_state', state);          // remembered for the callback
+  return c.redirect(`${ADFS_CONFIG.authorizationEndpoint}?${new URLSearchParams({
+    client_id: ADFS_CONFIG.clientId,
+    response_type: 'code',
+    redirect_uri: ADFS_CONFIG.redirectUri,
+    state,                                // prevents CSRF
+  })}`);
+});
+```
+
 ## Related Concepts
 
 - [[jwt-authentication]] — App issues JWT after ADFS verifies user

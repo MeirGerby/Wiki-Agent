@@ -49,7 +49,7 @@ When NOT to write a comment:
 
 ## Nx Workspace Patterns
 
-These are Nx-specific guidelines. See [[nx-monorepo]], [[nx-task-execution]], and
+These are Nx-specific guidelines. See [[nx-monorepo]] and
 [[nx-common-commands]] for details.
 
 ### Running Tasks
@@ -81,12 +81,12 @@ These are Nx-specific guidelines. See [[nx-monorepo]], [[nx-task-execution]], an
 - **Tags matter**: `scope:model-catalog`, `type:web`, etc. Wrong tags = silent boundary holes
 - **Never try to work around module boundaries** — they're there to prevent coupling
 
-See [[module-boundaries]] for the full rules and [[audit-boundaries]] for the Claude skill that
+See [[module-boundaries]] for the full rules and the `audit-boundaries` skill (`.agents/skills/audit-boundaries`) for the check that
 validates them.
 
 ## Agent Skill Patterns
 
-See [[jarvis-agent-skills]] and [[linear-issue-tracker]] for full context.
+See [[linear-issue-tracker]] for full context.
 
 ### Issue Tracker
 
@@ -134,11 +134,24 @@ See [[schema-source-of-truth]] for when they disagree and why.
 - **Reference issues**: `Closes JAR-123` in the PR body links work to the tracker
 - **Branch name**: Use the `gitBranchName` from the Linear issue
 
+## Example
+
+Comment guideline in practice. Only the second kind of comment is worth writing:
+
+```ts
+// add 5 to x          <- restates the code, skip it
+x += 5;
+
+// order matters for cache keys   <- non-obvious why, keep it
+const key = [scope, id].join(':');
+```
+
+Both snippets are illustrative (general knowledge), applying the rules in [Comments](#comments).
+
 ## Related Concepts
 
 - [[nx-monorepo]] — How Nx enforces workspace structure
 - [[module-boundaries]] — Dependency rules enforced in every lint run
-- [[jarvis-agent-skills]] — How skills are organized and scoped
 - [[bounded-contexts]] — Domain organization and glossaries
 - [[linear-issue-tracker]] — Issue tracker operations and conventions
 - [[schema-source-of-truth]] — When schema and migrations disagree

@@ -220,6 +220,23 @@ if (!ALLOWED_IPS.includes(clientIp)) {
 }
 ```
 
+## Example
+
+The BFF receives Roberto's completion event, verifying the HMAC signature before trusting the body:
+
+```typescript
+app.post('/webhook/training-complete', async (c) => {
+  const body = await c.req.text();
+  const hash = createHmac('sha256', WEBHOOK_SECRET).update(body).digest('hex');
+  if (`sha256=${hash}` !== c.req.header('X-Webhook-Signature')) {
+    return c.text('Unauthorized', 401);
+  }
+  const event = JSON.parse(body);   // { jobId, status: 'COMPLETED', result, timestamp }
+  // ...update the model record, then:
+  return c.json({ ok: true });
+});
+```
+
 ## Related Concepts
 
 - [[async-job-processing]] — Jobs that complete asynchronously

@@ -241,7 +241,7 @@ helm install my-release ./charts/app \
 - No HPA (stateful services don't scale like web services)
 ```
 
-## Practical Example: Deploying Across Environments
+## Example: Deploying Across Environments
 
 Using Helm, you can deploy the same app to development, staging, and production with different configurations:
 
