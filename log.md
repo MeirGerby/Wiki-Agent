@@ -551,3 +551,8 @@
 - Created: [[wiki/concepts/cyber-command-reference]], [[wiki/concepts/security-scenarios]], [[wiki/concepts/suspicious-connections]], [[wiki/concepts/web-log-analysis]], [[wiki/concepts/rogue-accounts]], [[wiki/concepts/file-integrity]], [[wiki/concepts/mass-file-changes]], [[wiki/concepts/lateral-movement-review]]
 - Updated: "Advanced Scenario" sections (with scenario source) on log-investigation, persistence-mechanisms, suid-and-capabilities, security-assessment-report, incident-response; reverse links on all pages the new ones link to; index.md (8 entries in the Linux Cyber Path section)
 - Notes: Scenarios 1, 2, 3, 10 merged into existing pages instead of duplicating them; scenarios 4-9 got their own pages. The command table is an index pointing to existing pages; the full flag tables stay in the raw file. General knowledge; defensive and lab-only framing kept. Metrics: 8 new pages, 5 updated plus reverse-link updates, no contradictions found.
+
+## [2026-10-27] cleanup | Removed 23 dead raw/jarvis source citations
+
+- Updated: 15 pages (adfs-authentication, async-job-processing, awilix, drizzle-orm, hono, jarvis-data-model, jarvis-shared-libs, jwt-authentication, logging, request-context-pattern, schema-source-of-truth, shadcn-ui, a-jwt-immediate-logout, a-why-di-container) — deleted Sources lines pointing at files removed from `raw/jarvis/` (apps/**, libs/**/src)
+- Notes: Page text was not changed; those pages still describe content drawn from the removed files, so their claims are now only backed by the remaining sources (e.g. BFF-ARCHITECTURE.md). Originals are recoverable from git history (commit a4c8d91). Lint afterwards: 0 broken links.

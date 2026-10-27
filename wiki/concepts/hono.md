@@ -76,7 +76,6 @@ Hono often serves as the HTTP layer for a [[trpc]] backend:
 ## Sources
 
 - [[raw/jarvis/BFF-ARCHITECTURE.md]]
-- [[raw/jarvis/apps/model-catalog/bff/src/main.ts]]
 
 General framework behaviour beyond the Jarvis usage above (full routing API,
 adapter list, performance claims) is general knowledge, not drawn from these sources.

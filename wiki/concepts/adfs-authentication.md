@@ -247,8 +247,6 @@ app.get('/api/adfs', (c) => {
 ## Sources
 
 - [[raw/jarvis/BFF-ARCHITECTURE.md]]
-- [[raw/jarvis/apps/model-catalog/bff/src/main.ts]]
-- [[raw/jarvis/apps/model-catalog/web/src/utils/adfs.ts]]
 
 ADFS protocol details beyond the `/api/adfs` endpoint and `postMessage` handoff
 used in Jarvis are general knowledge, not drawn from these sources.

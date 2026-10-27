@@ -194,10 +194,6 @@ several such cases; see [[jarvis-data-model]].
 ## Sources
 
 - [[raw/jarvis/package.json]]
-- [[raw/jarvis/libs/db/src/index.ts]]
-- [[raw/jarvis/libs/db/src/schema.ts]]
-- [[raw/jarvis/libs/db/src/relations.ts]]
-- [[raw/jarvis/libs/db/src/seed-data.ts]]
 - [[raw/jarvis/libs/db/migrations/0004_uppercase_operational_status.sql]]
 
 The `models` table in the "Type System in Jarvis" example above is illustrative and

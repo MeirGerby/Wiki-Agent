@@ -85,7 +85,6 @@ export function createContext(req, res) {
 ## Sources
 
 - [[raw/jarvis/BFF-ARCHITECTURE.md]]
-- [[raw/jarvis/apps/model-catalog/bff/src/container.ts]]
 
 Awilix API details beyond the registration style used in Jarvis
 (`asClass`/`asFunction`/`asValue`, PROXY injection, singleton scope) are general knowledge.

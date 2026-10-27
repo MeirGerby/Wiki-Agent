@@ -438,8 +438,6 @@ An Object, the simplest entity (a thing a model can detect):
 ## Sources
 
 - [[raw/jarvis/MODEL-CATALOG-DATA-MODEL.md]]
-- [[raw/jarvis/libs/db/src/schema.ts]]
-- [[raw/jarvis/libs/db/src/relations.ts]]
 - [[raw/jarvis/libs/DB-SCHEMA-MAP.md]]
 
 The entity sections above describe the API contract, from the data-model document.

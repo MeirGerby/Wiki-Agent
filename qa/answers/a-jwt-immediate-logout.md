@@ -37,7 +37,6 @@ token revocable.
 ## Sources
 
 - [[raw/jarvis/BFF-ARCHITECTURE.md]]
-- [[raw/jarvis/apps/model-catalog/bff/src/utils/jwt.ts]]
 
 Refresh-token rotation and revocation lists are general knowledge, not drawn from
 the Jarvis sources. Jarvis's own token handling is what the sources above cover.

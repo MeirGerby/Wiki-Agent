@@ -149,9 +149,6 @@ With the level set to `warn`, that `info` call returns before writing anything. 
 ## Sources
 
 - [[raw/python/nestjs-deploy.md]]
-- [[raw/jarvis/libs/logging/src/index.ts]]
-- [[raw/jarvis/libs/logging/src/console-logger.ts]]
-- [[raw/jarvis/libs/logging/src/error.utils.ts]]
 - [[raw/jarvis/libs/logging/package.json]]
 - [[raw/jarvis/libs/LIBS-ARCHITECTURE.md]]
 

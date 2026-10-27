@@ -121,8 +121,6 @@ path.
 ## Sources
 
 - [[raw/jarvis/libs/db/package.json]]
-- [[raw/jarvis/libs/db/src/index.ts]]
-- [[raw/jarvis/libs/db/drizzle.config.ts]]
 - [[raw/jarvis/libs/db/tsconfig.lib.json]]
 - [[raw/jarvis/libs/logging/package.json]]
 - [[raw/jarvis/libs/ui/package.json]]

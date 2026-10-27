@@ -44,7 +44,6 @@ registration, not by an import line your editor can follow.
 
 ## Sources
 
-- [[raw/jarvis/apps/model-catalog/bff/src/container.ts]]
 - [[raw/jarvis/BFF-ARCHITECTURE.md]]
 
 ## Question

@@ -190,7 +190,6 @@ function Button({ className, variant, ...props }) {
 
 - [[raw/jarvis/libs/ui/components.json]]
 - [[raw/jarvis/libs/ui/package.json]]
-- [[raw/jarvis/libs/ui/src/lib/utils.ts]]
 - [[raw/jarvis/libs/ui/src/components/ui/button.tsx]]
 - [[raw/jarvis/libs/ui/src/components/error-component.tsx]]
 - [[raw/jarvis/libs/ui/src/components/loading-spinner.tsx]]

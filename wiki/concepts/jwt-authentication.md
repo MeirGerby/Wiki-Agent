@@ -178,8 +178,6 @@ res.setHeader('Set-Cookie',
 ## Sources
 
 - [[raw/jarvis/BFF-ARCHITECTURE.md]]
-- [[raw/jarvis/apps/model-catalog/bff/src/utils/jwt.ts]]
-- [[raw/jarvis/apps/model-catalog/bff/src/auth/auth.service.ts]]
 
 JWT structure, signing algorithms and general security guidance are general
 knowledge; only the Jarvis token shape and cookie handling come from the sources above.

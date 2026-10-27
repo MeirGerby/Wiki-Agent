@@ -122,7 +122,6 @@ the sources say.
 
 ## Sources
 
-- [[raw/jarvis/libs/db/src/schema.ts]]
 - [[raw/jarvis/libs/db/migrations/0001_rapid_shinobi_shaw.sql]]
 - [[raw/jarvis/libs/db/migrations/0002_object_file_url_nullable.sql]]
 - [[raw/jarvis/libs/db/migrations/meta/_journal.json]]

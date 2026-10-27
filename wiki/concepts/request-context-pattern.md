@@ -149,4 +149,3 @@ catalog.query('objects', {
 ## Sources
 
 - [[raw/jarvis/BFF-ARCHITECTURE.md]]
-- [[raw/jarvis/apps/model-catalog/bff/src/context.ts]]

@@ -210,7 +210,6 @@ await sleep(delayMs);
 ## Sources
 
 - [[raw/jarvis/EXTERNAL-INTEGRATIONS.md]]
-- [[raw/jarvis/apps/model-catalog/bff/src/task-manager/task-manager.service.ts]]
 
 Queue mechanics in general (broker choice, delivery guarantees, backpressure) are
 general knowledge. Specific timeout and retry values in the source document were
