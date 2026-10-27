@@ -61,9 +61,9 @@ Each step has a guided lab file under `raw/learn/cyber-linux/steps/`; the practi
 - [[ssh]]
 - [[security-scenarios]]
 - [[cyber-command-reference]]
+- [[professional-english]]
 
 ## Sources
-- [[raw/learn/מסלול לימוד סייבר בלינוקס — 20 צעדיםהמטרה.md]]
 - [[raw/learn/cyber-linux/stage-a-linux-foundations.md]]
 - [[raw/learn/cyber-linux/stage-b-networking.md]]
 - [[raw/learn/cyber-linux/stage-c-linux-security.md]]

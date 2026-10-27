@@ -125,6 +125,25 @@
 - [[wiki/concepts/mass-file-changes]] — Responding to sudden bulk file changes
 - [[wiki/concepts/lateral-movement-review]] — Checking SSH movement between hosts
 
+### English Learning
+
+- [[wiki/concepts/english-learning-path]] — 20-step path with a step-to-page map
+- [[wiki/concepts/english-assessment-and-progress]] — Baseline and progress test across four skills
+- [[wiki/concepts/english-vocabulary-and-phrases]] — Words by topic, phrases and collocations
+- [[wiki/concepts/english-sentence-structure]] — Subject, verb, object and word order
+- [[wiki/concepts/english-verb-to-be]] — am, is, are and there is/are
+- [[wiki/concepts/english-tenses]] — Present, past, future, perfect and continuous
+- [[wiki/concepts/english-questions-and-negation]] — do/does/did and don't/doesn't/didn't
+- [[wiki/concepts/english-linking-words]] — because, therefore, although, however, unless
+- [[wiki/concepts/english-listening]] — Gist-first listening, three-pass subtitles
+- [[wiki/concepts/english-pronunciation]] — Stress, rhythm, shadowing, Hebrew-speaker sounds
+- [[wiki/concepts/english-graded-reading]] — Reading at the right level, repeated words
+- [[wiki/concepts/english-speaking-practice]] — Self-talk, conversation, thinking in English
+- [[wiki/concepts/english-daily-writing]] — 5 sentences a day and a mistake log
+- [[wiki/concepts/professional-english]] — Linux, programming and cyber vocabulary
+- [[wiki/concepts/hebrew-speaker-english-mistakes]] — Recurring errors from Hebrew structure
+- [[wiki/concepts/english-daily-routine]] — 40-minute spaced daily routine
+
 ## Commands
 
 - [[wiki/commands/grep]] — Search text using patterns

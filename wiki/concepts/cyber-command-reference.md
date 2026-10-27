@@ -38,6 +38,7 @@ Quick reminders: `2>/dev/null` hides errors; `sort` before `uniq -c`; keep a sec
 - [[ssh]]
 - [[linux-filesystem-navigation]]
 - [[bash-scripting]]
+- [[professional-english]]
 
 ## Sources
 - [[raw/linux/cyber-commands.md]]

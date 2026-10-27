@@ -556,3 +556,26 @@
 
 - Updated: 15 pages (adfs-authentication, async-job-processing, awilix, drizzle-orm, hono, jarvis-data-model, jarvis-shared-libs, jwt-authentication, logging, request-context-pattern, schema-source-of-truth, shadcn-ui, a-jwt-immediate-logout, a-why-di-container) — deleted Sources lines pointing at files removed from `raw/jarvis/` (apps/**, libs/**/src)
 - Notes: Page text was not changed; those pages still describe content drawn from the removed files, so their claims are now only backed by the remaining sources (e.g. BFF-ARCHITECTURE.md). Originals are recoverable from git history (commit a4c8d91). Lint afterwards: 0 broken links.
+
+## [2026-10-27] create | Claude skill: /study
+
+- Created: `.claude/skills/study/SKILL.md` (mirrored to `.agents/skills/study/SKILL.md`) — study coach with plan, cards, quiz, review and summary modes
+- Notes: Complements `/learn` and the `learner-tutor` agent: this one is for retention (retrieval, spacing, interleaving). Reads wiki pages, writes only `learn/profile.md` (and `learn/cards`/plans on request). Not committed.
+
+## [2026-10-27] create | raw/learn/english/
+
+- Created: `raw/learn/english/README.md` — folder for English-learning material; waiting for the user's guidelines
+
+## [2026-10-27] add-source | Wrote raw/learn/english/ guide and 20 step files
+
+- Created: `raw/learn/english/english-learning-path-20-steps.md` (English version of the user's Hebrew guide), `raw/learn/english/steps/step-01..20-*.md`, updated `raw/learn/english/README.md`
+- Notes: Same layout as raw/learn/cyber-linux/steps. The guide itself is the user's; the lesson exercises and the "common mistakes for Hebrew speakers" sections are general knowledge. Stage-level files not written. Not yet ingested.
+
+## [2026-10-27] ingest | English learning guide and 20 step files
+
+- Sources: `raw/learn/english/english-learning-path-20-steps.md`, `raw/learn/english/steps/step-01..20-*.md`
+- Created (16): [[wiki/concepts/english-learning-path]], english-assessment-and-progress, english-vocabulary-and-phrases, english-sentence-structure, english-verb-to-be, english-tenses, english-questions-and-negation, english-linking-words, english-listening, english-pronunciation, english-graded-reading, english-speaking-practice, english-daily-writing, professional-english, hebrew-speaker-english-mistakes, english-daily-routine
+- Updated: cyber-learning-path and cyber-command-reference (link to professional-english); index.md (new "English Learning" section)
+- Notes: Steps are merged into topic pages (not one page per step) to avoid duplicates, e.g. steps 5+16 into english-tenses, 11+12 into english-questions-and-negation, 13+15+19 into english-speaking-practice. The guide is the user's; the exercises and the Hebrew-speaker mistakes are general knowledge, and hebrew-speaker-english-mistakes says so. Overlap with the /study skill is noted in english-daily-routine. No contradictions found.
+
+- Also: removed the dead citation of the Hebrew cyber outline from cyber-learning-path Sources (the file was deleted from raw/learn/ outside this session); the stage and step files remain as sources.
